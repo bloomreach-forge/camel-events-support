@@ -1,2 +1,6 @@
 * text=auto !eol
 /pom.xml -text
+src/site/checkstyle.xml -text svneol=unset#text/plain
+src/site/site.xml -text svneol=unset#text/plain
+src/site/xdoc/index.xml -text svneol=unset#text/plain
+src/site/xdoc/release-notes.xml -text svneol=unset#text/plain
