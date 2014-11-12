@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and
+    limitations under the License.
+  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Hippo Event Component</title>
+  </properties>
+  <body>
+
+    <section name="Hippo Event Component">
+      <p>
+        The <strong>hippoevent</strong> component allows you to subscribe events from 
+        <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>
+        and to read nodes from Hippo Repository.
+      </p>
+      <p>
+        Maven users will need to add the following dependency to their pom.xml for this component:
+      </p>
+      <div class="brush: xml">
+      <source><![CDATA[
+<dependency>
+  <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+  <artifactId>camel-hippoevt</artifactId>
+  <version>${camel-hippoevt.version}</version>
+</dependency>
+      ]]></source>
+      </div>
+
+      <subsection name="URI Format">
+        <div class="brush: plain">
+        <source><![CDATA[
+hippoevent://localhost/
+        ]]></source>
+        </div>
+      </subsection>
+
+    </section>
+
+    <section name="Usage">
+      <subsection name="Consumer">
+        <p>
+          The consumer will register an event listener in Hippo Event Bus
+          and return an <code>net.sf.json.JSONObject</code> in the message body.
+        </p>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Default Value</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>persisted</td>
+            <td>false</td>
+            <td>
+              Flag whether or not to register listeners for persisted events from Hippo Repository via Hippo Event Bus.
+            </td>
+          </tr>
+          <tr>
+            <td>action</td>
+            <td></td>
+            <td>
+              Comma separated action names. Only an event having any of the specified action value will be received.
+              <br/>
+              See <code>org.onehippo.cms7.event.HippoEvent</code> for detail.
+            </td>
+          </tr>
+          <tr>
+            <td>application</td>
+            <td></td>
+            <td>
+              Comma separated application names. Only an event having any of the specified application value will be received.
+              <br/>
+              See <code>org.onehippo.cms7.event.HippoEvent</code> for detail.
+            </td>
+          </tr>
+          <tr>
+            <td>category</td>
+            <td></td>
+            <td>
+              Comma separated category names. Only an event having any of the specified category value will be received.
+              <br/>
+              See <code>org.onehippo.cms7.event.HippoEventConstants</code> for available cateogries.
+            </td>
+          </tr>
+          <tr>
+            <td>user</td>
+            <td></td>
+            <td>
+              Comma separated user names. Only an event having any of the specified user value will be received.
+              <br/>
+              See <code>org.onehippo.cms7.event.HippoEvent</code> for detail.
+            </td>
+          </tr>
+          <tr>
+            <td>method</td>
+            <td></td>
+            <td>
+              Comma separated method names. Only an event having any of the specified method name value will be received.
+              <br/>
+              See <code>org.onehippo.cms7.event.HippoEvent</code> for detail.
+            </td>
+          </tr>
+        </table>
+      </subsection>
+    </section>
+
+    <section name="Examples">
+      <p>
+        The following code will register an EventListener in Hippo Event Bus.
+      </p>
+      <div class="brush: xml">
+      <source><![CDATA[
+<route>
+  <from uri="hippoevent://localhost/?category=workflow&amp;method=publish,depublish" />
+  <to uri="direct:execute-import-application" />
+</route>
+        ]]></source>
+      </div>
+    </section>
+
+    <section name="See Also in Apache Camel Site">
+      <ul>
+        <li><a href="http://camel.apache.org/configuring-camel.html" target="_blank">Configuring Camel</a></li>
+        <li><a href="http://camel.apache.org/component.html" target="_blank">Component</a></li>
+        <li><a href="http://camel.apache.org/endpoint.html" target="_blank">Endpoint</a></li>
+        <li><a href="http://camel.apache.org/getting-started.html" target="_blank">Getting Started</a></li>
+      </ul>
+    </section>
+
+  </body>
+</document>

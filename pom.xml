@@ -31,9 +31,13 @@
 
     <jcr.version>2.0</jcr.version>
 
-    <hippo.commons.version>1.02.06</hippo.commons.version>
+    <hippo.commons.version>1.04.02</hippo.commons.version>
+    <hippo.services.version>1.04.02</hippo.services.version>
+    <hippo.services.eventbus.version>1.04.02</hippo.services.eventbus.version>
+    <hippo.repository.version>2.26.08</hippo.repository.version>
 
     <camel.version>2.14.0</camel.version>
+    <json-lib.version>2.4</json-lib.version>
 
     <lib.junit.version>4.8.2</lib.junit.version>
     <lib.easymock.version>3.0</lib.easymock.version>
@@ -131,6 +135,55 @@
     </dependency>
 
     <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>${json-lib.version}</version>
+      <scope>provided</scope>
+      <classifier>jdk15</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-cms7-commons</artifactId>
+      <version>${hippo.commons.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-services</artifactId>
+      <version>${hippo.services.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-services-eventbus</artifactId>
+      <version>${hippo.services.eventbus.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-repository-api</artifactId>
+      <version>${hippo.repository.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-repository-builtin</artifactId>
+      <version>${hippo.repository.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${lib.slf4j.version}</version>
@@ -138,6 +191,13 @@
     </dependency>
 
     <!-- TEST DEPENDENCIES -->
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-test</artifactId>      
+      <version>${camel.version}</version>
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
