@@ -56,6 +56,7 @@ public class GroovyCamelDaemonModule extends AbstractReconfigurableDaemonModule 
 
             try {
                 setCamelContext(createNewCamelContext());
+                getCamelContext().start();
             } catch (Exception e) {
                 log.error("Failed to create a camel context.");
             }
@@ -68,6 +69,7 @@ public class GroovyCamelDaemonModule extends AbstractReconfigurableDaemonModule 
 
         try {
             setCamelContext(createNewCamelContext());
+            getCamelContext().start();
         } catch (Exception e) {
             log.error("Failed to create a camel context.");
         }
@@ -103,10 +105,11 @@ public class GroovyCamelDaemonModule extends AbstractReconfigurableDaemonModule 
     }
 
     protected CamelContext createNewCamelContext() throws Exception {
-        CamelContext context = new DefaultCamelContext();
+        CamelContext context = null;
 
         if (StringUtils.isNotEmpty(getRouteBuilderExpression())) {
             RouteBuilder routeBuilder = (RouteBuilder) getGroovyShell().evaluate(getRouteBuilderExpression());
+            context = new DefaultCamelContext();
             context.addRoutes(routeBuilder);
         }
 
