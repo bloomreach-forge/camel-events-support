@@ -5,6 +5,8 @@ src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventConsumer.java -
 src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventConverter.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventEndpoint.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventMessage.java -text svneol=unset#text/plain
+src/main/java/org/onehippo/forge/camel/module/GroovyCamelDaemonModule.java -text svneol=unset#text/plain
+src/main/java/org/onehippo/forge/camel/module/RouteBuilderGroovyShell.java -text svneol=unset#text/plain
 src/main/resources/META-INF/services/org/apache/camel/component/hippoevent -text
 src/site/checkstyle.xml -text svneol=unset#text/plain
 src/site/resources/highlight-source-elements.js -text svneol=unset#text/plain
@@ -59,4 +61,5 @@ src/site/xdoc/component-hippoevent.xml -text svneol=unset#text/plain
 src/site/xdoc/index.xml -text svneol=unset#text/plain
 src/site/xdoc/release-notes.xml -text svneol=unset#text/plain
 src/test/java/org/onehippo/forge/camel/component/hippo/HippoEventConsumerTest.java -text svneol=unset#text/plain
+src/test/java/org/onehippo/forge/camel/module/RouteBuilderGroovyShellTest.java -text svneol=unset#text/plain
 src/test/resources/log4j.xml -text svneol=unset#text/plain

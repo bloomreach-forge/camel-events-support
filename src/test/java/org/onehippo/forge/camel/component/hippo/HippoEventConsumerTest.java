@@ -21,8 +21,6 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.junit4.CamelTestSupport;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.HippoServiceRegistry;
@@ -40,16 +38,20 @@ public class HippoEventConsumerTest extends CamelTestSupport {
 
     private HippoEventBus eventBus;
 
-    @Before
-    public void before() throws Exception {
+    @Override
+    public void setUp() throws Exception {
         HippoServiceRegistry.registerService(new GuavaHippoEventBus(), HippoEventBus.class);
         eventBus = HippoServiceRegistry.getService(HippoEventBus.class);
         assertNotNull(eventBus);
+
+        super.setUp();
     }
 
-    @After
-    public void after() throws Exception {
+    @Override
+    public void tearDown() throws Exception {
         HippoServiceRegistry.unregisterService(eventBus, HippoEventBus.class);
+
+        super.tearDown();
     }
 
     @Test
