@@ -15,6 +15,8 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
+import java.util.Map;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
@@ -37,14 +39,16 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
     private final HippoEventEndpoint endpoint;
     private final Processor processor;
+    private final Map<String, Object> properties;
 
     private HippoEventListener eventListener;
 
-    public HippoEventConsumer(HippoEventEndpoint endpoint, Processor processor) {
+    public HippoEventConsumer(HippoEventEndpoint endpoint, Processor processor, Map<String, Object> properties) {
         super(endpoint, processor);
 
         this.endpoint = endpoint;
         this.processor = processor;
+        this.properties = properties;
     }
 
     @Override

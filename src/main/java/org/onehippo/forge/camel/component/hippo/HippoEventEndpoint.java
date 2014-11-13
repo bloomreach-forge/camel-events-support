@@ -15,6 +15,8 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
+import java.util.Map;
+
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
@@ -25,13 +27,16 @@ import org.apache.camel.impl.DefaultEndpoint;
  */
 public class HippoEventEndpoint extends DefaultEndpoint {
 
-    protected HippoEventEndpoint(String endpointUri, HippoEventComponent component) {
+    private final Map<String, Object> properties;
+
+    protected HippoEventEndpoint(final String endpointUri, final HippoEventComponent component, final Map<String, Object> properties) {
         super(endpointUri, component);
+        this.properties = properties;
     }
 
     @Override
     public Consumer createConsumer(Processor processor) throws Exception {
-        HippoEventConsumer answer = new HippoEventConsumer(this, processor);
+        HippoEventConsumer answer = new HippoEventConsumer(this, processor, properties);
         configureConsumer(answer);
         return answer;
     }

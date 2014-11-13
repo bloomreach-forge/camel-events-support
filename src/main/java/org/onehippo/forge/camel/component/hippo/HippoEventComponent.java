@@ -15,6 +15,7 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.camel.Endpoint;
@@ -31,6 +32,17 @@ public class HippoEventComponent extends DefaultComponent {
 
     @Override
     protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> properties) throws Exception {
-        return new HippoEventEndpoint(uri, this);
+        Map<String, Object> endPointProps;
+
+        if (properties == null) {
+            endPointProps = new HashMap<String, Object>();
+        } else {
+            endPointProps = new HashMap<String, Object>(properties);
+            properties.clear();
+        }
+
+        HippoEventEndpoint endpoint = new HippoEventEndpoint(uri, this, endPointProps);
+
+        return endpoint;
     }
 }

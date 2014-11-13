@@ -39,7 +39,7 @@
       <subsection name="URI Format">
         <div class="brush: plain">
         <source><![CDATA[
-hippoevent://localhost/
+hippoevent:
         ]]></source>
         </div>
       </subsection>
@@ -104,7 +104,7 @@ hippoevent://localhost/
             </td>
           </tr>
           <tr>
-            <td>method</td>
+            <td>methodName</td>
             <td></td>
             <td>
               Comma separated method names. Only an event having any of the specified method name value will be received.
@@ -179,7 +179,7 @@ hippoevent://localhost/
       <div class="brush: xml">
       <source><![CDATA[
 <route>
-  <from uri="hippoevent://localhost/?category=workflow&amp;method=publish,depublish" />
+  <from uri="hippoevent:?category=workflow&amp;method=publish,depublish" />
   <to uri="direct:execute-reaction" />
 </route>
         ]]></source>
