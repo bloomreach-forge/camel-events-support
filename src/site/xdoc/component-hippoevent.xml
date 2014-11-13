@@ -180,7 +180,7 @@ hippoevent://localhost/
       <source><![CDATA[
 <route>
   <from uri="hippoevent://localhost/?category=workflow&amp;method=publish,depublish" />
-  <to uri="direct:execute-import-application" />
+  <to uri="direct:execute-reaction" />
 </route>
         ]]></source>
       </div>
