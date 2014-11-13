@@ -144,7 +144,7 @@ hippoevent:
     "timestamp" : 1234567890,                  // See HippoEvent#timestamp()
     "user" : "...",                            // See HippoEvent#user()
 
-    // Properties of org.onehippo.repository.events.HippoWorkflowEvent
+    // Properties in case of org.onehippo.repository.events.HippoWorkflowEvent
     "arguments" : [ "value1", ..., "valueN" ], // See HippoWorkflowEvent#arguments()
     "className" : "...",                       // See HippoWorkflowEvent#className()
     "exception" : "...",                       // HippoWorkflowEvent#exception()#toString()
@@ -160,10 +160,10 @@ hippoevent:
     "documentPath" : "...",                    // See HippoWorkflowEvent#documentPath()
     "handleUuid" : "...",                      // See HippoWorkflowEvent#handleUuid()
 
-    // Properties of org.hippoecm.repository.standardworkflow.FolderWorkflowEvent:
+    // Properties in case of org.hippoecm.repository.standardworkflow.FolderWorkflowEvent:
     "type" : "...",                            // FolderWorkflowEvent#type()#toString()
 
-    // Properties of org.onehippo.cms7.event.HippoSecurityEvent:
+    // Properties in case of org.onehippo.cms7.event.HippoSecurityEvent:
     "success" : true,                          // See HippoSecurityEvent#exception()
 
   }
