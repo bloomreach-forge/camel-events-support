@@ -49,8 +49,10 @@ hippoevent://localhost/
     <section name="Usage">
       <subsection name="Consumer">
         <p>
-          The consumer will register an event listener in Hippo Event Bus
-          and return an <code>net.sf.json.JSONObject</code> in the message body.
+          The consumer will register an event listener in Hippo Event Bus.
+        </p>
+        <p>
+          You can specify parameters like the following:
         </p>
         <table>
           <tr>
@@ -111,6 +113,61 @@ hippoevent://localhost/
             </td>
           </tr>
         </table>
+        <p>
+          The message body received by the consumer is a <code>net.sf.json.JSONObject</code> instance
+          which should look like the following examples:
+        </p>
+      <div class="brush: javascript">
+      <source><![CDATA[
+{
+  "_eventClassName" : "";
+
+  "action" : "...",
+  "application" : "...",
+  "category" : "...",
+  "sealed" : false,
+  "message" : "...",
+  "result" : "...",
+  "system" : false,
+  "timestamp" : 1234567890,
+  "user" : "...",
+
+  "success" : true,
+
+  "arguments" : [ "value1", "value2", ..., "valueN" ],
+  "className" : "...",
+  "exception" : "...",
+  "interaction" : "...",
+  "interactionId" : "...",
+  "methodName" : "...",
+  "returnType" : "...",
+  "returnValue" : "...",
+  "subjectId" : "...",
+  "subjectPath" : "...",
+  "workflowCategory" : "...",
+  "workflowName" : "...",
+  "documentPath" : "...",
+  "handleUuid" : "...",
+
+  "type" : "...",
+}
+        ]]></source>
+      </div>
+      <p>
+        Each property of the return JSONObject is described as follows:
+      </p>
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Default Value</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
       </subsection>
     </section>
 

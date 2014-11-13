@@ -37,7 +37,7 @@ public class HippoEventConverter {
         JSONObject eventJson = new JSONObject();
 
         if (event != null) {
-            eventJson.put("eventClassName", event.getClass().getName());
+            eventJson.put("_eventClassName", event.getClass().getName());
 
             eventJson.put("action", event.action());
             eventJson.put("application", event.application());
