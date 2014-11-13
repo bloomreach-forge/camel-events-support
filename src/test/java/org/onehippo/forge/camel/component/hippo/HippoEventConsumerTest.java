@@ -82,10 +82,10 @@ public class HippoEventConsumerTest extends CamelTestSupport {
         Message message = exchange.getIn();
         assertNotNull(message);
         assertTrue(message instanceof HippoEventMessage);
-        JSONObject eventJson = ((HippoEventMessage) message).getEventJson();
+        JSONObject eventJson = (JSONObject) message.getBody();
         assertNotNull(eventJson);
 
-        assertEquals(HippoEvent.class.getName(), eventJson.get("eventClassName"));
+        assertEquals(HippoEvent.class.getName(), eventJson.get("_eventClassName"));
         assertEquals("action1", eventJson.get("action"));
         assertEquals("category1", eventJson.get("category"));
         assertEquals("message1", eventJson.get("message"));

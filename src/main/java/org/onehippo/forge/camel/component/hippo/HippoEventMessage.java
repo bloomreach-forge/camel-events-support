@@ -22,16 +22,14 @@ import org.apache.camel.util.ObjectHelper;
 
 public class HippoEventMessage extends DefaultMessage {
 
-    private JSONObject eventJson;
-
     public HippoEventMessage(final JSONObject eventJson) {
-        this.eventJson = eventJson;
+        setBody(eventJson);
     }
 
     @Override
     public String toString() {
-        if (eventJson != null) {
-            return "HippoEventMessage[event: " + eventJson + "]";
+        if (getBody() != null) {
+            return "HippoEventMessage[event: " + getBody() + "]";
         }
 
         return "HippoEventMessage@" + ObjectHelper.getIdentityHashCode(this);
@@ -48,13 +46,16 @@ public class HippoEventMessage extends DefaultMessage {
         // populating it before we do the copy
         getHeaders().clear();
 
-        if (that instanceof HippoEventMessage) {
-            HippoEventMessage thatMessage = (HippoEventMessage) that;
-            this.eventJson = thatMessage.eventJson;
+        // copy body and fault flag
+
+        Object body = that.getBody();
+
+        if (body != null && body instanceof JSONObject) {
+            setBody(JSONObject.fromObject((JSONObject) body));
+        } else {
+            setBody(body);
         }
 
-        // copy body and fault flag
-        setBody(that.getBody());
         setFault(that.isFault());
 
         // we have already cleared the headers
@@ -67,14 +68,5 @@ public class HippoEventMessage extends DefaultMessage {
         if (that.hasAttachments()) {
             getAttachments().putAll(that.getAttachments());
         }
-    }
-
-    public JSONObject getEventJson() {
-        return eventJson;
-    }
-
-    @Override
-    protected Object createBody() {
-        return eventJson;
     }
 }
