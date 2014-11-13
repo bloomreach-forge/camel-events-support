@@ -117,57 +117,58 @@ hippoevent://localhost/
           The message body received by the consumer is a <code>net.sf.json.JSONObject</code> instance
           which should look like the following examples:
         </p>
-      <div class="brush: javascript">
-      <source><![CDATA[
-{
-  "_eventClassName" : "";
+        <p>
+          <strong><em>Note: </em></strong>The comment blocks (which are actually disallowed in JSON format) are only for description purpose.
+          At runtime, the comments are not included.
+        </p>
+        <div class="brush: javascript">
+        <source><![CDATA[
+  {
 
-  "action" : "...",
-  "application" : "...",
-  "category" : "...",
-  "sealed" : false,
-  "message" : "...",
-  "result" : "...",
-  "system" : false,
-  "timestamp" : 1234567890,
-  "user" : "...",
+    // metadata property names start with '_'.
 
-  "success" : true,
+    // A HippoEvent class name: "org.onehippo.cms7.event.HippoEvent",
+    //                          "org.onehippo.repository.events.HippoWorkflowEvent",
+    //                          "org.hippoecm.repository.standardworkflow.FolderWorkflowEvent", or
+    //                          "org.onehippo.cms7.event.HippoSecurityEvent".
+    "_eventClassName" : "org.onehippo.cms7.event.HippoEvent";
 
-  "arguments" : [ "value1", "value2", ..., "valueN" ],
-  "className" : "...",
-  "exception" : "...",
-  "interaction" : "...",
-  "interactionId" : "...",
-  "methodName" : "...",
-  "returnType" : "...",
-  "returnValue" : "...",
-  "subjectId" : "...",
-  "subjectPath" : "...",
-  "workflowCategory" : "...",
-  "workflowName" : "...",
-  "documentPath" : "...",
-  "handleUuid" : "...",
+    // Properties of org.onehippo.cms7.event.HippoEvent:
+    "action" : "...",                          // See HippoEvent#action()
+    "application" : "...",                     // HippoEvent#application()
+    "category" : "...",                        // See HippoEvent#category()
+    "sealed" : false,                          // See HippoEvent#isSealed()
+    "message" : "...",                         // See HippoEvent#message()
+    "result" : "...",                          // See HippoEvent#result()
+    "system" : false,                          // See HippoEvent#system()
+    "timestamp" : 1234567890,                  // See HippoEvent#timestamp()
+    "user" : "...",                            // See HippoEvent#user()
 
-  "type" : "...",
-}
-        ]]></source>
-      </div>
-      <p>
-        Each property of the return JSONObject is described as follows:
-      </p>
-      <table>
-        <tr>
-          <th>Property</th>
-          <th>Default Value</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+    // Properties of org.onehippo.repository.events.HippoWorkflowEvent
+    "arguments" : [ "value1", ..., "valueN" ], // See HippoWorkflowEvent#arguments()
+    "className" : "...",                       // See HippoWorkflowEvent#className()
+    "exception" : "...",                       // HippoWorkflowEvent#exception()#toString()
+    "interaction" : "...",                     // See HippoWorkflowEvent#interaction()
+    "interactionId" : "...",                   // See HippoWorkflowEvent#interactionId()
+    "methodName" : "...",                      // See HippoWorkflowEvent#methodName()
+    "returnType" : "...",                      // See HippoWorkflowEvent#returnType()
+    "returnValue" : "...",                     // See HippoWorkflowEvent#returnValue()
+    "subjectId" : "...",                       // See HippoWorkflowEvent#subjectId()
+    "subjectPath" : "...",                     // See HippoWorkflowEvent#subjectPath()
+    "workflowCategory" : "...",                // See HippoWorkflowEvent#workflowCategory()
+    "workflowName" : "...",                    // See HippoWorkflowEvent#workflowName()
+    "documentPath" : "...",                    // See HippoWorkflowEvent#documentPath()
+    "handleUuid" : "...",                      // See HippoWorkflowEvent#handleUuid()
+
+    // Properties of org.hippoecm.repository.standardworkflow.FolderWorkflowEvent:
+    "type" : "...",                            // FolderWorkflowEvent#type()#toString()
+
+    // Properties of org.onehippo.cms7.event.HippoSecurityEvent:
+    "success" : true,                          // See HippoSecurityEvent#exception()
+
+  }
+          ]]></source>
+        </div>
       </subsection>
     </section>
 
