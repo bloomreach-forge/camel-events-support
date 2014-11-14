@@ -58,7 +58,7 @@ public class GroovyCamelDaemonModule extends AbstractReconfigurableDaemonModule 
                 setCamelContext(createNewCamelContext());
                 getCamelContext().start();
             } catch (Exception e) {
-                log.error("Failed to create a camel context.");
+                log.error("Failed to create a camel context.", e);
             }
         }
     }
@@ -71,7 +71,7 @@ public class GroovyCamelDaemonModule extends AbstractReconfigurableDaemonModule 
             setCamelContext(createNewCamelContext());
             getCamelContext().start();
         } catch (Exception e) {
-            log.error("Failed to create a camel context.");
+            log.error("Failed to create a camel context.", e);
         }
     }
 
