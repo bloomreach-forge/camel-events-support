@@ -22,6 +22,7 @@
     <sv:value>hippo:initializefolder</sv:value>
   </sv:property>
 
+  <!--
   <sv:node sv:name="groovy-camel-context-module">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -39,5 +40,6 @@
       <sv:value>0.2.0</sv:value>
     </sv:property>
   </sv:node>
+  -->
 
 </sv:node>
