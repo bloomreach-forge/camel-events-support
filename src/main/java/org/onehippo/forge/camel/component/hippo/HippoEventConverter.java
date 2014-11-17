@@ -28,7 +28,7 @@ import org.onehippo.repository.events.HippoWorkflowEvent;
 /**
  * 
  */
-public class HippoEventConverter {
+public final class HippoEventConverter {
 
     private HippoEventConverter() {
     }

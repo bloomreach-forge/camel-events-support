@@ -180,10 +180,12 @@
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
         <!--<module name="FinalParameters"/>-->
+        <!--
         <module name="RegexpSinglelineJava">
             <property name="format" value="\s+$"/>
             <property name="message" value="Line has trailing spaces."/>
         </module>
+        -->
         <!--module name="TodoComment"/-->
         <!--<module name="UpperEll"/>-->
 

@@ -33,16 +33,16 @@ import org.codehaus.groovy.control.customizers.SecureASTCustomizer;
  */
 public class RouteBuilderGroovyShell extends GroovyShell {
 
-    private static final String[] defaultImports = {
+    private static final String[] DEFAULT_IMPORTS = {
             "org.apache.camel", "org.apache.camel.builder"
     };
 
-    private static final String[] importsBlacklist = {
+    private static final String[] IMPORTS_BLACKLIST = {
             "java.io.File", "java.io.FileDescriptor", "java.io.FileInputStream",
             "java.io.FileOutputStream", "java.io.FileWriter", "java.io.FileReader"
     };
 
-    private static final String[] starImportsBlacklist = {
+    private static final String[] STAR_IMPORTS_BLACKLIST = {
             "java.nio.file", "java.net", "javax.net", "javax.net.ssl", "java.lang.reflect"
     };
 
@@ -66,14 +66,14 @@ public class RouteBuilderGroovyShell extends GroovyShell {
 
     private static CompilationCustomizer createImportCustomizer() {
         final ImportCustomizer importCustomizer = new ImportCustomizer();
-        importCustomizer.addStarImports(defaultImports);
+        importCustomizer.addStarImports(DEFAULT_IMPORTS);
         return importCustomizer;
     }
 
     private static CompilationCustomizer createSecurityCustomizer() {
         final SecureASTCustomizer securityCustomizer = new SecureASTCustomizer();
-        securityCustomizer.setImportsBlacklist(Arrays.asList(importsBlacklist));
-        securityCustomizer.setStarImportsBlacklist(Arrays.asList(starImportsBlacklist));
+        securityCustomizer.setImportsBlacklist(Arrays.asList(IMPORTS_BLACKLIST));
+        securityCustomizer.setStarImportsBlacklist(Arrays.asList(STAR_IMPORTS_BLACKLIST));
         securityCustomizer.setIndirectImportCheckEnabled(true);
         securityCustomizer.addExpressionCheckers(new RouterBuilderExpressionChecker());
         return securityCustomizer;
