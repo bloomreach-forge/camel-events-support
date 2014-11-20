@@ -84,6 +84,37 @@ $ mvn -P cargo.run
           </li>
         </ol>
       </subsection>
+      <subsection name="Camel Context Configuration in the demo project">
+        <p>
+          The CamelContext configuration is placed in cms/WEB-INF/applicationContext.xml like the following example
+          which is initiated by <code>org.springframework.web.context.ContextLoaderListener</code> defined in
+          a &lt;listener&gt; element in cms/WEB-INF/web.xml.
+        </p>
+        <div class="brush: xml">
+        <source><![CDATA[
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+                      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                      http://camel.apache.org/schema/spring
+                      http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <route>
+      <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish"/>
+      <to uri="activemq:hippo.docflow"/>
+    </route>
+  </camelContext>
+
+  <bean id="activemq"
+       class="org.apache.activemq.camel.component.ActiveMQComponent">
+    <property name="brokerURL" value="tcp://localhost:61616"/>
+  </bean>
+
+</beans>
+        ]]></source>
+        </div>
+      </subsection>
     </section>
   </body>
 </document>
