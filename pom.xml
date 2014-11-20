@@ -21,7 +21,7 @@
   <description>Camel Hippo Event Bus Support</description>
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+  <version>0.2.0</version>
   <url>http://camel-hippoevt.forge.onehippo.org/</url>
 
   <properties>
@@ -88,9 +88,9 @@
   </developers>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk</developerConnection>
-    <url>https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/tags/camel-hippoevt-0.2.0</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/tags/camel-hippoevt-0.2.0</developerConnection>
+    <url>https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/tags/camel-hippoevt-0.2.0</url>
   </scm>
 
   <issueManagement>
