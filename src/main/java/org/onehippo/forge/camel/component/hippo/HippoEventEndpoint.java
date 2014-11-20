@@ -15,7 +15,9 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
+import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
@@ -36,7 +38,7 @@ public class HippoEventEndpoint extends DefaultEndpoint {
 
     @Override
     public Consumer createConsumer(Processor processor) throws Exception {
-        HippoEventConsumer answer = new HippoEventConsumer(this, processor, properties);
+        HippoEventConsumer answer = new HippoEventConsumer(this, processor);
         configureConsumer(answer);
         return answer;
     }
@@ -49,5 +51,21 @@ public class HippoEventEndpoint extends DefaultEndpoint {
     @Override
     public boolean isSingleton() {
         return true;
+    }
+
+    public Set<String> getPropertyNameSet() {
+        if (properties == null) {
+            return Collections.emptySet();
+        }
+
+        return Collections.unmodifiableSet(properties.keySet());
+    }
+
+    public Object getProperty(String name) {
+        if (properties != null) {
+            return properties.get(name);
+        }
+
+        return null;
     }
 }

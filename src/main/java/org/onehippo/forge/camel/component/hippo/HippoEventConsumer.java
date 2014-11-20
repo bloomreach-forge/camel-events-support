@@ -15,7 +15,7 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
-import java.util.Map;
+import net.sf.json.JSONObject;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -23,6 +23,8 @@ import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.SuspendableService;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.cms7.services.eventbus.HippoEventBus;
@@ -39,16 +41,14 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
     private final HippoEventEndpoint endpoint;
     private final Processor processor;
-    private final Map<String, Object> properties;
 
     private HippoEventListener eventListener;
 
-    public HippoEventConsumer(HippoEventEndpoint endpoint, Processor processor, Map<String, Object> properties) {
+    public HippoEventConsumer(HippoEventEndpoint endpoint, Processor processor) {
         super(endpoint, processor);
 
         this.endpoint = endpoint;
         this.processor = processor;
-        this.properties = properties;
     }
 
     @Override
@@ -72,11 +72,42 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         return exchange;
     }
 
+    protected boolean isConsumable(final Exchange exchange) {
+        JSONObject json = (JSONObject) ((HippoEventMessage) exchange.getIn()).getBody();
+
+        String [] availableValues;
+        String value;
+
+        for (String propName : endpoint.getPropertyNameSet()) {
+            availableValues = StringUtils.split((String) endpoint.getProperty(propName), ",");
+            value = null;
+
+            if (json.has(propName)) {
+                value = json.getString(propName);
+            }
+
+            if (value == null && ArrayUtils.isNotEmpty(availableValues)) {
+                return false;
+            }
+
+            if (!ArrayUtils.contains(availableValues, value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public class HippoEventListener {
 
         @Subscribe
         public void handleEvent(HippoEvent<?> event) {
             Exchange exchange = createExchange(event);
+
+            if (!isConsumable(exchange)) {
+                return;
+            }
+
             RuntimeCamelException rce = null;
 
             try {

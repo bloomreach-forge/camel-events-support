@@ -98,7 +98,7 @@ public class HippoEventConsumerTest extends CamelTestSupport {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                String uri = "hippoevent:?category=workflow&method=publish,depublish";
+                String uri = "hippoevent:?category=category1&user=user1,user2";
                 from(uri).to("direct:a");
             }
         };

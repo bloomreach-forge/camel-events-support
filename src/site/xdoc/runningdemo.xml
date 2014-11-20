@@ -1,0 +1,87 @@
+<?xml version="1.0"?><!--
+    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and
+    limitations under the License.
+  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Running Demo Application</title>
+  </properties>
+  <body>
+    <section name="Running Demo Application">
+      <subsection name="Check out demo application">
+        <p>
+          You can build and run the demo project with Maven Cargo plugin the CMS and site locally in Tomcat.
+        </p>
+        <p>
+          Also, the demo project requires you to run <a href="http://activemq.apache.org/" target="_blank">Apache Active MQ</a> locally.
+          So, the demo project will be able to demonstrate how a Hippo document workflow publish/depublish event can be delivered
+          as JSON message to a queue in your Apache ActiveMQ server.
+        </p>
+        <p>
+          The demo project expects the Apache ActiveMQ server running at the default port, 61616, by default.
+          Please see the "Running ActiveMQ Locally" section for detail.
+        </p>
+        <p>
+          You can check out, build and run the demo application like the following:
+        </p>
+        <div class="brush: bash">
+        <source><![CDATA[
+$ svn co https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk camel-hippoevt-demo
+$ cd camel-hippoevt-demo
+$ mvn clean package
+$ mvn -P cargo.run
+        ]]></source>
+        </div>
+      </subsection>
+      <subsection name="Running ActiveMQ Locally">
+        <p>
+          Please follow the guide in <a href="http://activemq.apache.org/getting-started.html" target="_blank">http://activemq.apache.org/getting-started.html</a>.
+        </p>
+        <p>
+          Here are simplified steps for simple local testing purpose:
+        </p>
+        <ol>
+          <li>Download the latest ActiveMQ binary from http://activemq.apache.org/download.html.</li>
+          <li>Uncompress the downloaded file to a folder. So you could have ~/apache-activemq-5.9.0/ for instance.</li>
+          <li>Move to ~/apache-activemq-5.9.0/bin/ folder in a command line console.</li>
+          <li>
+            Run the following to start in console mode (You can type Ctrl+C to stop it):
+            <br/>
+            <br/>
+            <code>$ ./activemq console</code>
+          </li>
+          <li>
+            You can check/monitor messages in the ActiveMQ Admin Console.
+            Visit http://localhost:8161/admin/ (Login by admin/admin by default).
+          </li>
+        </ol>
+      </subsection>
+      <subsection name="Testing the Demo Application">
+        <ul>
+          <li>
+            If you visit the ActiveMQ Admin Console, then you will be able to navigate/browse all the queues, topics, etc.
+          </li>
+          <li>
+            In CMS UI, try to open a published document and take it offline.
+          </li>
+          <li>
+            Now go back to the ActiveMQ Admin Console, and check if a message in JSON format was delivered in the 'hippo.docflow' queue.
+            You can see the JSON message in detail if you click on the message link.
+          </li>
+          <li>
+            In CMS UI, publish the document again, and check if you get another message in JSON format, showing the document was published.
+          </li>
+        </ul>
+      </subsection>
+    </section>
+  </body>
+</document>

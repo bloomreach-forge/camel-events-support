@@ -46,6 +46,8 @@
 
     <menu name="Usage">
       <item name="Hippo Event Component" href="component-hippoevent.html" />
+      <item name="Running Demo Application" href="runningdemo.html" />
+      <item name="Build from source" href="build-from-source.html" />
     </menu>
 
     <menu ref="reports" />

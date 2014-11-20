@@ -30,14 +30,12 @@
     <project.build.javaVersion>1.6</project.build.javaVersion>
 
     <javax.jcr.version>2.0</javax.jcr.version>
-    <hippo.commons.version>1.04.02</hippo.commons.version>
     <hippo.services.version>1.04.02</hippo.services.version>
     <hippo.services.eventbus.version>1.04.02</hippo.services.eventbus.version>
     <hippo.repository.version>2.26.08</hippo.repository.version>
 
     <camel.version>2.14.0</camel.version>
     <json-lib.version>2.4</json-lib.version>
-    <groovy.version>2.2.2</groovy.version>
 
     <lib.junit.version>4.8.2</lib.junit.version>
     <lib.easymock.version>3.0</lib.easymock.version>
@@ -140,18 +138,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-groovy</artifactId>
-      <version>${camel.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.sun.xml.bind</groupId>
-          <artifactId>jaxb-impl</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
       <groupId>net.sf.json-lib</groupId>
       <artifactId>json-lib</artifactId>
       <version>${json-lib.version}</version>
@@ -162,13 +148,6 @@
           <artifactId>commons-logging</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-cms7-commons</artifactId>
-      <version>${hippo.commons.version}</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -203,13 +182,6 @@
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-repository-builtin</artifactId>
       <version>${hippo.repository.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all</artifactId>
-      <version>${groovy.version}</version>
       <scope>provided</scope>
     </dependency>
 

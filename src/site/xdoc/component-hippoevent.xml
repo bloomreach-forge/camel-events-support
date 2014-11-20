@@ -179,7 +179,7 @@ hippoevent:
       <div class="brush: xml">
       <source><![CDATA[
 <route>
-  <from uri="hippoevent:?category=workflow&amp;method=publish,depublish" />
+  <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish" />
   <to uri="direct:execute-reaction" />
 </route>
         ]]></source>
