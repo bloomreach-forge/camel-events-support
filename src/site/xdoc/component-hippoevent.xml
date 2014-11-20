@@ -19,9 +19,22 @@
 
     <section name="Hippo Event Component">
       <p>
-        The <strong>hippoevent</strong> component allows you to subscribe events from 
-        <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>
-        and to read nodes from Hippo Repository.
+        The <strong>hippoevent:</strong> component allows you to subscribe events from 
+        <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>.
+      </p>
+      <p>
+        The <strong>hippoevent:</strong> component subscribes the following types of <code>HippoEvent</code>
+        and transforms it to a <code>JSONObject</code>:
+      </p>
+      <ul>
+        <li>org.onehippo.cms7.event.HippoEvent</li>
+        <li>org.onehippo.cms7.event.HippoSecurityEvent</li>
+        <li>org.onehippo.repository.events.HippoWorkflowEvent</li>
+        <li>org.hippoecm.repository.standardworkflow.FolderWorkflowEvent</li>
+      </ul>
+      <p>
+        For details on how it translates <code>HippoEvent</code> to a <code>JSONObject</code>,
+        please see <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk/src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventConverter.java" target="_blank">HippoEventConverter.java</a>.
       </p>
       <p>
         Maven users will need to add the following dependency to their pom.xml for this component:
@@ -114,6 +127,20 @@ hippoevent:
           </tr>
         </table>
         <p>
+          So, for example, if you set the parameters like the followign example,
+          then the hippoevent: component will consume a <code>HippoEvent</code> object
+          only when the 'category' property value of the <code>HippoEvent</code> object is 'workflow'
+          and the 'application' propery value is either 'cms' or 'site'.
+        </p>
+        <div class="brush: javascript">
+        <source><![CDATA[
+          hippoevent:?category=workflow&amp;application=cms,site
+          ]]></source>
+        </div>
+        <p>
+          You will see all the available property names (which can be used as parameter names as well) below.
+        </p>
+        <p>
           The message body received by the consumer is a <code>net.sf.json.JSONObject</code> instance
           which should look like the following examples:
         </p>
@@ -175,6 +202,8 @@ hippoevent:
     <section name="Examples">
       <p>
         The following code will register an EventListener in Hippo Event Bus.
+        And it will consume <code>HippoEvent</code> only when the 'category' property value is 'workflow'
+        and the 'methodName' property value is either 'publish' or 'depublish'.
       </p>
       <div class="brush: xml">
       <source><![CDATA[

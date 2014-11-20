@@ -58,6 +58,8 @@ $ mvn -P cargo.run
             <br/>
             <br/>
             <code>$ ./activemq console</code>
+            <br/>
+            <br/>
           </li>
           <li>
             You can check/monitor messages in the ActiveMQ Admin Console.
@@ -66,7 +68,7 @@ $ mvn -P cargo.run
         </ol>
       </subsection>
       <subsection name="Testing the Demo Application">
-        <ul>
+        <ol>
           <li>
             If you visit the ActiveMQ Admin Console, then you will be able to navigate/browse all the queues, topics, etc.
           </li>
@@ -80,7 +82,7 @@ $ mvn -P cargo.run
           <li>
             In CMS UI, publish the document again, and check if you get another message in JSON format, showing the document was published.
           </li>
-        </ul>
+        </ol>
       </subsection>
     </section>
   </body>

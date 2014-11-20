@@ -18,7 +18,14 @@
   <body>
     <section name="Introduction">
       <subsection name="What is Apache Camel - Hippo Event Bus Support?">
-        <p>TODO</p>
+        <p>
+          <strong>Apache Camel - Hippo Event Bus Support</strong>
+          provides <strong>hippoevent:</strong> Apache Camel component.
+        </p>
+        <p>
+          The <strong>hippoevent:</strong> component is used for subscribing
+          <code>HippoEvent</code> through <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>.
+        </p>
       </subsection>
     </section>
     <section name="Project status">
