@@ -30,14 +30,14 @@
           </th>
         </tr>
         <tr>
-          <td>0.02.xx</td>
+          <td>0.2.xx</td>
           <td>2.x.x</td>
           <td>7.8, 7.9</td>
         </tr>
       </table>
     </section>
     <section name="Release Notes">
-      <subsection name="0.02.00">
+      <subsection name="0.2.0">
         <ul>
           <li>Initial release</li>
         </ul>

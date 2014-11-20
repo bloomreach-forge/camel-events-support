@@ -134,7 +134,7 @@ hippoevent:
         </p>
         <div class="brush: javascript">
         <source><![CDATA[
-          hippoevent:?category=workflow&amp;application=cms,site
+          hippoevent:?category=workflow&application=cms,site
           ]]></source>
         </div>
         <p>
