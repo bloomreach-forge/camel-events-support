@@ -37,15 +37,24 @@
         please see <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk/src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventConverter.java" target="_blank">HippoEventConverter.java</a>.
       </p>
       <p>
-        Maven users will need to add the following dependency to their pom.xml for this component:
+        Maven users will need to add the following repository configuration and dependency to their pom.xml to use this component:
       </p>
       <div class="brush: xml">
       <source><![CDATA[
-<dependency>
-  <groupId>org.onehippo.forge.camel-hippoevt</groupId>
-  <artifactId>camel-hippoevt</artifactId>
-  <version>${camel-hippoevt.version}</version>
-</dependency>
+    <repository>
+      <id>camel-hippoevt-maven-repo</id>
+      <name>Hippo Maven 2 Forge Camel :: Hippo Event Bus</name>
+      <url>http://forge.onehippo.org/svn/camel-hippoevt/maven2/</url>
+    </repository>
+      ]]></source>
+      </div>
+      <div class="brush: xml">
+      <source><![CDATA[
+      <dependency>
+        <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+        <artifactId>camel-hippoevt</artifactId>
+        <version>${camel-hippoevt.version}</version>
+      </dependency>
       ]]></source>
       </div>
 
