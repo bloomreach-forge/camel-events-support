@@ -73,10 +73,10 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
             listener.setChannelName(channelName);
 
-            final String eventCategory = (String) endpoint.getProperty("_eventCategory");
+            final String [] eventCategories = StringUtils.split((String) endpoint.getProperty("category"), ",");
 
-            if (StringUtils.isNotEmpty(eventCategory)) {
-                listener.setEventCategory(eventCategory);
+            if (ArrayUtils.isNotEmpty(eventCategories) && StringUtils.isNotEmpty(eventCategories[0])) {
+                listener.setEventCategory(eventCategories[0]);
             }
 
             if (endpoint.hasProperty("_onlyNewEvents")) {
@@ -144,7 +144,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         return true;
     }
 
-    protected void handleEvent(HippoEvent<?> event) {
+    protected void handleHippoEvent(HippoEvent<?> event) {
         RuntimeCamelException rce = null;
 
         Exchange exchange = null;
@@ -179,7 +179,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
         @Subscribe
         public void handleEvent(HippoEvent<?> event) {
-            handleEvent(event);
+            handleHippoEvent(event);
         }
     }
 
@@ -222,7 +222,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
         @Override
         public void onHippoEvent(HippoEvent event) {
-            handleEvent(event);
+            handleHippoEvent(event);
         }
     }
 

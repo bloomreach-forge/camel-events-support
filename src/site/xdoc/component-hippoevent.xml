@@ -99,21 +99,24 @@ hippoevent:
             </td>
           </tr>
           <tr>
-            <td>_eventCategory</td>
-            <td></td>
-            <td>
-              Applied to a persisted event listener only.
-              <br/>
-              The event category limits the events that are passed to the listener to those within the required category.
-            </td>
-          </tr>
-          <tr>
             <td>_onlyNewEvents</td>
             <td>true</td>
             <td>
               Applied to a persisted event listener only.
               <br/>
               Flag whether or not to receive only new events from Hippo Repository via Hippo Event Bus.
+            </td>
+          </tr>
+          <tr>
+            <td>category</td>
+            <td></td>
+            <td>
+              Comma separated category names. Only an event having any of the specified category value will be received.
+              <br/>
+              See <code>org.onehippo.cms7.event.HippoEventConstants</code> for available cateogries.
+              <br/>
+              Note: If the consumer is for persisted events with '_persisted=true', then the first argument of this category parameter
+              will be used in <code>PersistedHippoEventListener#getEventCategory()</code>.
             </td>
           </tr>
           <tr>
@@ -132,15 +135,6 @@ hippoevent:
               Comma separated application names. Only an event having any of the specified application value will be received.
               <br/>
               See <code>org.onehippo.cms7.event.HippoEvent</code> for detail.
-            </td>
-          </tr>
-          <tr>
-            <td>category</td>
-            <td></td>
-            <td>
-              Comma separated category names. Only an event having any of the specified category value will be received.
-              <br/>
-              See <code>org.onehippo.cms7.event.HippoEventConstants</code> for available cateogries.
             </td>
           </tr>
           <tr>
@@ -237,7 +231,7 @@ hippoevent:
 
     <section name="Examples">
       <p>
-        The following code will register an EventListener in Hippo Event Bus.
+        The following code will register a local EventListener in Hippo Event Bus.
         And it will consume <code>HippoEvent</code> only when the 'category' property value is 'workflow'
         and the 'methodName' property value is either 'publish' or 'depublish'.
       </p>
@@ -245,6 +239,19 @@ hippoevent:
       <source><![CDATA[
 <route>
   <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish" />
+  <to uri="direct:execute-reaction" />
+</route>
+        ]]></source>
+      </div>
+      <p>
+        The following code will register a persisted EventListener in Hippo Event Bus.
+        And it will consume <code>HippoEvent</code> only when the 'category' property value is 'workflow'
+        and the 'methodName' property value is either 'publish' or 'depublish'.
+      </p>
+      <div class="brush: xml">
+      <source><![CDATA[
+<route>
+  <from uri="hippoevent:?_persisted=true&amp;_channelName=mylistener&amp;category=workflow" />
   <to uri="direct:execute-reaction" />
 </route>
         ]]></source>
