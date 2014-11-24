@@ -37,6 +37,11 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.2.1">
+        <ul>
+          <li>Persisted Hippo Event Listener support</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.0">
         <ul>
           <li>Initial release</li>
