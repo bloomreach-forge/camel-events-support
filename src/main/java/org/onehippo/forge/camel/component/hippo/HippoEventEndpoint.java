@@ -68,4 +68,12 @@ public class HippoEventEndpoint extends DefaultEndpoint {
 
         return null;
     }
+
+    public boolean hasProperty(String name) {
+        if (properties == null) {
+            return false;
+        }
+
+        return properties.containsKey(name);
+    }
 }

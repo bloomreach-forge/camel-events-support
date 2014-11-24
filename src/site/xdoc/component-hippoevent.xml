@@ -83,10 +83,37 @@ hippoevent:
             <th>Description</th>
           </tr>
           <tr>
-            <td>persisted</td>
+            <td>_persisted</td>
             <td>false</td>
             <td>
               Flag whether or not to register listeners for persisted events from Hippo Repository via Hippo Event Bus.
+            </td>
+          </tr>
+          <tr>
+            <td>_channelName</td>
+            <td></td>
+            <td>
+              Applied to a persisted event listener only.
+              <br/>
+              The listener's channel name is used to identify the listener after a restart, and it should be unique in the container.
+            </td>
+          </tr>
+          <tr>
+            <td>_eventCategory</td>
+            <td></td>
+            <td>
+              Applied to a persisted event listener only.
+              <br/>
+              The event category limits the events that are passed to the listener to those within the required category.
+            </td>
+          </tr>
+          <tr>
+            <td>_onlyNewEvents</td>
+            <td>true</td>
+            <td>
+              Applied to a persisted event listener only.
+              <br/>
+              Flag whether or not to receive only new events from Hippo Repository via Hippo Event Bus.
             </td>
           </tr>
           <tr>

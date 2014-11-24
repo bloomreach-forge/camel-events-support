@@ -24,11 +24,13 @@ import org.apache.camel.SuspendableService;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.cms7.services.eventbus.HippoEventBus;
 import org.onehippo.cms7.services.eventbus.Subscribe;
+import org.onehippo.repository.events.PersistedHippoEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +44,8 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
     private final HippoEventEndpoint endpoint;
     private final Processor processor;
 
-    private HippoEventListener eventListener;
+    private HippoLocalEventListener localEventListener;
+    private HippoPersistedEventListener persistedEventListener;
 
     public HippoEventConsumer(HippoEventEndpoint endpoint, Processor processor) {
         super(endpoint, processor);
@@ -55,26 +58,69 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
     protected void doStart() throws Exception {
         super.doStart();
 
-        eventListener = new HippoEventListener();
-        HippoServiceRegistry.registerService(eventListener, HippoEventBus.class); 
+        final boolean persistedEventConsumer = BooleanUtils.toBoolean((String) endpoint.getProperty("_persisted"));
+
+        if (persistedEventConsumer) {
+            LOG.info("Registering a persisted event consumer because the _persisted parameter set to true.");
+
+            HippoPersistedEventListener listener = new HippoPersistedEventListener();
+
+            final String channelName = (String) endpoint.getProperty("_channelName");
+
+            if (StringUtils.isEmpty(channelName)) {
+                throw new RuntimeCamelException("Channel name must be specified for a persisted event consumer with '_channelName' parameter!");
+            }
+
+            listener.setChannelName(channelName);
+
+            final String eventCategory = (String) endpoint.getProperty("_eventCategory");
+
+            if (StringUtils.isNotEmpty(eventCategory)) {
+                listener.setEventCategory(eventCategory);
+            }
+
+            if (endpoint.hasProperty("_onlyNewEvents")) {
+                listener.setOnlyNewEvents(BooleanUtils.toBoolean((String) endpoint.getProperty("_onlyNewEvents")));
+            }
+
+            HippoServiceRegistry.registerService(listener, HippoEventBus.class);
+
+            persistedEventListener = listener;
+
+        } else {
+            LOG.info("Registering a local event consumer because the _persisted parameter unspecified or set to false.");
+
+            HippoLocalEventListener listener = new HippoLocalEventListener();
+            HippoServiceRegistry.registerService(listener, HippoEventBus.class);
+            localEventListener = listener;
+
+        }
     }
 
     @Override
     protected void doStop() throws Exception {
         super.doStop();
 
-        HippoServiceRegistry.unregisterService(eventListener, HippoEventBus.class);
+        if (persistedEventListener != null) {
+            HippoServiceRegistry.unregisterService(persistedEventListener, HippoEventBus.class);
+        }
+
+        if (localEventListener != null) {
+            HippoServiceRegistry.unregisterService(localEventListener, HippoEventBus.class);
+        }
     }
 
-    protected Exchange createExchange(HippoEvent<?> event) {
+    protected JSONObject createMessageBody(HippoEvent<?> event) {
+        return HippoEventConverter.toJSONObject(event);
+    }
+
+    protected Exchange createExchange(HippoEvent<?> event, JSONObject messageBody) {
         Exchange exchange = ((DefaultEndpoint) getEndpoint()).createExchange();
-        exchange.setIn(new HippoEventMessage(HippoEventConverter.toJSONObject(event)));
+        exchange.setIn(new HippoEventMessage(messageBody));
         return exchange;
     }
 
-    protected boolean isConsumable(final Exchange exchange) {
-        JSONObject json = (JSONObject) ((HippoEventMessage) exchange.getIn()).getBody();
-
+    protected boolean isConsumable(final HippoEvent<?> event, final JSONObject messageBody) {
         String [] availableValues;
         String value;
 
@@ -82,8 +128,8 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
             availableValues = StringUtils.split((String) endpoint.getProperty(propName), ",");
             value = null;
 
-            if (json.has(propName)) {
-                value = json.getString(propName);
+            if (messageBody.has(propName)) {
+                value = messageBody.getString(propName);
             }
 
             if (value == null && ArrayUtils.isNotEmpty(availableValues)) {
@@ -98,29 +144,86 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         return true;
     }
 
-    public class HippoEventListener {
+    protected void handleEvent(HippoEvent<?> event) {
+        RuntimeCamelException rce = null;
 
-        @Subscribe
-        public void handleEvent(HippoEvent<?> event) {
-            Exchange exchange = createExchange(event);
+        Exchange exchange = null;
 
-            if (!isConsumable(exchange)) {
+        try {
+            JSONObject messageBody = createMessageBody(event);
+
+            if (!isConsumable(event, messageBody)) {
                 return;
             }
 
-            RuntimeCamelException rce = null;
-
-            try {
-                processor.process(exchange);
-            } catch (Exception e) {
+            exchange = createExchange(event, messageBody);
+            processor.process(exchange);
+        } catch (Exception e) {
+            if (exchange != null) {
                 exchange.setException(e);
-            }
-
-            rce = exchange.getException(RuntimeCamelException.class);
-
-            if (rce != null) {
-                throw rce;
+            } else {
+                rce = new RuntimeCamelException(e);
             }
         }
+
+        if (exchange != null) {
+            rce = exchange.getException(RuntimeCamelException.class);
+        }
+
+        if (rce != null) {
+            throw rce;
+        }
     }
+
+    public class HippoLocalEventListener {
+
+        @Subscribe
+        public void handleEvent(HippoEvent<?> event) {
+            handleEvent(event);
+        }
+    }
+
+    public class HippoPersistedEventListener implements PersistedHippoEventListener {
+
+        private String channelName;
+        private String eventCategory;
+        private boolean onlyNewEvents = true;
+
+        @Override
+        public String getChannelName() {
+            return channelName;
+        }
+
+        public void setChannelName(final String channelName) {
+            this.channelName = channelName;
+        }
+
+        @Override
+        public String getEventCategory() {
+            return eventCategory;
+        }
+
+        public void setEventCategory(final String eventCategory) {
+            this.eventCategory = eventCategory;
+        }
+
+        @Override
+        public boolean onlyNewEvents() {
+            return isOnlyNewEvents();
+        }
+
+        public boolean isOnlyNewEvents() {
+            return onlyNewEvents;
+        }
+
+        public void setOnlyNewEvents(boolean onlyNewEvents) {
+            this.onlyNewEvents = onlyNewEvents;
+        }
+
+        @Override
+        public void onHippoEvent(HippoEvent event) {
+            handleEvent(event);
+        }
+    }
+
 }
