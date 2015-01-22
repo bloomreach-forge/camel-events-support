@@ -24,13 +24,13 @@
       </p>
       <p>
         The <strong>hippoevent:</strong> component subscribes the following types of <code>HippoEvent</code>
-        and transforms it to a <code>JSONObject</code>:
+        and transforms it to a <code>JSONObject (net.sf.json.JSONObject)</code>:
       </p>
       <ul>
-        <li>org.onehippo.cms7.event.HippoEvent</li>
-        <li>org.onehippo.cms7.event.HippoSecurityEvent</li>
-        <li>org.onehippo.repository.events.HippoWorkflowEvent</li>
-        <li>org.hippoecm.repository.standardworkflow.FolderWorkflowEvent</li>
+        <li><code>org.onehippo.cms7.event.HippoEvent</code></li>
+        <li><code>org.onehippo.cms7.event.HippoSecurityEvent</code></li>
+        <li><code>org.onehippo.repository.events.HippoWorkflowEvent</code></li>
+        <li><code>org.hippoecm.repository.standardworkflow.FolderWorkflowEvent</code></li>
       </ul>
       <p>
         For details on how it translates <code>HippoEvent</code> to a <code>JSONObject</code>,

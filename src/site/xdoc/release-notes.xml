@@ -37,6 +37,11 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.2.2">
+        <ul>
+          <li>Camel TypeConverter added for net.sf.json.JSONObject</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.1">
         <ul>
           <li>Persisted Hippo Event Listener support</li>

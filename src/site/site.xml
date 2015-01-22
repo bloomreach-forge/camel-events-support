@@ -42,12 +42,18 @@
     <menu name="Home">
       <item name="Home" href="index.html" />
       <item name="Release Notes" href="release-notes.html" />
+      <item name="Build from source" href="build-from-source.html" />
     </menu>
 
     <menu name="Usage">
       <item name="Hippo Event Component" href="component-hippoevent.html" />
-      <item name="Running Demo Application" href="runningdemo.html" />
-      <item name="Build from source" href="build-from-source.html" />
+    </menu>
+
+    <menu name="Demo">
+      <item name="About Demo Project" href="aboutdemo.html" />
+      <item name="Scenario 1: Solr Search Engine Integration" href="demo-solr-integration.html" />
+      <item name="Scenario 2: ElasticSearch Engine Integration" href="demo-es-integration.html" />
+      <item name="Scenario 3: Running with ActiveMQ" href="demo-integration-activemq.html" />
     </menu>
 
     <menu ref="reports" />
