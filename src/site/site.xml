@@ -51,9 +51,9 @@
 
     <menu name="Demo">
       <item name="About Demo Project" href="aboutdemo.html" />
-      <item name="Scenario 1: Solr Search Engine Integration" href="demo-solr-integration.html" />
-      <item name="Scenario 2: ElasticSearch Engine Integration" href="demo-es-integration.html" />
-      <item name="Scenario 3: Running with ActiveMQ" href="demo-integration-activemq.html" />
+      <item name="Demo 1: Solr Search Engine Integration" href="demo-solr-integration.html" />
+      <item name="Demo 2: ElasticSearch Engine Integration" href="demo-es-integration.html" />
+      <item name="Demo 3: Running with ActiveMQ" href="demo-integration-activemq.html" />
     </menu>
 
     <menu ref="reports" />

@@ -21,40 +21,7 @@
 
       <subsection name="Overview">
         <p>
-          Two Camel routes are configured.
-          One is to send HippoEventBus event as JSON message to a specified message queue first,
-          and the other is to invoke the specified REST service URL based on the JSON queue message.
         </p>
-
-        <p>
-          With these Camel routes configuration, you can achieve the following:
-        </p>
-        <ul>
-          <li>
-            <strong>Reliability</strong>:
-            even if the external system becomes unavailable at some moment for some reasons,
-            you don't lose any event message because all the JSON messages are stored in the specified message queue.
-          </li>
-          <li>
-            <strong>Performance</strong>:
-            by separating the process to two routes (store first in the message queue, and 
-            let the second route receive a message from the queue and process asynchronously),
-            it doesn't affect Hippo CMS performance.
-          </li>
-          <li>
-            <strong>Modifiability</strong>:
-            all the event processing is basically configured and executed by Apache Camel Context.
-            You can configure any enterprise message integration patterns by leveraging various Apache Camel components.
-            You can focus on your business logic.
-            In this demo, it is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
-            in the 'Route-Queue-to-Rest' route.
-          </li>
-          <li>
-            <strong>Maintainability</strong>:
-            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
-            You can monitor the process, pause, stop and start a route, for instance.
-          </li>
-        </ul>
 
         <table>
           <tr>

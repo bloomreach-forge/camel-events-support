@@ -21,42 +21,7 @@
 
       <subsection name="Overview">
         <p>
-          Two Camel routes are configured.
-          One is to store HippoEventBus event into a file first,
-          and the other is to invoke the specified REST service URL based on the JSON file message.
         </p>
-
-        <p>
-          With these Camel routes configuration, you can achieve the following:
-        </p>
-        <ul>
-          <li>
-            <strong>Reliability</strong>:
-            even if the external system becomes unavailable at some moment for some reasons,
-            you don't lose any event message because all the failed JSON message files are stored under the folder at least.
-          </li>
-          <li>
-            <strong>Performance</strong>:
-            by separating the process to two routes (store first in the first route, and 
-            let the second route poll and process asynchronously),
-            it doesn't affect Hippo CMS performance.
-          </li>
-          <li>
-            <strong>Modifiability</strong>:
-            all the event processing is basically configured and executed by Apache Camel Context.
-            You can configure any enterprise message integration patterns by leveraging various Apache Camel components.
-            You can focus on your business logic.
-            In this example scenario, it is <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/SolrRestUpdateResource.java" target="_blank">the REST service implemenation</a>
-            (which is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
-            in the 'Route-File-to-Rest' route).
-          </li>
-          <li>
-            <strong>Maintainability</strong>:
-            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
-            You can monitor the process, pause, stop and start a route, for instance.
-          </li>
-        </ul>
-
         <table>
           <tr>
             <th>Route name</th>

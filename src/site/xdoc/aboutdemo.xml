@@ -19,7 +19,7 @@
 
     <section name="About Demo Project for Apache Camel - Hippo Event Bus Support">
 
-      <subsection name="Overview">
+      <subsection name="Problems Overview">
         <p>
           <strong>Apache Camel - Hippo Event Bus Support</strong> component provides proper solutions
           for the architectural needs where you should update data in the external system
@@ -77,26 +77,123 @@
         <p>
           <strong>Apache Camel - Hippo Event Bus Support</strong> component is now provided to answer all those questions properly.
         </p>
+      </subsection>
+
+      <subsection name="Solutions Overview">
         <p>
-          And this demo project shows real simplified solutions for the following scenarios:
+          This demo project shows real solutions for the following scenarios:
         </p>
         <ul>
-          <li><a href="demo-solr-integration.html">Scenario 1: Solr Search Engine Integration</a></li>
-          <li><a href="demo-es-integration.html">Scenario 2: ElasticSearch Search Engine Integration</a></li>
-          <li><a href="demo-integration-activemq.html">Scenario 3: Running with ActiveMQ</a></li>
+          <li><a href="demo-solr-integration.html">Demo 1: Solr Search Engine Integration</a></li>
+          <li><a href="demo-es-integration.html">Demo 2: ElasticSearch Search Engine Integration</a></li>
+          <li><a href="demo-integration-activemq.html">Demo 3: Running with ActiveMQ</a></li>
         </ul>
         <p>
-          The first scenario demonstrates integration with an Apache Solr search engine (as embedded as war).
+          The first demo shows integration with an Apache Solr search engine (as embedded as war).
           It is recommended to see this example first because it doesn't require any other software installation and configuration.
         </p>
         <p>
-          The second scenario demonstrates the same integration approach as the first scenario, but with ElasticSearch engine
+          The second demo shows the same integration approach as the first scenario, but with ElasticSearch engine
           instead of Apache Solr search engine.
         </p>
         <p>
-          The third scenario demonstrates integration with either Apache Solr or ElasticSearch engine
+          The third demo shows integration with either Apache Solr or ElasticSearch engine
           with using ActiveMQ as message queueing solution instead of file-based inbox folder polling.
         </p>
+
+        <p>
+          Basically solutions are really simple thanks to Apache Camel and
+          <strong><a href="component-hippoevent.html">hippoevent:</a></strong> Apache Camel component.
+        </p>
+        <p>
+          The idea in this demo project is to configure two Camel routes:
+        </p>
+        <ul>
+          <li>
+            one for storing HippoEventBus event into either a file in the designated folder or a message in the designated message queue.
+          </li>
+          <li>
+            the other for invoking the specified REST service URL based on the (file or message queue) message.
+          </li>
+        </ul>
+
+        <p>
+          Depending on the real use cases, you can configure more advanced complex routes (such as parallel, translation, etc),
+          but the fundamental idea here is 'store first and forward later'.
+        </p>
+
+        <p>
+          An activity flow diagram in swimlanes would help understand this point:
+        </p>
+        <p>
+          <img src="images/hippo-event-flow.png" alt="Hippo Event Flow" />
+        </p>
+        <p>
+          In the first route (either 'Route-HippoEventBus-to-File' or 'Route-HippoEventBus-to-Queue' in this demo project),
+          <a href="component-hippoevent.html"><strong>hippoevent:</strong></a> component receives HippoEventBus event and converts it into a JSONObject.
+          And, the next component (either '<a href="http://camel.apache.org/file2.html"><strong>file:</strong></a>'
+          or '<a href="http://camel.apache.org/activemq.html"><strong>activemq:</strong></a>' component in this demo project)
+          in the route stores the JSON message into either file inbox folder or designated message queue.
+        </p>
+        <p>
+          <img src="images/route1-small.png" alt="The first route" />
+        </p>
+        <p>
+          <em>Note: </em>
+          With the default running mode, the first component simply stores a Hippo Event into
+          a JSON file in 'inbox' file folder.
+          With ActiveMQ running mode, the first stores a Hippo Event into
+          a JSON message in 'hippo' message queue instead.
+        </p>
+
+        <p>
+          In the second route (either 'Route-File-to-REST' or 'REST-Queue-to-REST' in this demo project),
+          a Camel component either polls a file from the inbox folder or receives a message from the designated message queue.
+          And, the next component ('<a href="http://camel.apache.org/http4.html"><strong>http4:</strong></a>' in this demo project) makes an HTTP request to the designated REST service URL
+          in order to either index a document or delete a document in the external search engine.
+        </p>
+        <p>
+          <img src="images/route2-file2-small.png" alt="The second route" />
+        </p>
+        <p>
+          <em>Note: </em>
+          With ActiveMQ running mode, the first component is replaced by 'from:activemq:hippo'
+          in order to receive event messages from a message queue named 'hippo' in this demo project.
+        </p>
+
+        <p>
+          With this approach, you can fulfill the following quality attributes:
+        </p>
+        <ul>
+          <li>
+            <strong>Reliability</strong>:
+            even if the external system becomes unavailable at some moment for some reasons,
+            you don't lose any event message
+            because all the failed messages are stored under either the designated folder or the designated message queue.
+          </li>
+          <li>
+            <strong>Performance</strong>:
+            by separating the process to multiple routes (store first and forward later),
+            you can let the second route poll or receive the message and process asynchronously).
+            This approach minimizes the impact on Hippo CMS/Repository performance.
+          </li>
+          <li>
+            <strong>Modifiability</strong>:
+            all the event processing is basically configured and executed by Apache Camel Context.
+            You can configure any enterprise message integration patterns by leveraging various Apache Camel components.
+            You can focus on your business logic.
+            In this demo project, it is either <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/SolrRestUpdateResource.java" target="_blank">SolrRestUpdateResource</a>
+            or <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/ElasticSearchRestUpdateResource.java" target="_blank">ElasticSearchRestUpdateResource</a>
+            (each of which is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
+            in the second route to update the search engine index data).
+          </li>
+          <li>
+            <strong>Maintainability</strong>:
+            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
+            You can monitor the process, pause, stop and start a route, for instance.
+          </li>
+        </ul>
+
       </subsection>
 
       <subsection name="Build Demo Project">
