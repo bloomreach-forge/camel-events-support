@@ -10,6 +10,7 @@ src/main/resources/META-INF/services/org/apache/camel/TypeConverter -text
 src/main/resources/META-INF/services/org/apache/camel/component/hippoevent -text
 src/main/resources/groovy-camel-context-module.xml -text svneol=unset#text/plain
 src/main/resources/hippoecm-extension.xml -text svneol=unset#text/plain
+src/site/argouml/architecture.zargo -text
 src/site/checkstyle.xml -text svneol=unset#text/plain
 src/site/resources/highlight-source-elements.js -text svneol=unset#text/plain
 src/site/resources/images/activemq-admin.png -text
