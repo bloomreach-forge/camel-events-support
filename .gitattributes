@@ -12,6 +12,11 @@ src/main/resources/groovy-camel-context-module.xml -text svneol=unset#text/plain
 src/main/resources/hippoecm-extension.xml -text svneol=unset#text/plain
 src/site/checkstyle.xml -text svneol=unset#text/plain
 src/site/resources/highlight-source-elements.js -text svneol=unset#text/plain
+src/site/resources/images/file-to-rest.png -text
+src/site/resources/images/hippoevt-to-file.png -text
+src/site/resources/images/hippoevt-to-queue.png -text
+src/site/resources/images/queue-to-rest.png -text
+src/site/resources/images/use_cases_overview1.png -text
 src/site/resources/jquery-1.7.2.min.js -text svneol=unset#text/plain
 src/site/resources/sh/scripts/shAutoloader.js -text svneol=unset#text/plain
 src/site/resources/sh/scripts/shBrushAS3.js -text svneol=unset#text/plain

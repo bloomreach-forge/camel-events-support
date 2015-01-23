@@ -13,22 +13,96 @@
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Running Demo Application</title>
+    <title>About Demo Project for Apache Camel - Hippo Event Bus Support</title>
   </properties>
   <body>
-    <section name="Running Demo Application">
-      <subsection name="Check out demo application">
+
+    <section name="About Demo Project for Apache Camel - Hippo Event Bus Support">
+
+      <subsection name="Overview">
         <p>
-          You can build and run the demo project with Maven Cargo plugin the CMS and site locally in Tomcat.
+          <strong>Apache Camel - Hippo Event Bus Support</strong> component provides proper solutions
+          for the architectural needs where you should update data in the external system
+          on document events (such as publication/depublication) in Hippo CMS system.
         </p>
         <p>
-          Also, the demo project requires you to run <a href="http://activemq.apache.org/" target="_blank">Apache Active MQ</a> locally.
-          So, the demo project will be able to demonstrate how a Hippo document workflow publish/depublish event can be delivered
-          as JSON message to a queue in your Apache ActiveMQ server.
+          The external systems may include the following in practice:
+        </p>
+        <ul>
+          <li>Enterprise Search Engine (which has existed for search needs, integrating various systems)</li>
+          <li>Content Caching Services (which requires proper cache invaliation calls by other systems)</li>
+          <li>and more</li>
+        </ul>
+        <p>
+          The most popular scenario is integrating with the existing Enterprise Search Engine.
+          Hippo CMS is required to update search index data based on document publication/depublication events mostly,
+          as shown in the diagram below.
+        </p>
+        <img src="images/use_cases_overview1.png" alt="Use Cases Overview" />
+        <p>
+          If you implement an event listener registered to <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>,
+          then it should look like almost the same as the diagram shown above.
+          The event listener can probably invoke the external search engine (e.g, through either REST service or direct API call)
+          directly in this approach.
         </p>
         <p>
-          The demo project expects the Apache ActiveMQ server running at the default port, 61616, by default.
-          Please see the "Running ActiveMQ Locally" section for detail.
+          However, this approach could bring the following architectural questions:
+        </p>
+        <ul>
+          <li>
+            <strong>Reliability</strong>:
+            if the external system becomes unavailable at some moment for some reasons,
+            then it may lose the event messages. How can we guarantee all the events processed?
+          </li>
+          <li>
+            <strong>Performance</strong>:
+            if invocations on the external system may take longer than expected at some moment for some reasons,
+            then it may affect the performance (e.g, response time) in the CMS Frontend Application
+            and the user experiences. How can we process the events asynchronously?
+          </li>
+          <li>
+            <strong>Modifiability</strong>:
+            we would like to focus only on our business logic instead of spending time on learning and maintaining
+            <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>
+            event listeners Java code ourselves.
+          </li>
+          <li>
+            <strong>Maintainability</strong>:
+            we would like to monitor the event processing and be able to turn it on/off.
+            If we implement event listener Java code ourselves for the features, then it would increase complexity a lot.
+            How can we achieve that?
+          </li>
+          <li>and more</li>
+        </ul>
+        <p>
+          <strong>Apache Camel - Hippo Event Bus Support</strong> component is now provided to answer all those questions properly.
+        </p>
+        <p>
+          And this demo project shows real simplified solutions for the following scenarios:
+        </p>
+        <ul>
+          <li><a href="demo-solr-integration.html">Scenario 1: Solr Search Engine Integration</a></li>
+          <li><a href="demo-es-integration.html">Scenario 2: ElasticSearch Search Engine Integration</a></li>
+          <li><a href="demo-integration-activemq.html">Scenario 3: Running with ActiveMQ</a></li>
+        </ul>
+        <p>
+          The first scenario demonstrates integration with an Apache Solr search engine (as embedded as war).
+          It is recommended to see this example first because it doesn't require any other software installation and configuration.
+        </p>
+        <p>
+          The second scenario demonstrates the same integration approach as the first scenario, but with ElasticSearch engine
+          instead of Apache Solr search engine.
+        </p>
+        <p>
+          The third scenario demonstrates integration with either Apache Solr or ElasticSearch engine
+          with using ActiveMQ as message queueing solution instead of file-based inbox folder polling.
+        </p>
+      </subsection>
+
+      <subsection name="Build Demo Project">
+        <p>
+          You can build and run the demo project with Maven and
+          run the demo applications locally with Maven Cargo Plugin (Apache Tomcat embedded).
         </p>
         <p>
           You can check out, build and run the demo application like the following:
@@ -42,79 +116,23 @@ $ mvn -P cargo.run
         ]]></source>
         </div>
       </subsection>
-      <subsection name="Running ActiveMQ Locally">
-        <p>
-          Please follow the guide in <a href="http://activemq.apache.org/getting-started.html" target="_blank">http://activemq.apache.org/getting-started.html</a>.
-        </p>
-        <p>
-          Here are simplified steps for simple local testing purpose:
-        </p>
-        <ol>
-          <li>Download the latest ActiveMQ binary from http://activemq.apache.org/download.html.</li>
-          <li>Uncompress the downloaded file to a folder. So you could have ~/apache-activemq-5.9.0/ for instance.</li>
-          <li>Move to ~/apache-activemq-5.9.0/bin/ folder in a command line console.</li>
-          <li>
-            Run the following to start in console mode (You can type Ctrl+C to stop it):
-            <br/>
-            <br/>
-            <code>$ ./activemq console</code>
-            <br/>
-            <br/>
-          </li>
-          <li>
-            You can check/monitor messages in the ActiveMQ Admin Console.
-            Visit http://localhost:8161/admin/ (Login by admin/admin by default).
-          </li>
-        </ol>
-      </subsection>
-      <subsection name="Testing the Demo Application">
-        <ol>
-          <li>
-            If you visit the ActiveMQ Admin Console, then you will be able to navigate/browse all the queues, topics, etc.
-          </li>
-          <li>
-            In CMS UI, try to open a published document and take it offline.
-          </li>
-          <li>
-            Now go back to the ActiveMQ Admin Console, and check if a message in JSON format was delivered in the 'hippo.docflow' queue.
-            You can see the JSON message in detail if you click on the message link.
-          </li>
-          <li>
-            In CMS UI, publish the document again, and check if you get another message in JSON format, showing the document was published.
-          </li>
-        </ol>
-      </subsection>
-      <subsection name="Camel Context Configuration in the demo project">
-        <p>
-          The CamelContext configuration is placed in cms/WEB-INF/applicationContext.xml like the following example
-          which is initiated by <code>org.springframework.web.context.ContextLoaderListener</code> defined in
-          a &lt;listener&gt; element in cms/WEB-INF/web.xml.
-        </p>
-        <div class="brush: xml">
-        <source><![CDATA[
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
-                      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-                      http://camel.apache.org/schema/spring
-                      http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <route>
-      <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish"/>
-      <to uri="activemq:hippo.docflow"/>
-    </route>
-  </camelContext>
-
-  <bean id="activemq"
-       class="org.apache.activemq.camel.component.ActiveMQComponent">
-    <property name="brokerURL" value="tcp://localhost:61616"/>
-  </bean>
-
-</beans>
-        ]]></source>
-        </div>
+      <subsection name="Web Applications in Demo Project">
+        <p>
+          If you run the Demo project, then you will see the following web applications by default:
+        </p>
+        <ul>
+          <li><strong>CMS (/cms)</strong>: Hippo CMS Content Production Web Application</li>
+          <li><strong>SITE (/site)</strong>: Hippo CMS Content Delivery Web Application</li>
+          <li>
+            <strong>Hawtio (/hawtio)</strong>: <a href="http://hawt.io/" target="_blank">Web console for managing
+            your Java stuff (including Camel, Tomcat, JMX, etc)</a>
+          </li>
+          <li><strong>Solr (/solr)</strong>: <a href="http://lucene.apache.org/solr/" target="_blank">Apache Solr</a> Search Engine Web Application</li>
+        </ul>
       </subsection>
+
     </section>
+
   </body>
 </document>

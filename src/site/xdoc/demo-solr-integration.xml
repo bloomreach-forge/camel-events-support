@@ -16,8 +16,178 @@
     <title>Scenario 1: Solr Search Engine Integration</title>
   </properties>
   <body>
+
     <section name="Scenario 1: Solr Search Engine Integration">
-      <p>TODO</p>
+
+      <subsection name="Overview">
+        <p>
+          Two Camel routes are configured.
+          One is to store HippoEventBus event into a file first,
+          and the other is to invoke the specified REST service URL based on the JSON file message.
+        </p>
+
+        <p>
+          With these Camel routes configuration, you can achieve the following:
+        </p>
+        <ul>
+          <li>
+            <strong>Reliability</strong>:
+            even if the external system becomes unavailable at some moment for some reasons,
+            you don't lose any event message because all the failed JSON message files are stored under the folder at least.
+          </li>
+          <li>
+            <strong>Performance</strong>:
+            by separating the process to two routes (store first in the first route, and 
+            let the second route poll and process asynchronously),
+            it doesn't affect Hippo CMS performance.
+          </li>
+          <li>
+            <strong>Modifiability</strong>:
+            all the event processing is basically configured and executed by Apache Camel Context.
+            You can configure any enterprise message integration patterns by leveraging various Apache Camel components.
+            You can focus on your business logic.
+            In this example scenario, it is <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/SolrRestUpdateResource.java" target="_blank">the REST service implemenation</a>
+            (which is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
+            in the 'Route-File-to-Rest' route).
+          </li>
+          <li>
+            <strong>Maintainability</strong>:
+            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
+            You can monitor the process, pause, stop and start a route, for instance.
+          </li>
+        </ul>
+
+        <table>
+          <tr>
+            <th>Route name</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>
+              Route-HippoEventBus-to-File
+            </td>
+            <td>
+              Receives an HippoEventBus event and store it into a file under the inbox folder.
+            </td>
+          </tr>
+        </table>
+        <p>
+          <img src="images/hippoevt-to-file.png" alt="Hippo Event to File" />
+        </p>
+        <table>
+          <tr>
+            <th>Route name</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>
+              Route-File-to-Rest
+            </td>
+            <td>
+              Polls the inbox folder to read a JSON message file and invokes the specified REST service URL.
+            </td>
+          </tr>
+        </table>
+        <p>
+          <img src="images/file-to-rest.png" alt="Hippo Event to File" />
+        </p>
+      </subsection>
+
+      <subsection name="Testing the Demo">
+        <ol>
+          <li>
+            In CMS UI, try to open a published document and take it offline and re-publish the document.
+          </li>
+          <li>
+            Now, try to search the content in the Search Engine frontend UI
+            (either <a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>
+            or <a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>).
+          </li>
+          <li>
+            Retry to take a document offline or publish an unpublished document and see those synchronized in the
+            search engines properly.
+          </li>
+        </ol>
+      </subsection>
+
+      <subsection name="Running the Demo">
+        <p>
+          To test this scenario, execute the following in the project root folder:
+        </p>
+        <div class="brush: bash">
+        <source><![CDATA[
+$ mvn clean package
+$ mvn -P cargo.run
+        ]]></source>
+        </div>
+      </subsection>
+
+      <subsection name="Camel Context Configuration in the demo project">
+        <p>
+          The CamelContext configuration is placed in cms/WEB-INF/camel/routes-with-file.xml like the following example
+          which is initiated by <code>org.springframework.web.context.ContextLoaderListener</code> defined in
+          a &lt;listener&gt; element in cms/WEB-INF/web.xml.
+        </p>
+        <div class="brush: xml">
+        <source><![CDATA[
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+
+    <route id="Route-HippoEventBus-to-File">
+
+      <!-- Subscribe publish/depublish events as JSON from HippoEventBus. -->
+      <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish" />
+
+      <!-- Convert the JSON message to String. -->
+      <convertBodyTo type="java.lang.String" />
+
+      <!-- Store the JSON string to a file in the 'inbox' folder. -->
+      <to uri="file:inbox?autoCreate=true&amp;charset=utf-8" />
+
+    </route>
+
+    <route id="Route-File-to-REST">
+
+      <!-- Subscribe file events from the 'inbox' folder. -->
+      <from uri="file:inbox?autoCreate=true&amp;charset=utf-8&amp;preMove=.processing&amp;delete=true&amp;moveFailed=.error" />
+
+      <!-- Convert the file message to String. -->
+      <convertBodyTo type="java.lang.String" />
+
+      <!-- Convert the JSON string to JSON object. -->
+      <convertBodyTo type="net.sf.json.JSON" />
+
+      <!-- Set HTTP header to 'POST'. -->
+      <setHeader headerName="CamelHttpMethod">
+        <constant>POST</constant>
+      </setHeader>
+
+      <!-- Set HTTP query string based on the workflow event message. -->
+      <choice>
+        <when>
+          <simple>${body[methodName]} == 'publish'</simple>
+          <setHeader headerName="CamelHttpQuery">
+            <simple>action=index&amp;id=${body[subjectId]}</simple>
+          </setHeader>
+        </when>
+        <when>
+          <simple>${body[methodName]} == 'depublish'</simple>
+          <setHeader headerName="CamelHttpQuery">
+            <simple>action=delete&amp;id=${body[subjectId]}</simple>
+          </setHeader>
+        </when>
+      </choice>
+
+      <!-- Invoke the Solr Index synchronization REST service. -->
+      <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
+
+    </route>
+
+  </camelContext>
+          ]]></source>
+        </div>
+      </subsection>
+
     </section>
+
   </body>
 </document>

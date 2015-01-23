@@ -16,8 +16,229 @@
     <title>Scenario 3: Running with ActiveMQ</title>
   </properties>
   <body>
+
     <section name="Scenario 3: Running with ActiveMQ">
-      <p>TODO</p>
+
+      <subsection name="Overview">
+        <p>
+          Two Camel routes are configured.
+          One is to send HippoEventBus event as JSON message to a specified message queue first,
+          and the other is to invoke the specified REST service URL based on the JSON queue message.
+        </p>
+
+        <p>
+          With these Camel routes configuration, you can achieve the following:
+        </p>
+        <ul>
+          <li>
+            <strong>Reliability</strong>:
+            even if the external system becomes unavailable at some moment for some reasons,
+            you don't lose any event message because all the JSON messages are stored in the specified message queue.
+          </li>
+          <li>
+            <strong>Performance</strong>:
+            by separating the process to two routes (store first in the message queue, and 
+            let the second route receive a message from the queue and process asynchronously),
+            it doesn't affect Hippo CMS performance.
+          </li>
+          <li>
+            <strong>Modifiability</strong>:
+            all the event processing is basically configured and executed by Apache Camel Context.
+            You can configure any enterprise message integration patterns by leveraging various Apache Camel components.
+            You can focus on your business logic.
+            In this demo, it is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
+            in the 'Route-Queue-to-Rest' route.
+          </li>
+          <li>
+            <strong>Maintainability</strong>:
+            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
+            You can monitor the process, pause, stop and start a route, for instance.
+          </li>
+        </ul>
+
+        <table>
+          <tr>
+            <th>Route name</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>
+              Route-HippoEventBus-to-Queue
+            </td>
+            <td>
+              Receives an HippoEventBus event and store it into a file under the inbox folder.
+            </td>
+          </tr>
+        </table>
+        <p>
+          <img src="images/hippoevt-to-queue.png" alt="Hippo Event to File" />
+        </p>
+
+        <table>
+          <tr>
+            <th>Route name</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>
+              Route-Queue-to-Rest
+            </td>
+            <td>
+              Polls the inbox folder to read a JSON message file and invokes the specified REST service URL.
+            </td>
+          </tr>
+        </table>
+        <p>
+          <img src="images/queue-to-rest.png" alt="Hippo Event to File" />
+        </p>
+      </subsection>
+
+      <subsection name="Install and Run ActiveMQ locally">
+
+        <p>
+          To test this scenario, it is required to run <a href="http://activemq.apache.org/" target="_blank">Apache Active MQ</a> locally.
+          So, the demo project will be able to demonstrate how a Hippo document workflow publish/depublish event can be delivered
+          as JSON message to a queue in your Apache ActiveMQ server.
+        </p>
+        <p>
+          The demo project expects the Apache ActiveMQ server running at the default port, 61616, by default.
+        </p>
+        <p>
+          To install Apache ActiveMQ, please follow the guide in <a href="http://activemq.apache.org/getting-started.html" target="_blank">http://activemq.apache.org/getting-started.html</a>.
+          But, here are simplified steps for this demo testing purpose only:
+        </p>
+        <ol>
+          <li>
+            Download the latest ActiveMQ binary from 
+            <a href="http://activemq.apache.org/download.html" target="_blank">http://activemq.apache.org/download.html</a>.
+          </li>
+          <li>
+            Extract the downloaded archive file to the project root folder.
+            So, for example, you will have 'apache-activemq-x.x.x' subfolder in the project root folder.
+          </li>
+          <li>
+            Open a new command line console and move to ./apache-activemq-x.x.x/bin/ folder.
+          </li>
+          <li>
+            Run the following to start in console mode (You can type Ctrl+C to stop it):
+            <br/>
+            <br/>
+            <code>$ ./activemq console</code>
+            <br/>
+            <br/>
+          </li>
+          <li>
+            You can check/monitor messages in the ActiveMQ Admin Console.
+            Visit <a href="http://localhost:8161/admin/" target="_blank">http://localhost:8161/admin/</a>
+            (Login by admin/admin by default).
+          </li>
+        </ol>
+      </subsection>
+
+      <subsection name="Running the Demo">
+        <p>
+          To test this scenario, execute the following in the project root folder:
+        </p>
+        <div class="brush: bash">
+        <source><![CDATA[
+$ mvn clean package
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dqueue.mode=activemq"
+        ]]></source>
+        </div>
+        <p>
+          You can also test the scenario with ElasticSearch integration as well:
+        </p>
+        <div class="brush: bash">
+        <source><![CDATA[
+$ mvn clean package
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
+        ]]></source>
+        </div>
+      </subsection>
+
+      <subsection name="Testing the Demo">
+        <ol>
+          <li>
+            In CMS UI, try to open a published document and take it offline and re-publish the document.
+          </li>
+          <li>
+            Now, try to search the content in the Search Engine frontend UI
+            (either <a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>
+            or <a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>).
+          </li>
+          <li>
+            Retry to take a document offline or publish an unpublished document and see those synchronized in the
+            search engines properly.
+          </li>
+        </ol>
+      </subsection>
+
+      <subsection name="Camel Context Configuration in the demo project">
+        <p>
+          The CamelContext configuration is placed in cms/WEB-INF/camel/routes-with-activemq.xml like the following example
+          which is initiated by <code>org.springframework.web.context.ContextLoaderListener</code> defined in
+          a &lt;listener&gt; element in cms/WEB-INF/web.xml.
+        </p>
+        <div class="brush: xml">
+        <source><![CDATA[
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+
+    <route id="Route-HippoEventBus-to-Queue">
+
+      <!-- Subscribe publish/depublish events as JSON from HippoEventBus. -->
+      <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish" />
+
+      <!-- Convert the JSON message to String. -->
+      <convertBodyTo type="java.lang.String" />
+
+      <!-- Send the JSON string message to the queue named 'hippo'. -->
+      <to uri="activemq:queue:hippo" />
+
+    </route>
+
+    <route id="Route-Queue-to-REST">
+
+      <!-- Receive message from the queue named 'hippo'. -->
+      <from uri="activemq:queue:hippo" />
+
+      <!-- Convert the file message to String. -->
+      <convertBodyTo type="java.lang.String" />
+
+      <!-- Convert the JSON string to JSON object. -->
+      <convertBodyTo type="net.sf.json.JSON" />
+
+      <!-- Set HTTP header to 'POST'. -->
+      <setHeader headerName="CamelHttpMethod">
+        <constant>POST</constant>
+      </setHeader>
+
+      <!-- Set HTTP query string based on the workflow event message. -->
+      <choice>
+        <when>
+          <simple>${body[methodName]} == 'publish'</simple>
+          <setHeader headerName="CamelHttpQuery">
+            <simple>action=index&amp;id=${body[subjectId]}</simple>
+          </setHeader>
+        </when>
+        <when>
+          <simple>${body[methodName]} == 'depublish'</simple>
+          <setHeader headerName="CamelHttpQuery">
+            <simple>action=delete&amp;id=${body[subjectId]}</simple>
+          </setHeader>
+        </when>
+      </choice>
+
+      <!-- Invoke the Solr Index synchronization REST service. -->
+      <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
+
+    </route>
+
+  </camelContext>
+        ]]></source>
+        </div>
+      </subsection>
+
     </section>
+
   </body>
 </document>

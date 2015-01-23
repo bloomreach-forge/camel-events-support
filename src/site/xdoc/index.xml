@@ -26,6 +26,10 @@
           The <strong><a href="component-hippoevent.html">hippoevent:</a></strong> component is used for subscribing
           <code>HippoEvent</code> through <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>.
         </p>
+        <p>
+          The demo project contains many useful example scenarios, solutions and other information.
+          Please see <a href="aboutdemo.html">About Demo Project</a> for detail.
+        </p>
       </subsection>
     </section>
     <section name="Project status">
