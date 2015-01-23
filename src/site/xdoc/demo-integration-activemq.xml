@@ -124,20 +124,29 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
       </subsection>
 
       <subsection name="Testing the Demo">
-        <ol>
-          <li>
-            In CMS UI, try to open a published document and take it offline and re-publish the document.
-          </li>
-          <li>
-            Now, try to search the content in the Search Engine frontend UI
-            (either <a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>
-            or <a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>).
-          </li>
-          <li>
-            Retry to take a document offline or publish an unpublished document and see those synchronized in the
-            search engines properly.
-          </li>
-        </ol>
+        <p>
+          In CMS UI, try to open a published document and take it offline and re-publish the document.
+        </p>
+        <p>
+          <img src="images/cms-publish.png" alt="Publishsing a document in CMS" />
+        </p>
+        <p>
+          Now, try to search the content in the Search Engine frontend UI
+          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+        </p>
+        <p>
+          <img src="images/solr-search.png" alt="Querying in Search Engine Frontend" />
+        </p>
+        <p>
+          Retry to take a document offline or publish an unpublished document and see those synchronized in the
+          search engines properly.
+        </p>
+        <p>
+          You can also monitor how ActiveMQ is doing at <a href="http://localhost:8161/admin/" target="_blank">http://localhost:8161/admin/</a>.
+        </p>
+        <p>
+          <img src="images/activemq-admin.png" alt="Querying in Search Engine Frontend" />
+        </p>
       </subsection>
 
       <subsection name="Camel Context Configuration in the demo project">

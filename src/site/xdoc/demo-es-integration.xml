@@ -59,6 +59,65 @@
         </p>
       </subsection>
 
+      <subsection name="Install and Run ElasticSearch locally">
+
+        <p>
+          To test this scenario, it is required to run <a href="http://www.elasticsearch.org/" target="_blank">ElasticSearch</a> locally.
+        </p>
+        <p>
+          The demo project expects the ElasticSearch running at port 9200 and 9300 by default.
+        </p>
+        <p>
+          To install ElasticSearch, you can follow the following simplified steps for testing purpose only.
+        </p>
+        <ol>
+          <li>
+            Download the latest version of ElasticSearch at 
+            <a href="http://www.elasticsearch.org/download/" target="_blank">http://www.elasticsearch.org/download/</a>.
+          </li>
+          <li>
+            Extract the archive file into the project root folder.
+            So, for example, you will have 'elasticsearch-x.x.x' subfolder in the project root folder.
+          </li>
+          <li>
+            (Optional) For your convenience, you can install an ElasticSearch frontend plugin like the following example:
+            <ul>
+              <li>
+                Move to the ElasticSearch home directory:
+                <br/>
+                <br/>
+                <code>$ cd ./elasticsearch-*/</code>
+                <br/>
+                <br/>
+              </li>
+              <li>
+                Run the following to install <a href="https://github.com/mobz/elasticsearch-head"><strong>elasticsearch-head</strong></a>,
+                a web front end for an Elasticsearch cluster.
+                <br/>
+                <br/>
+                <code>$ sudo bin/plugin -install mobz/elasticsearch-head</code>
+                <br/>
+                <br/>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Start ElasticSearch (You can type Ctrl+C to stop it):
+            <br/>
+            <br/>
+            <code>$ cd ./elasticsearch-*/bin</code>
+            <br/>
+            <code>$ ./elasticsearch</code>
+            <br/>
+            <br/>
+          </li>
+          <li>
+            If you installed <a href="https://github.com/mobz/elasticsearch-head"><strong>elasticsearch-head</strong></a>,
+            then just visit <a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>.
+          </li>
+        </ol>
+      </subsection>
+
       <subsection name="Running the Demo">
         <p>
           To test this scenario, execute the following in the project root folder:
@@ -72,19 +131,23 @@ $ mvn -Pcargo.run -Dcargo.jvm.args="-Dsearch.engine=es"
       </subsection>
 
       <subsection name="Testing the Demo">
-        <ol>
-          <li>
-            In CMS UI, try to open a published document and take it offline and re-publish the document.
-          </li>
-          <li>
-            Now, try to search the content in the Search Engine frontend UI
-            (e.g, <a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>).
-          </li>
-          <li>
-            Retry to take a document offline or publish an unpublished document and see those synchronized in the
-            search engines properly.
-          </li>
-        </ol>
+        <p>
+          In CMS UI, try to open a published document and take it offline and re-publish the document.
+        </p>
+        <p>
+          <img src="images/cms-publish.png" alt="Publishsing a document in CMS" />
+        </p>
+        <p>
+          Now, try to search the content in the Search Engine frontend UI
+          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+        </p>
+        <p>
+          <img src="images/es-search.png" alt="Querying in Search Engine Frontend" />
+        </p>
+        <p>
+          Retry to take a document offline or publish an unpublished document and see those synchronized in the
+          search engines properly.
+        </p>
       </subsection>
 
       <subsection name="Camel Context Configuration in the demo project">
