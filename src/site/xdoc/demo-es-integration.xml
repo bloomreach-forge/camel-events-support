@@ -13,11 +13,11 @@
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Scenario 2: ElasticSearch Search Engine Integration</title>
+    <title>Demo 2: ElasticSearch Search Engine Integration</title>
   </properties>
   <body>
 
-    <section name="Scenario 2: ElasticSearch Search Engine Integration">
+    <section name="Demo 2: ElasticSearch Search Engine Integration">
 
       <subsection name="Overview">
         <p>

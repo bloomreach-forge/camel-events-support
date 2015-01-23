@@ -50,29 +50,30 @@
         </p>
         <ul>
           <li>
-            <strong>Reliability</strong>:
-            if the external system becomes unavailable at some moment for some reasons,
+            If the external system becomes unavailable at some moment for some reasons,
             then it may lose the event messages. How can we guarantee all the events processed?
+            <strong>Reliability</strong> matters.
           </li>
           <li>
-            <strong>Performance</strong>:
-            if invocations on the external system may take longer than expected at some moment for some reasons,
-            then it may affect the performance (e.g, response time) in the CMS Frontend Application
-            and the user experiences. How can we process the events asynchronously?
+            If invocations on the external search engine may take longer than expected at some moment
+            for some reasons, then it may affect the performance (e.g, response time) 
+            in the CMS Frontend Application and the user experiences.
+            How can we avoid this? <strong>Performance</strong> matters.
           </li>
           <li>
-            <strong>Modifiability</strong>:
-            we would like to focus only on our business logic instead of spending time on learning and maintaining
-            <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>
-            event listeners Java code ourselves.
-            Also, we would like to change the event processing steps much faster in the future
-            (e.g, get the job done within less than 2 hours to add e-mail notification task in the event processing).
+            We would like to focus only on our business logic instead of spending time on 
+            learning and maintaining <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>
+            event listeners implementation in  Java ourselves.
+            Also, we might want to be able to change the event processing 
+            steps much faster in the future (e.g, get the job done within less than 2 hours 
+            to add e-mail notification task in the event processing steps).
+            <strong>Modifiability</strong> matters.
           </li>
           <li>
-            <strong>Maintainability</strong>:
-            we would like to monitor the event processing and be able to turn it on/off.
-            If we implement event listener Java code ourselves for the features, then it would increase complexity a lot.
-            How can we achieve that?
+            We would like to monitor the event processing and be able to manage it 
+            (e.g, turning it on/off). If we implement event listener Java code ourselves 
+            for the features, then it would increase complexity a lot. 
+            How can we achieve that? <strong>Maintainability</strong> matters.
           </li>
           <li>and more</li>
         </ul>
