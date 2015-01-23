@@ -100,8 +100,7 @@
           </li>
           <li>
             Now, try to search the content in the Search Engine frontend UI
-            (either <a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>
-            or <a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>).
+            (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
           </li>
           <li>
             Retry to take a document offline or publish an unpublished document and see those synchronized in the
