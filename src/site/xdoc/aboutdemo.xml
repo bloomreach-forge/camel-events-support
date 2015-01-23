@@ -70,6 +70,8 @@
             <strong>Maintainability</strong>:
             we would like to monitor the event processing and be able to turn it on/off.
             If we implement event listener Java code ourselves for the features, then it would increase complexity a lot.
+            Also, we would like to change the event processing much faster in the future
+            (e.g, get the job done within less than 2 hours to add e-mail notification task in the event processing).
             How can we achieve that?
           </li>
           <li>and more</li>
