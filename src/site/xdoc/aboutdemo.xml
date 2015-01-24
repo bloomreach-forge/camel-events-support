@@ -73,7 +73,7 @@
             We would like to monitor the event processing and be able to manage it 
             (e.g, turning it on/off). If we implement event listener Java code ourselves 
             for the features, then it would increase complexity a lot. 
-            How can we achieve that? <strong>Maintainability</strong> matters.
+            How can we achieve that? <strong>Manageability</strong> matters.
           </li>
           <li>and more</li>
         </ul>
@@ -191,7 +191,7 @@
             in the second route to update the search engine index data).
           </li>
           <li>
-            <strong>Maintainability</strong>:
+            <strong>Manageability</strong>:
             you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
             You can monitor the process, pause, stop and start a route, for instance.
           </li>
