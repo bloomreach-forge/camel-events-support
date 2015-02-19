@@ -56,6 +56,11 @@
       <item name="Demo 3: Running with ActiveMQ" href="demo-integration-activemq.html" />
     </menu>
 
+    <menu name="Presentations and Blogs">
+      <item name="Integrating Hippo CMS with elasticsearch Engine"
+            href="http://www.onehippo.org/labs/integrating-hippo-cms-with-elastic-search-engine.html" />
+    </menu>
+
     <menu ref="reports" />
 
   </body>
