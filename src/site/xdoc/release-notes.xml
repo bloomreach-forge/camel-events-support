@@ -37,6 +37,12 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.2.3">
+        <ul>
+          <li>Upgrade Camel dependency to 2.14.2</li>
+          <li>Add Camel::Mail example</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.2">
         <ul>
           <li>Camel TypeConverter added for net.sf.json.JSONObject</li>
