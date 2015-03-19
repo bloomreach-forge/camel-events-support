@@ -24,11 +24,15 @@ import org.hippoecm.repository.standardworkflow.FolderWorkflowEvent;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.event.HippoSecurityEvent;
 import org.onehippo.repository.events.HippoWorkflowEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
  */
 public final class HippoEventConverter {
+
+    private static Logger log = LoggerFactory.getLogger(HippoEventConverter.class);
 
     private HippoEventConverter() {
     }
@@ -79,6 +83,12 @@ public final class HippoEventConverter {
                 eventJson.put("subjectPath", wfEvent.subjectPath());
                 eventJson.put("workflowCategory", wfEvent.workflowCategory());
                 eventJson.put("workflowName", wfEvent.workflowName());
+
+                try {
+                    eventJson.put("documentType", wfEvent.documentType());
+                } catch (Throwable th) {
+                    log.warn("HippoWorkflowEvent#documentType() is not supported in the current module.");
+                }
 
                 // Add deprecated properties as well for now.
                 eventJson.put("documentPath", wfEvent.documentPath());

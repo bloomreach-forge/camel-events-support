@@ -215,6 +215,7 @@ hippoevent:
     "subjectPath" : "...",                     // See HippoWorkflowEvent#subjectPath()
     "workflowCategory" : "...",                // See HippoWorkflowEvent#workflowCategory()
     "workflowName" : "...",                    // See HippoWorkflowEvent#workflowName()
+    "documentType" : "ns1:news",               // See HippoWorkflowEvent#documentType()
     "documentPath" : "...",                    // See HippoWorkflowEvent#documentPath()
     "handleUuid" : "...",                      // See HippoWorkflowEvent#handleUuid()
 
@@ -234,12 +235,12 @@ hippoevent:
       <p>
         The following code will register a local EventListener in Hippo Event Bus.
         And it will consume <code>HippoEvent</code> only when the 'category' property value is 'workflow'
-        and the 'methodName' property value is either 'publish' or 'depublish'.
+        and the 'action' property value is either 'publish' or 'depublish'.
       </p>
       <div class="brush: xml">
       <source><![CDATA[
 <route>
-  <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish" />
+  <from uri="hippoevent:?category=workflow&amp;action=publish,depublish" />
   <to uri="direct:execute-reaction" />
 </route>
         ]]></source>
@@ -247,12 +248,12 @@ hippoevent:
       <p>
         The following code will register a persisted EventListener in Hippo Event Bus.
         And it will consume <code>HippoEvent</code> only when the 'category' property value is 'workflow'
-        and the 'methodName' property value is either 'publish' or 'depublish'.
+        and the 'action' property value is either 'publish' or 'depublish'.
       </p>
       <div class="brush: xml">
       <source><![CDATA[
 <route>
-  <from uri="hippoevent:?_persisted=true&amp;_channelName=mylistener&amp;category=workflow" />
+  <from uri="hippoevent:?_persisted=true&amp;_channelName=mylistener&amp;category=workflow&amp;action=publish,depublish" />
   <to uri="direct:execute-reaction" />
 </route>
         ]]></source>

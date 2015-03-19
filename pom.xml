@@ -32,7 +32,7 @@
     <javax.jcr.version>2.0</javax.jcr.version>
     <hippo.services.version>1.04.02</hippo.services.version>
     <hippo.services.eventbus.version>1.04.02</hippo.services.eventbus.version>
-    <hippo.repository.version>2.26.08</hippo.repository.version>
+    <hippo.repository.version>2.26.10</hippo.repository.version>
 
     <camel.version>2.14.2</camel.version>
     <json-lib.version>2.4</json-lib.version>

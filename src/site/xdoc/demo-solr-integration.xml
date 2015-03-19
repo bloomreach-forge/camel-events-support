@@ -113,7 +113,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
     <route id="Route-HippoEventBus-to-File">
 
       <!-- Subscribe publish/depublish events as JSON from HippoEventBus. -->
-      <from uri="hippoevent:?category=workflow&amp;methodName=publish,depublish" />
+      <from uri="hippoevent:?category=workflow&amp;action=publish,depublish" />
 
       <!-- Convert the JSON message to String. -->
       <convertBodyTo type="java.lang.String" />
@@ -142,13 +142,13 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
       <!-- Set HTTP query string based on the workflow event message. -->
       <choice>
         <when>
-          <simple>${body[methodName]} == 'publish'</simple>
+          <simple>${body[action]} == 'publish'</simple>
           <setHeader headerName="CamelHttpQuery">
             <simple>action=index&amp;id=${body[subjectId]}</simple>
           </setHeader>
         </when>
         <when>
-          <simple>${body[methodName]} == 'depublish'</simple>
+          <simple>${body[action]} == 'depublish'</simple>
           <setHeader headerName="CamelHttpQuery">
             <simple>action=delete&amp;id=${body[subjectId]}</simple>
           </setHeader>
