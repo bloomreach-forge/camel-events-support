@@ -37,6 +37,12 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.2.4">
+        <ul>
+          <li>Support 'documentType' property in json event data (from HippoWorkflowEvent#documentType())</li>
+          <li>Use 'action' instead of 'methodName' (deprecated) in demo project</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.3">
         <ul>
           <li>Upgrade Camel dependency to 2.14.2</li>
