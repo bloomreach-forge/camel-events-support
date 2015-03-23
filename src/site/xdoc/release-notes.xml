@@ -37,6 +37,12 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.2.5">
+        <ul>
+          <li>Support <code>CamelContextUtils</code> utility class to allow applications to be able to invoke Camel endpoint URI easily.</li>
+          <li>Support default Camel Repository Scheduler Job component.</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.4">
         <ul>
           <li>Support 'documentType' property in json event data (from HippoWorkflowEvent#documentType())</li>

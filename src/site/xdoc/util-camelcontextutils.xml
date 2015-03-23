@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and
+    limitations under the License.
+  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Camel Context Utility</title>
+  </properties>
+  <body>
+
+    <section name="Camel Context Utility">
+      <p>
+        <a href="apidocs/org/onehippo/forge/camel/util/CamelContextUtils.html">org.onehippo.forge.camel.util.CamelContextUtils</a>
+        provides a way to invoke operations on a <code>CamelContext</code> in a transparent way.
+      </p>
+      <p>
+        <code>CamelContextUtils</code> doesn't depend on any other libraries except of JMX and Apache Camel Core libraries,
+        so the utility class can be used almost anywhere to invoke an operation on a <code>CamelContext</code>.
+      </p>
+      <p>
+        For example, when you implement a custom workflow or custom scheduler component, you can use this utility class
+        to dispatch the event handling to a Camel endpoint URI.
+      </p>
+      <p>
+        For an implementation example, please see the default Camel Repository Scheduler Job implementation:
+        <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java">http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java</a>.
+      </p>
+    </section>
+
+  </body>
+</document>

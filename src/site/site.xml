@@ -11,12 +11,12 @@
     License for the specific language governing permissions and
     limitations under the License.
   -->
-<project name="Apache Camel - Hippo Event Bus Support Documentation">
+<project name="Apache Camel - Hippo Events Support Documentation">
 
   <publishDate format="d MMMM yyyy" />
 
   <bannerLeft>
-    <name>Apache Camel - Hippo Event Bus Support Documentation</name>
+    <name>Apache Camel - Hippo Events Support Documentation</name>
   </bannerLeft>
 
   <body>
@@ -47,6 +47,8 @@
 
     <menu name="Usage">
       <item name="Hippo Event Component" href="component-hippoevent.html" />
+      <item name="Hippo Repository Scheduler Job Component" href="component-reposchedjob.html" />
+      <item name="Utils: CamelContextUtils" href="util-camelcontextutils.html" />
     </menu>
 
     <menu name="Demo">

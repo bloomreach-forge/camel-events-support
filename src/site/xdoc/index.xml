@@ -13,18 +13,26 @@
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Introduction</title>
+    <title>Apache Camel - Hippo Events Support</title>
   </properties>
   <body>
     <section name="Introduction">
-      <subsection name="What is Apache Camel - Hippo Event Bus Support?">
+      <subsection name="What is Apache Camel - Hippo Events Support?">
         <p>
-          <strong>Apache Camel - Hippo Event Bus Support</strong>
-          provides <strong><a href="component-hippoevent.html">hippoevent:</a></strong> Apache Camel component.
+          <strong>Apache Camel - Hippo Events Support</strong>
+          provides <strong><a href="component-hippoevent.html">hippoevent:</a></strong> Apache Camel component,
+          <a href="component-reposchedjob.html">Camel Repository Scheduler Job</a> component which can invoke a Camel Endpoint URI,
+          and utility classes to help integration between Hippo CMS/Repository and Apache Camel.
         </p>
         <p>
           The <strong><a href="component-hippoevent.html">hippoevent:</a></strong> component is used for subscribing
           <code>HippoEvent</code> through <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>.
+        </p>
+        <p>
+          The <strong><a href="component-reposchedjob.html">Camel Repository Scheduler Job</a></strong> component can be configured
+          for a scheduled task and it can invoke a Camel Endpoint URI based on configuration.
+          This makes it easier to create a scheduler task based on
+          <a href="http://www.onehippo.org/library/concepts/hippo-services/repository-scheduler.html" target="_blank">Hippo Repository Scheduler</a>.
         </p>
         <p>
           The demo project contains many useful example scenarios, solutions and other information.

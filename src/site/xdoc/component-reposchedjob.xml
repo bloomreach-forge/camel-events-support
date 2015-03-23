@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and
+    limitations under the License.
+  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Camel Repository Scheduler Job Component</title>
+  </properties>
+  <body>
+
+    <section name="Camel Repository Scheduler Job Component">
+      <p>
+        A default Repository Scheduler Job implementation is provided by
+        <a href="apidocs/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.html">org.onehippo.forge.camel.scheduling.DefaultCamelRepositoryJob</a>.
+        This implementation makes it easier to create a <a href="http://www.onehippo.org/library/concepts/hippo-services/repository-scheduler.html" target="_blank">Hippo Repository Scheduler</a> based task.
+      </p>
+      <p>
+        This job implementation simply reads the following attributes from <code>org.onehippo.repository.scheduling.RepositoryJobExecutionContext</code>,
+        find a <code>CamelContext</code> and invokes <code>#sendBody(String endpointUri, Object body);</code>.
+      </p>
+      <p>
+        The <code>CamelContext</code> is determined by the <code>camel.context.id</code> attribute value.
+        If, however, the attribute value is blank, then the first found <code>CamelContext</code> is used by default.
+        The <code>endpointUri</code> is determined by the <code>camel.endpoint.uri</code> attribute value, and
+        the <code>body</code> is set to the <code>org.onehippo.repository.scheduling.RepositoryJobExecutionContext</code> instance.
+      </p>
+      <p>
+        If you want to configure a Camel Repository Scheduler Job Component to invoke an endpoint URI like 'direct:processCamelRepositoryJob' for instance,
+        then you can configure the following repository job in the repository
+        (in the following example, it is assumed that you configure this job under a new job group named 'camel-demo'):
+      </p>
+      <div class="brush: xml">
+      <source><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="camel-demo" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>hipposched:jobgroup</sv:value>
+  </sv:property>
+  <sv:node sv:name="ExampleSimpleCamelJob">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hipposched:repositoryjob</sv:value>
+    </sv:property>
+    <sv:property sv:multiple="true" sv:name="hipposched:attributeNames" sv:type="String">
+      <sv:value>camel.endpoint.uri</sv:value>
+      <sv:value>camel.context.id</sv:value>
+    </sv:property>
+    <sv:property sv:multiple="true" sv:name="hipposched:attributeValues" sv:type="String">
+      <sv:value>direct:processCamelRepositoryJob</sv:value>
+      <sv:value/>
+    </sv:property>
+    <sv:property sv:name="hipposched:repositoryJobClass" sv:type="String">
+      <sv:value>org.onehippo.forge.camel.scheduling.DefaultCamelRepositoryJob</sv:value>
+    </sv:property>
+    <sv:node sv:name="hipposched:triggers">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>hipposched:triggers</sv:value>
+      </sv:property>
+      <sv:node sv:name="ExampleSimpleCamelJobTrigger">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>hipposched:crontrigger</sv:value>
+        </sv:property>
+        <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
+          <sv:value>mix:lockable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>48f45526-542c-482b-b17e-b20bdc210ca6</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposched:cronExpression" sv:type="String">
+          <sv:value>0 * * * * ?</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposched:nextFireTime" sv:type="Date">
+          <sv:value>2015-03-23T15:35:00.000-04:00</sv:value>
+        </sv:property>
+      </sv:node>
+    </sv:node>
+  </sv:node>
+</sv:node>
+      ]]></source>
+      </div>
+      <p>
+        And, you will need to include the file in hippoecm-extension.xml like the following example
+        (assuming the above XML is contained in configuration/modules/camel-demo-scheduler-jobs.xml):
+      </p>
+      <div class="brush: xml">
+      <source><![CDATA[
+  <sv:node sv:name="myhippoproject-camel-demo-scheduler-jobs">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>configuration/modules/camel-demo-scheduler-jobs.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>30060</sv:value>
+    </sv:property>
+  </sv:node>
+      ]]></source>
+      </div>
+    </section>
+
+  </body>
+</document>
