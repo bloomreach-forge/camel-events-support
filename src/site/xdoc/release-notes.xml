@@ -37,6 +37,12 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.2.6">
+        <ul>
+          <li>Serialize extra attributes of HippoEvent to JSONObject.</li>
+          <li>Support Camel Converter for org.onehippo.repository.scheduling.RepositoryJobExecutionContext.</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.5">
         <ul>
           <li>Support <code>CamelContextUtils</code> utility class to allow applications to be able to invoke Camel endpoint URI easily.</li>

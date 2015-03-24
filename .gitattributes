@@ -5,6 +5,7 @@ src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventConsumer.java -
 src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventConverter.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventEndpoint.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/component/hippo/HippoEventMessage.java -text svneol=unset#text/plain
+src/main/java/org/onehippo/forge/camel/converter/hippo/RepositoryJobExecutionContextConverter.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/converter/json/JSONConverter.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java -text svneol=unset#text/plain
 src/main/java/org/onehippo/forge/camel/util/CamelContextUtils.java -text svneol=unset#text/plain
@@ -85,4 +86,5 @@ src/site/xdoc/index.xml -text svneol=unset#text/plain
 src/site/xdoc/release-notes.xml -text svneol=unset#text/plain
 src/site/xdoc/util-camelcontextutils.xml -text svneol=unset#text/plain
 src/test/java/org/onehippo/forge/camel/component/hippo/HippoEventConsumerTest.java -text svneol=unset#text/plain
+src/test/java/org/onehippo/forge/camel/component/hippo/HippoEventConverterTest.java -text svneol=unset#text/plain
 src/test/resources/log4j.xml -text svneol=unset#text/plain

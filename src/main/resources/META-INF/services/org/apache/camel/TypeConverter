@@ -1,2 +1,3 @@
 
 org.onehippo.forge.camel.converter.json.JSONConverter
+org.onehippo.forge.camel.converter.hippo.RepositoryJobExecutionContextConverter

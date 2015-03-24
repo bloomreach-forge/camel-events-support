@@ -16,6 +16,7 @@
 package org.onehippo.forge.camel.component.hippo;
 
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -97,6 +98,24 @@ public final class HippoEventConverter {
                 if (wfEvent instanceof FolderWorkflowEvent) {
                     FolderWorkflowEvent fwfEvent = (FolderWorkflowEvent) wfEvent;
                     eventJson.put("type", fwfEvent.type().toString());
+                }
+            }
+
+            final Map<String, Object> attributes = event.getValues();
+            String key;
+            Object value;
+
+            for (Map.Entry<String, Object> entry : attributes.entrySet()) {
+                key = entry.getKey();
+
+                if (!eventJson.has(key)) {
+                    value = entry.getValue();
+
+                    if (value == null) {
+                        eventJson.put(key, value);
+                    } else {
+                        eventJson.put(key, value.toString());
+                    }
                 }
             }
         }
