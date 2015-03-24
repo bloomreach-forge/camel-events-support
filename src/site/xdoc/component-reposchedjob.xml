@@ -108,6 +108,27 @@
   </sv:node>
       ]]></source>
       </div>
+      <p>
+        So, if the Camel route is defined like the following example,
+        then whenever the scheduler job is invoked, it will simple leave a log with the body object:
+      </p>
+      <div class="brush: xml">
+      <source><![CDATA[
+  <camelContext id="myCamelContext" xmlns="http://camel.apache.org/schema/spring">
+
+    <!-- SNIP -->
+
+    <route>
+      <from uri="direct:processCamelRepositoryJob" />
+      <!-- Leave log. -->
+      <to uri="log:org.onehippo.forge.camel.demo?level=INFO"/>
+    </route>
+
+    <!-- SNIP -->
+
+  </camelContext>
+      ]]></source>
+      </div>
     </section>
 
   </body>
