@@ -30,6 +30,11 @@
           </th>
         </tr>
         <tr>
+          <td>0.3.xx</td>
+          <td>2.x.x</td>
+          <td>10</td>
+        </tr>
+        <tr>
           <td>0.2.xx</td>
           <td>2.x.x</td>
           <td>7.8, 7.9</td>
@@ -37,6 +42,12 @@
       </table>
     </section>
     <section name="Release Notes">
+      <subsection name="0.3.0">
+        <ul>
+          <li>Coming soon</li>
+          <li>Dependency Updates to comply with Hippo CMS 10</li>
+        </ul>
+      </subsection>
       <subsection name="0.2.6">
         <ul>
           <li>Serialize extra attributes of HippoEvent to JSONObject.</li>
