@@ -21,7 +21,7 @@
   <description>Camel Hippo Event Bus Support</description>
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>0.2.7-SNAPSHOT</version>
+  <version>0.3.0-SNAPSHOT</version>
   <url>http://camel-hippoevt.forge.onehippo.org/</url>
 
   <properties>
