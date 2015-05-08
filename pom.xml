@@ -88,9 +88,9 @@
   </developers>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk</developerConnection>
-    <url>https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/branches/camel-hippoevt-0.2.x</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/branches/camel-hippoevt-0.2.x</developerConnection>
+    <url>https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/branches/camel-hippoevt-0.2.x</url>
   </scm>
 
   <issueManagement>
@@ -99,7 +99,7 @@
 
   <ciManagement>
     <system>Hudson</system>
-    <url>http://hudson.onehippo.org/job/Hippo%20Forge%20Camel%20-%20Hippo%20Event%20Bus%20Support%20Trunk/</url>
+    <url>http://hudson.onehippo.org/job/Hippo%20Forge%20Camel%20-%20Hippo%20Event%20Bus%20Support%20Branches%20camel-hippoevt-0.2.x</url>
   </ciManagement>
 
   <distributionManagement>
