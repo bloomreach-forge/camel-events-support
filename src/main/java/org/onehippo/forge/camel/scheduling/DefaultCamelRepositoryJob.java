@@ -28,11 +28,11 @@ import org.slf4j.LoggerFactory;
  * Default {@link RepositoryJob} implementation invoking Camel endpoint.
  * <P>
  * This default {@link RepositoryJob} implementation reads attributes like the following from {@link RepositoryJobExecutionContext}:
+ * </P>
  * <ul>
  * <li><code>camel.endpoint.uri</code>: Camel Endpoint URI to invoke. This is required.</li>
  * <li><code>camel.context.id</code>: Camel Context ID. If not provided, it retrieves the first one found.</li>
  * </ul>
- * </P>
  */
 public class DefaultCamelRepositoryJob implements RepositoryJob {
 
