@@ -95,7 +95,7 @@
                 a web front end for an Elasticsearch cluster.
                 <br/>
                 <br/>
-                <code>$ sudo bin/plugin -install mobz/elasticsearch-head</code>
+                <code>$ sudo bin/plugin install mobz/elasticsearch-head</code>
                 <br/>
                 <br/>
               </li>
@@ -139,7 +139,7 @@ $ mvn -Pcargo.run -Dcargo.jvm.args="-Dsearch.engine=es"
         </p>
         <p>
           Now, try to search the content in the Search Engine frontend UI
-          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+          (<a href="http://localhost:9200/_plugin/head/" target="_blank">http://localhost:9200/_plugin/head/</a>).
         </p>
         <p>
           <img src="images/es-search.png" alt="Querying in Search Engine Frontend" />

@@ -44,8 +44,7 @@
     <section name="Release Notes">
       <subsection name="1.1.0">
         <ul>
-          <li>Coming soon</li>
-          <li>Dependency Updates to comply with Hippo CMS 10</li>
+          <li>Compliant with Hippo CMS 10.0 and 10.1</li>
         </ul>
       </subsection>
       <subsection name="0.2.6">
