@@ -30,9 +30,9 @@
           </th>
         </tr>
         <tr>
-          <td>0.3.xx</td>
+          <td>1.1.x</td>
           <td>2.x.x</td>
-          <td>10</td>
+          <td>10.0, 10.1</td>
         </tr>
         <tr>
           <td>0.2.xx</td>
@@ -42,7 +42,7 @@
       </table>
     </section>
     <section name="Release Notes">
-      <subsection name="0.3.0">
+      <subsection name="1.1.0">
         <ul>
           <li>Coming soon</li>
           <li>Dependency Updates to comply with Hippo CMS 10</li>
