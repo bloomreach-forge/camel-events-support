@@ -27,14 +27,14 @@
   <properties>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.javaVersion>1.6</project.build.javaVersion>
+    <project.build.javaVersion>1.7</project.build.javaVersion>
 
     <javax.jcr.version>2.0</javax.jcr.version>
-    <hippo.services.version>1.05.00</hippo.services.version>
-    <hippo.services.eventbus.version>1.05.00</hippo.services.eventbus.version>
-    <hippo.repository.version>2.28.00</hippo.repository.version>
+    <hippo.services.version>2.1.0</hippo.services.version>
+    <hippo.services.eventbus.version>2.1.0</hippo.services.eventbus.version>
+    <hippo.repository.version>3.1.0</hippo.repository.version>
 
-    <camel.version>2.14.2</camel.version>
+    <camel.version>2.15.4</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
     <lib.junit.version>4.8.2</lib.junit.version>

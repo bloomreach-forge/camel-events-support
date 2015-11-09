@@ -15,8 +15,6 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
-import net.sf.json.JSONObject;
-
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
@@ -28,6 +26,8 @@ import org.onehippo.cms7.services.eventbus.GuavaHippoEventBus;
 import org.onehippo.cms7.services.eventbus.HippoEventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.json.JSONObject;
 
 /**
  * 
@@ -108,6 +108,10 @@ public class HippoEventConsumerTest extends CamelTestSupport {
 
         private Exchange exchange;
         private int receiveTrialTimes;
+
+        public HippoEventConsumerThread() {
+            super();
+        }
 
         public void run() {
             while (exchange == null) {
