@@ -37,21 +37,15 @@
         <p>
           Check out the trunk source code from the SVN repository:
         </p>
-        <div class="brush: bash">
         <source>$ svn co https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk camel-hippoevt</source>
-        </div>
         <p>
           Build the project using Maven:
         </p>
-        <div class="brush: bash">
         <source>$ mvn install</source>
-        </div>
         <p>
           Build all the reports and the site (requires Maven 3):
         </p>
-        <div class="brush: bash">
         <source>$ mvn site</source>
-        </div>
       </subsection>
     </section>
   </body>
