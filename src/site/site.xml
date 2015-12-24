@@ -13,7 +13,7 @@
   -->
 <project name="Apache Camel - Hippo Events Support Documentation">
 
-  <publishDate format="d MMMM yyyy" />
+  <publishDate format="MMMM d, yyyy" />
 
   <bannerLeft>
     <name>Apache Camel - Hippo Events Support Documentation</name>
@@ -38,6 +38,12 @@
       <script type="text/javascript" src="highlight-source-elements.js"></script>
       <!-- Automatic SyntaxHighlighter invocation script for <source/> elements Ends -->
     </head>
+
+    <links>
+      <item name="Apache Camel" href="http://camel.apache.org/"/>
+      <item name="onehippo.org" href="http://www.onehippo.org/"/>
+      <item name="onehippo.com" href="http://www.onehippo.com/" />
+    </links>
 
     <menu name="Home">
       <item name="Home" href="index.html" />
