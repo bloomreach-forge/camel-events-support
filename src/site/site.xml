@@ -13,12 +13,6 @@
   -->
 <project name="Apache Camel - Hippo Events Support Documentation">
 
-  <skin>
-    <groupId>org.onehippo.forge.mavenskin</groupId>
-    <artifactId>forge-maven-skin</artifactId>
-    <version>1.02.02</version>
-  </skin>
-
   <publishDate format="d MMMM yyyy" />
 
   <bannerLeft>
@@ -26,6 +20,24 @@
   </bannerLeft>
 
   <body>
+
+    <head>
+      <!-- SyntaxHighlighter Begins -->
+      <script type="text/javascript" src="sh/scripts/shCore.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushBash.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushDiff.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushJava.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushJScript.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushPlain.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushSql.js"></script>
+      <script type="text/javascript" src="sh/scripts/shBrushXml.js"></script>
+      <link type="text/css" rel="stylesheet" href="sh/styles/shCoreDefault.css" />
+      <!-- SyntaxHighlighter Ends -->
+      <!-- Automatic SyntaxHighlighter invocation script for <source/> elements Begins -->
+      <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+      <script type="text/javascript" src="highlight-source-elements.js"></script>
+      <!-- Automatic SyntaxHighlighter invocation script for <source/> elements Ends -->
+    </head>
 
     <menu name="Home">
       <item name="Home" href="index.html" />
