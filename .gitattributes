@@ -15,7 +15,6 @@ src/main/resources/groovy-camel-context-module.xml -text svneol=unset#text/plain
 src/main/resources/hippoecm-extension.xml -text svneol=unset#text/plain
 src/site/argouml/architecture.zargo -text
 src/site/checkstyle.xml -text svneol=unset#text/plain
-src/site/resources/highlight-source-elements.js -text
 src/site/resources/images/activemq-admin.png -text
 src/site/resources/images/cms-publish.png -text
 src/site/resources/images/es-search.png -text
@@ -28,52 +27,6 @@ src/site/resources/images/route1-small.png -text
 src/site/resources/images/route2-file2-small.png -text
 src/site/resources/images/solr-search.png -text
 src/site/resources/images/use_cases_overview1.png -text
-src/site/resources/jquery-1.7.2.min.js -text
-src/site/resources/sh/scripts/shAutoloader.js -text
-src/site/resources/sh/scripts/shBrushAS3.js -text
-src/site/resources/sh/scripts/shBrushAppleScript.js -text
-src/site/resources/sh/scripts/shBrushBash.js -text
-src/site/resources/sh/scripts/shBrushCSharp.js -text
-src/site/resources/sh/scripts/shBrushColdFusion.js -text
-src/site/resources/sh/scripts/shBrushCpp.js -text
-src/site/resources/sh/scripts/shBrushCss.js -text
-src/site/resources/sh/scripts/shBrushDelphi.js -text
-src/site/resources/sh/scripts/shBrushDiff.js -text
-src/site/resources/sh/scripts/shBrushErlang.js -text
-src/site/resources/sh/scripts/shBrushGroovy.js -text
-src/site/resources/sh/scripts/shBrushJScript.js -text
-src/site/resources/sh/scripts/shBrushJava.js -text
-src/site/resources/sh/scripts/shBrushJavaFX.js -text
-src/site/resources/sh/scripts/shBrushPerl.js -text
-src/site/resources/sh/scripts/shBrushPhp.js -text
-src/site/resources/sh/scripts/shBrushPlain.js -text
-src/site/resources/sh/scripts/shBrushPowerShell.js -text
-src/site/resources/sh/scripts/shBrushPython.js -text
-src/site/resources/sh/scripts/shBrushRuby.js -text
-src/site/resources/sh/scripts/shBrushSass.js -text
-src/site/resources/sh/scripts/shBrushScala.js -text
-src/site/resources/sh/scripts/shBrushSql.js -text
-src/site/resources/sh/scripts/shBrushVb.js -text
-src/site/resources/sh/scripts/shBrushXml.js -text
-src/site/resources/sh/scripts/shCore.js -text
-src/site/resources/sh/scripts/shLegacy.js -text
-src/site/resources/sh/styles/shCore.css -text
-src/site/resources/sh/styles/shCoreDefault.css -text
-src/site/resources/sh/styles/shCoreDjango.css -text
-src/site/resources/sh/styles/shCoreEclipse.css -text
-src/site/resources/sh/styles/shCoreEmacs.css -text
-src/site/resources/sh/styles/shCoreFadeToGrey.css -text
-src/site/resources/sh/styles/shCoreMDUltra.css -text
-src/site/resources/sh/styles/shCoreMidnight.css -text
-src/site/resources/sh/styles/shCoreRDark.css -text
-src/site/resources/sh/styles/shThemeDefault.css -text
-src/site/resources/sh/styles/shThemeDjango.css -text
-src/site/resources/sh/styles/shThemeEclipse.css -text
-src/site/resources/sh/styles/shThemeEmacs.css -text
-src/site/resources/sh/styles/shThemeFadeToGrey.css -text
-src/site/resources/sh/styles/shThemeMDUltra.css -text
-src/site/resources/sh/styles/shThemeMidnight.css -text
-src/site/resources/sh/styles/shThemeRDark.css -text
 src/site/site.xml -text svneol=unset#text/plain
 src/site/xdoc/aboutdemo.xml -text svneol=unset#text/plain
 src/site/xdoc/build-from-source.xml -text svneol=unset#text/plain
