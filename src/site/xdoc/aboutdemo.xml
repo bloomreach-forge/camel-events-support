@@ -185,8 +185,8 @@
             all the event processing is basically configured and executed by Apache Camel Context.
             You can configure any enterprise message integration patterns by leveraging various Apache Camel components.
             You can focus on your business logic.
-            In this demo project, it is either <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/SolrRestUpdateResource.java" target="_blank">SolrRestUpdateResource</a>
-            or <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/ElasticSearchRestUpdateResource.java" target="_blank">ElasticSearchRestUpdateResource</a>
+            In this demo project, it is either <a href="https://github.com/onehippo-forge/camel-events-support/tree/master/demo/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/SolrRestUpdateResource.java" target="_blank">SolrRestUpdateResource</a>
+            or <a href="https://github.com/onehippo-forge/camel-events-support/tree/master/demo/site/src/main/java/org/onehippo/forge/camel/demo/rest/services/ElasticSearchRestUpdateResource.java" target="_blank">ElasticSearchRestUpdateResource</a>
             (each of which is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
             in the second route to update the search engine index data).
           </li>
@@ -201,16 +201,12 @@
 
       <subsection name="Build Demo Project">
         <p>
-          You can build and run the demo project with Maven and
+          You can build and run the demo project from the submodule 'demo' with Maven and
           run the demo applications locally with Maven Cargo Plugin (Apache Tomcat embedded).
-        </p>
-        <p>
-          You can check out, build and run the demo application like the following:
         </p>
         <div class="brush: bash">
         <source><![CDATA[
-$ svn co https://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt-demo/trunk camel-hippoevt-demo
-$ cd camel-hippoevt-demo
+$ cd demo
 $ mvn clean package
 $ mvn -P cargo.run
         ]]></source>

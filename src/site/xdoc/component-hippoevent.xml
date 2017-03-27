@@ -43,9 +43,9 @@
       <div class="brush: xml">
       <source><![CDATA[
     <repository>
-      <id>camel-hippoevt-maven-repo</id>
-      <name>Hippo Maven 2 Forge Camel :: Hippo Event Bus</name>
-      <url>http://forge.onehippo.org/svn/camel-hippoevt/maven2/</url>
+      <id>hippo-maven2-forge</id>
+      <name>Hippo Maven 2 Forge</name>
+      <url>https://maven.onehippo.com/maven2-forge/</url>
     </repository>
       ]]></source>
       </div>

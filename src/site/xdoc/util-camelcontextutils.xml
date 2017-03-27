@@ -32,7 +32,9 @@
       </p>
       <p>
         For an implementation example, please see the default Camel Repository Scheduler Job implementation:
-        <a href="http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java">http://forge.onehippo.org/svn/camel-hippoevt/camel-hippoevt/trunk/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java</a>.
+        <a href="https://github.com/onehippo-forge/camel-events-support/tree/master/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java">
+          https://github.com/onehippo-forge/camel-events-support/tree/master/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java
+        </a>.
       </p>
     </section>
 

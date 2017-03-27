@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <!--
-    Copyright 2014 Hippo Licensed under the Apache License, Version 2.0
+    Copyright 2014-2107 Hippo
+
+    Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
     the License. You may obtain a copy of the License at
 
@@ -24,7 +26,6 @@
     <menu name="Home">
       <item name="Home" href="index.html" />
       <item name="Release Notes" href="release-notes.html" />
-      <item name="Build from source" href="build-from-source.html" />
     </menu>
 
     <menu name="Usage">
