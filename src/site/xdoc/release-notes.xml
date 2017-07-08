@@ -30,14 +30,14 @@
           </th>
         </tr>
         <tr>
-          <td>1.1.x</td>
-          <td>2.x.x</td>
-          <td>10.x, 11.x</td>
+          <td>1.x</td>
+          <td>2.x</td>
+          <td>12.x, 11.x, 10.x</td>
         </tr>
         <tr>
-          <td>0.2.xx</td>
-          <td>2.x.x</td>
-          <td>7.8, 7.9</td>
+          <td>0.x</td>
+          <td>2.x</td>
+          <td>7.9.x, 7.8.x</td>
         </tr>
       </table>
     </section>
