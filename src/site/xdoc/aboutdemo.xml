@@ -201,7 +201,15 @@
 
       <subsection name="Build Demo Project">
         <p>
-          You can build and run the demo project from the submodule 'demo' with Maven and
+          You can build and install the module first with Maven.
+        </p>
+        <div class="brush: bash">
+        <source><![CDATA[
+$ mvn clean install
+        ]]></source>
+        </div>
+        <p>
+          Now you can build and run the demo project from the submodule 'demo' with Maven and
           run the demo applications locally with Maven Cargo Plugin (Apache Tomcat embedded).
         </p>
         <div class="brush: bash">

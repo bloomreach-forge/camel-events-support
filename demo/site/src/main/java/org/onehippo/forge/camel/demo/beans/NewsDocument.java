@@ -17,14 +17,13 @@ package org.onehippo.forge.camel.demo.beans;
 import java.util.Calendar;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "camelhippoevtdemo:newsdocument")
 @Node(jcrType="camelhippoevtdemo:newsdocument")
-public class NewsDocument extends HippoDocument {
+public class NewsDocument extends BaseHippoDocument {
 
     /**
      * The document type of the news document.
