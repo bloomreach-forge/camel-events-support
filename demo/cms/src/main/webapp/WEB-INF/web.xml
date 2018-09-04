@@ -6,8 +6,8 @@
          id="cms">
 
   <!-- General configuration -->
-  <display-name>Camel :: Hippo Event Bus Demo CMS</display-name>
-  <description>Camel :: Hippo Event Bus Demo CMS</description>
+  <display-name>Camel Hippo Event Bus Demo CMS</display-name>
+  <description>Camel Hippo Event Bus Demo CMS</description>
 
   <context-param>
     <description>The address of the repository</description>
@@ -111,7 +111,7 @@
 
   <servlet>
     <servlet-name>AngularResourceServlet</servlet-name>
-    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
+    <servlet-class>org.onehippo.cms7.utilities.servlet.SecureCmsResourceServlet</servlet-class>
     <init-param>
       <param-name>jarPathPrefix</param-name>
       <param-value>/angular</param-value>
@@ -122,19 +122,11 @@
         ^/.*\..*
       </param-value>
     </init-param>
-    <init-param>
-      <!--
-        Cache timeout in seconds. Make sure to increase it in production environments,
-        for example to one day (cacheTimeout = 86400)
-      -->
-      <param-name>cacheTimeout</param-name>
-      <param-value>0</param-value>
-    </init-param>
   </servlet>
 
   <servlet>
     <servlet-name>CKEditorResourceServlet</servlet-name>
-    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
+    <servlet-class>org.onehippo.cms7.utilities.servlet.SecureCmsResourceServlet</servlet-class>
     <init-param>
       <param-name>jarPathPrefix</param-name>
       <param-value>/ckeditor</param-value>
@@ -144,14 +136,6 @@
       <param-value>
         ^/.*\..*
       </param-value>
-    </init-param>
-    <init-param>
-      <!--
-        Cache timeout in seconds. Make sure to increase it in production environments,
-        for example to one day (cacheTimeout = 86400)
-      -->
-      <param-name>cacheTimeout</param-name>
-      <param-value>0</param-value>
     </init-param>
   </servlet>
 
@@ -167,14 +151,6 @@
       <param-value>
         ^/.*\..*
       </param-value>
-    </init-param>
-    <init-param>
-      <!--
-        Cache timeout in seconds. Make sure to increase it in production environments,
-        for example to one day (cacheTimeout = 86400)
-      -->
-      <param-name>cacheTimeout</param-name>
-      <param-value>0</param-value>
     </init-param>
   </servlet>
 

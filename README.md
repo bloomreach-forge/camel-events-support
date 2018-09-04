@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/onehippo-forge/camel-events-support.svg?branch=develop)](https://travis-ci.org/onehippo-forge/camel-events-support)
 
 # Apache Camel - Hippo Events Support
 

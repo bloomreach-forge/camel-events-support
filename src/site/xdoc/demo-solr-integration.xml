@@ -60,10 +60,19 @@
 
       <subsection name="Running the Demo">
         <p>
-          To test this scenario, execute the following in the project root folder:
+          You can build and install the module first with Maven.
         </p>
         <div class="brush: bash">
         <source><![CDATA[
+$ mvn clean install
+        ]]></source>
+        </div>
+        <p>
+          To test this scenario, execute the following in the demo project's root folder:
+        </p>
+        <div class="brush: bash">
+        <source><![CDATA[
+$ cd demo
 $ mvn clean package
 $ mvn -P cargo.run
         ]]></source>
@@ -73,6 +82,7 @@ $ mvn -P cargo.run
         </p>
         <div class="brush: bash">
         <source><![CDATA[
+$ cd demo
 $ mvn clean package
 $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
         ]]></source>

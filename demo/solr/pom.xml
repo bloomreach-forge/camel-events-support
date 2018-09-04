@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.onehippo.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.2.0</version>
   </parent>
 
   <artifactId>camel-hippoevt-demo-solr</artifactId>
   <packaging>war</packaging>
-  <name>Camel :: Hippo Event Bus Demo Solr</name>
-  <description>Camel :: Hippo Event Bus Demo Solr</description>
+  <name>Camel Hippo Event Bus Demo Solr</name>
+  <description>Camel Hippo Event Bus Demo Solr</description>
 
   <dependencies>
 

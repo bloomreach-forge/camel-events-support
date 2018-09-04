@@ -1,6 +1,6 @@
 package org.onehippo.forge.camel.demo.beans;
 /*
- * Copyright 2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014-2018 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package org.onehippo.forge.camel.demo.beans;
 import java.util.Calendar;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
@@ -29,15 +28,15 @@ public class EventsDocument extends BaseHippoDocument {
     /**
      * The document type of the events document.
      */
-    public final static String DOCUMENT_TYPE = "camelhippoevtdemo:eventsdocument";
+    public static final String DOCUMENT_TYPE = "camelhippoevtdemo:eventsdocument";
 
-    private final static String TITLE = "camelhippoevtdemo:title";
-    private final static String DATE = "camelhippoevtdemo:date";
-    private final static String INTRODUCTION = "camelhippoevtdemo:introduction";
-    private final static String IMAGE = "camelhippoevtdemo:image";
-    private final static String CONTENT = "camelhippoevtdemo:content";
-    private final static String LOCATION = "camelhippoevtdemo:location";
-    private final static String END_DATE = "camelhippoevtdemo:enddate";
+    private static final String TITLE = "camelhippoevtdemo:title";
+    private static final String DATE = "camelhippoevtdemo:date";
+    private static final String INTRODUCTION = "camelhippoevtdemo:introduction";
+    private static final String IMAGE = "camelhippoevtdemo:image";
+    private static final String CONTENT = "camelhippoevtdemo:content";
+    private static final String LOCATION = "camelhippoevtdemo:location";
+    private static final String END_DATE = "camelhippoevtdemo:enddate";
 
     /**
      * Get the title of the document.

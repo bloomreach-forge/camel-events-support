@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/camelhippoevtdemo/hst:catalog:
+      jcr:primaryType: hst:catalog
+      /camelhippoevtdemo-catalog:
+        jcr:primaryType: hst:containeritempackage
