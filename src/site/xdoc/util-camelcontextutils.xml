@@ -32,8 +32,8 @@
       </p>
       <p>
         For an implementation example, please see the default Camel Repository Scheduler Job implementation:
-        <a href="https://github.com/onehippo-forge/camel-events-support/tree/master/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java">
-          https://github.com/onehippo-forge/camel-events-support/tree/master/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java
+        <a href="https://github.com/bloomreach-forge/camel-events-support/tree/master/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java">
+          https://github.com/bloomreach-forge/camel-events-support/tree/master/src/main/java/org/onehippo/forge/camel/scheduling/DefaultCamelRepositoryJob.java
         </a>.
       </p>
     </section>

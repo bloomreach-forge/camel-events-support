@@ -22,7 +22,7 @@
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
   <version>1.2.1-SNAPSHOT</version>
-  <url>https://github.com/onehippo-forge/camel-events-support/</url>
+  <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
 
@@ -89,9 +89,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:onehippo-forge/camel-events-support.git</connection>
-    <developerConnection>scm:git:git@github.com:onehippo-forge/camel-events-support.git</developerConnection>
-    <url>https://github.com/onehippo-forge/camel-events-support.git</url>
+    <connection>scm:git:git@github.com:bloomreach-forge/camel-events-support.git</connection>
+    <developerConnection>scm:git:git@github.com:bloomreach-forge/camel-events-support.git</developerConnection>
+    <url>https://github.com/bloomreach-forge/camel-events-support.git</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -110,7 +110,7 @@
 
   <ciManagement>
     <system>Travic CI</system>
-    <url>https://travis-ci.org/onehippo-forge/camel-events-support</url>
+    <url>https://travis-ci.org/bloomreach-forge/camel-events-support</url>
   </ciManagement>
 
   <repositories>
