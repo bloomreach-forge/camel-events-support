@@ -22,7 +22,7 @@
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
   <version>1.2.0</version>
-  <url>https://github.com/onehippo-forge/camel-events-support/</url>
+  <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
 
@@ -34,10 +34,10 @@
     <hippo.services.eventbus.version>2.1.0</hippo.services.eventbus.version>
     <hippo.repository.version>3.1.0</hippo.repository.version>
 
-    <camel.version>2.15.4</camel.version>
+    <camel.version>2.22.1</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
-    <lib.junit.version>4.8.2</lib.junit.version>
+    <lib.junit.version>4.12</lib.junit.version>
     <lib.easymock.version>3.0</lib.easymock.version>
     <lib.slf4j.version>1.7.6</lib.slf4j.version>
     <lib.log4j.version>1.2.17</lib.log4j.version>
@@ -89,9 +89,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:onehippo-forge/camel-events-support.git</connection>
-    <developerConnection>scm:git:git@github.com:onehippo-forge/camel-events-support.git</developerConnection>
-    <url>https://github.com/onehippo-forge/camel-events-support.git</url>
+    <connection>scm:git:git@github.com:bloomreach-forge/camel-events-support.git</connection>
+    <developerConnection>scm:git:git@github.com:bloomreach-forge/camel-events-support.git</developerConnection>
+    <url>https://github.com/bloomreach-forge/camel-events-support.git</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -110,7 +110,7 @@
 
   <ciManagement>
     <system>Travic CI</system>
-    <url>https://travis-ci.org/onehippo-forge/camel-events-support</url>
+    <url>https://travis-ci.org/bloomreach-forge/camel-events-support</url>
   </ciManagement>
 
   <repositories>

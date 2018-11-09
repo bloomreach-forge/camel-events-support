@@ -16,18 +16,18 @@
 <project name="Apache Camel - Hippo Events Support Documentation">
 
   <skin>
-    <groupId>org.onehippo.forge.mavenskin</groupId>
+    <groupId>org.bloomreach.forge.mavenskin</groupId>
     <artifactId>forge-maven-skin</artifactId>
-    <version>2.0.1</version>
+    <version>3.0.1</version>
   </skin>
 
   <custom>
-    <hippoSkin>
+    <bloomreach>
       <!-- Add a 'Fork me on GitHub' ribbon  -->
       <gitHub>
-        <projectId>onehippo-forge/camel-events-support</projectId>
+        <projectId>bloomreach-forge/camel-events-support</projectId>
       </gitHub>
-    </hippoSkin>
+    </bloomreach>
   </custom>
 
   <body>
