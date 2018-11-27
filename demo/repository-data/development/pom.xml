@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-repository-data</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.2.1</version>
   </parent>
 
   <name>Camel Hippo Event Bus Demo Repository Data For Development</name>
