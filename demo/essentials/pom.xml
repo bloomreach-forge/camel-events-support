@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
   </parent>
   <artifactId>camel-hippoevt-demo-essentials</artifactId>
   <packaging>war</packaging>
