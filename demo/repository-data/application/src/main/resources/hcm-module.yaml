@@ -1,6 +1,0 @@
-group: 
-  name: camel-hippoevt-demo
-  after: hippo-cms
-project: camel-hippoevt-demo
-module:
-  name: camel-hippoevt-demo-repository-data-application

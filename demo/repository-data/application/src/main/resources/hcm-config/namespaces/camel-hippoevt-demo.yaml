@@ -1,6 +1,0 @@
-definitions:
-  config:
-    /hippo:namespaces/camelhippoevtdemo:
-      jcr:primaryType: hipposysedit:namespace
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: dec0198b-dd85-4e58-a928-a3a16b452813
