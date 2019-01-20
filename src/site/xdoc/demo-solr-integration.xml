@@ -58,6 +58,19 @@
         </p>
       </subsection>
 
+      <subsection name="Install and Run Apache Solr locally">
+
+        <p>
+          To test this scenario, it is required to run <a href="https://lucene.apache.org/solr/" target="_blank">Apache Solr</a> locally.
+        </p>
+        <p>
+          The demo project expects the Apache Solr running at port 8983 by default.
+        </p>
+        <p>
+          To install and run Apache Solr, follow the <a href="https://lucene.apache.org/solr/resources.html#documentation" target="_blank">documentation</a>,
+        </p>
+      </subsection>
+
       <subsection name="Running the Demo">
         <p>
           You can build and install the module first with Maven.
@@ -99,7 +112,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
         </p>
         <p>
           Now, try to search the content in the Search Engine frontend UI
-          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+          (<a href="http://localhost:8983/solr/" target="_blank">http://localhost:8983/solr/</a>).
         </p>
         <p>
           <img src="images/solr-search.png" alt="Querying in Search Engine Frontend" />
@@ -165,7 +178,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
         </when>
       </choice>
 
-      <!-- Invoke the Solr Index synchronization REST service. -->
+      <!-- Invoke the Search Index synchronization REST service. -->
       <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
     </route>

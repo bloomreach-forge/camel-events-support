@@ -141,8 +141,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
           <img src="images/cms-publish.png" alt="Publishsing a document in CMS" />
         </p>
         <p>
-          Now, try to search the content in the Search Engine frontend UI
-          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+          Now, try to search the content in the Search Engine's UIs or tools.
         </p>
         <p>
           <img src="images/solr-search.png" alt="Querying in Search Engine Frontend" />
@@ -214,7 +213,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
         </when>
       </choice>
 
-      <!-- Invoke the Solr Index synchronization REST service. -->
+      <!-- Invoke the Search Index synchronization REST service. -->
       <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
     </route>

@@ -92,8 +92,7 @@
           <li><a href="demo-integration-activemq.html">Demo 3: Running with ActiveMQ</a></li>
         </ul>
         <p>
-          The first demo shows integration with an Apache Solr search engine (as embedded as war).
-          It is recommended to see this example first because it doesn't require any other software installation and configuration.
+          The first demo shows integration with an Apache Solr search engine.
         </p>
         <p>
           The second demo shows the same integration approach as the first scenario, but with ElasticSearch engine
@@ -232,7 +231,6 @@ $ mvn -P cargo.run
             <strong>Hawtio (/hawtio)</strong>: <a href="http://hawt.io/" target="_blank">Web console for managing
             your Java stuff (including Camel, Tomcat, JMX, etc)</a>
           </li>
-          <li><strong>Solr (/solr)</strong>: <a href="http://lucene.apache.org/solr/" target="_blank">Apache Solr</a> Search Engine Web Application</li>
         </ul>
       </subsection>
 
