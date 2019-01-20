@@ -24,7 +24,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 
 @HippoEssentialsGenerated(internalName = "camelhippoevtdemo:newsdocument")
 @Node(jcrType="camelhippoevtdemo:newsdocument")
-public class NewsDocument extends HippoDocument {
+public class NewsDocument extends BaseHippoDocument {
 
     /**
      * The document type of the news document.

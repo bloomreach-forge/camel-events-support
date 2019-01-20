@@ -24,7 +24,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 
 @HippoEssentialsGenerated(internalName = "camelhippoevtdemo:eventsdocument")
 @Node(jcrType="camelhippoevtdemo:eventsdocument")
-public class EventsDocument extends HippoDocument {
+public class EventsDocument extends BaseHippoDocument {
 
     /**
      * The document type of the events document.
