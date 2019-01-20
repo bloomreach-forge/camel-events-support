@@ -19,4 +19,13 @@
     <!--
     <Parameter name="output-wicketpaths" value="true"/>
     -->
+
+    <Resource name="mail/Session"
+        auth="Container"
+        type="javax.mail.Session"
+        mail.smtp.host="localhost"
+        mail.smtp.port="2525" 
+        mail.smtp.user="TESTER"
+        password="TESTER" />
+
 </Context>

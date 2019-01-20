@@ -70,11 +70,11 @@
     <activemq.version>5.9.1</activemq.version>
     <json-lib.version>2.4</json-lib.version>
 
-    <solr.version>4.10.3</solr.version>
     <hawtio.version>1.4.44</hawtio.version>
 
-    <httpcomponents-httpcore.version>4.4</httpcomponents-httpcore.version>
-    <httpcomponents-httpclient.version>4.3.6</httpcomponents-httpclient.version>
+    <httpcore4-version>4.4.10</httpcore4-version>
+    <httpclient4-version>4.5.6</httpclient4-version>
+
     <jcip-annotations.version>1.0</jcip-annotations.version>
 
     <essentials.version>13.0.0</essentials.version>
@@ -129,6 +129,10 @@
         <version>${camel.version}</version>
         <scope>runtime</scope>
         <exclusions>
+          <exclusion>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
@@ -185,13 +189,6 @@
       </dependency>
 
       <dependency>
-        <groupId>org.apache.solr</groupId>
-        <artifactId>solr</artifactId>
-        <version>${solr.version}</version>
-        <type>war</type>
-      </dependency>
-
-      <dependency>
         <groupId>io.hawt</groupId>
         <artifactId>hawtio-web</artifactId>
         <version>${hawtio.version}</version>
@@ -208,7 +205,7 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore</artifactId>
-        <version>${httpcomponents-httpcore.version}</version>
+        <version>${httpcore4-version}</version>
       </dependency>
 
       <!-- jcip-annotations is required to compile with httpclient and Java 1.5. See HTTPCLIENT-866. -->
@@ -221,7 +218,7 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
-        <version>${httpcomponents-httpclient.version}</version>
+        <version>${httpclient4-version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -373,7 +370,6 @@
         </property>
       </activation>
       <modules>
-        <module>solr</module>
         <module>cms-dependencies</module>
         <module>repository-data</module>
         <module>cms</module>
@@ -419,13 +415,6 @@
                 <deployable>
                   <type>war</type>
                   <properties>
-                    <context>/solr</context>
-                  </properties>
-                  <location>${project.basedir}/solr/target/solr.war</location>
-                </deployable>
-                <deployable>
-                  <type>war</type>
-                  <properties>
                     <context>/cms</context>
                   </properties>
                   <location>${project.basedir}/cms/target/cms.war</location>
@@ -454,7 +443,6 @@
               </deployables>
               <container>
                 <systemProperties>
-                  <solr.solr.home>${project.build.directory}/tomcat8x/webapps/solr/WEB-INF/test.solr.home</solr.solr.home>
                   <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
                   <project.basedir>${project.basedir}</project.basedir>

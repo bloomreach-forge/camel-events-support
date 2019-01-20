@@ -133,7 +133,7 @@ $ mvn clean install
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
+$ mvn clean verify
 $ mvn -Pcargo.run -Dcargo.jvm.args="-Dsearch.engine=es"
         ]]></source>
         </div>

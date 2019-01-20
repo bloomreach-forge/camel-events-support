@@ -117,7 +117,7 @@ $ mvn clean install
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
+$ mvn clean verify
 $ mvn -P cargo.run -Dcargo.jvm.args="-Dqueue.mode=activemq"
         ]]></source>
         </div>
@@ -127,7 +127,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dqueue.mode=activemq"
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
+$ mvn clean verify
 $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
         ]]></source>
         </div>
