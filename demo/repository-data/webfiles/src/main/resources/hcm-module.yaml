@@ -1,0 +1,5 @@
+group: 
+  name: camel-hippoevt-demo
+project: camel-hippoevt-demo
+module:
+  name: camel-hippoevt-demo-repository-data-webfiles

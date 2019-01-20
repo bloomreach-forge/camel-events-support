@@ -215,7 +215,7 @@ $ mvn clean install
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
+$ mvn clean verify
 $ mvn -P cargo.run
         ]]></source>
         </div>

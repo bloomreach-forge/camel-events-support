@@ -1,0 +1,5 @@
+definitions:
+  namespace:
+    camelhippoevtdemo:
+      uri: http://www.camelhippoevtdemo.com/camelhippoevtdemo/nt/1.0
+      cnd: namespaces/camel-hippoevt-demo.cnd
