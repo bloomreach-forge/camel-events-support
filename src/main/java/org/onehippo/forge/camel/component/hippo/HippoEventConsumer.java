@@ -15,8 +15,6 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
-import net.sf.json.JSONObject;
-
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
@@ -27,12 +25,13 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.onehippo.cms7.event.HippoEvent;
-import org.onehippo.cms7.services.HippoServiceRegistry;
-import org.onehippo.cms7.services.eventbus.HippoEventBus;
+import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.PersistedHippoEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.json.JSONObject;
 
 /**
  * 
@@ -83,7 +82,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
                 listener.setOnlyNewEvents(BooleanUtils.toBoolean((String) endpoint.getProperty("_onlyNewEvents")));
             }
 
-            HippoServiceRegistry.registerService(listener, HippoEventBus.class);
+            HippoEventListenerRegistry.get().register(listener);
 
             persistedEventListener = listener;
 
@@ -91,7 +90,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
             LOG.info("Registering a local event consumer because the _persisted parameter unspecified or set to false.");
 
             HippoLocalEventListener listener = new HippoLocalEventListener();
-            HippoServiceRegistry.registerService(listener, HippoEventBus.class);
+            HippoEventListenerRegistry.get().register(listener);
             localEventListener = listener;
 
         }
@@ -102,11 +101,11 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         super.doStop();
 
         if (persistedEventListener != null) {
-            HippoServiceRegistry.unregisterService(persistedEventListener, HippoEventBus.class);
+            HippoEventListenerRegistry.get().unregister(persistedEventListener);
         }
 
         if (localEventListener != null) {
-            HippoServiceRegistry.unregisterService(localEventListener, HippoEventBus.class);
+            HippoEventListenerRegistry.get().unregister(localEventListener);
         }
     }
 

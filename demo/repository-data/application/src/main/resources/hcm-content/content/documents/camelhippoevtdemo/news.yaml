@@ -1,23 +1,23 @@
 /content/documents/camelhippoevtdemo/news:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: aa2c70d7-13e3-47ea-a792-a4302604bfbf
+  jcr:uuid: cdca2dd9-de3b-4633-8a61-fc2ef42e71b4
   hippostd:foldertype: [new-news-document, new-news-folder]
-  hippotranslation:id: 55f2b9e2-cf79-4820-9f81-87bc8e2bb564
+  hippotranslation:id: 775172d7-e1f3-43fa-b2df-948feeded705
   hippotranslation:locale: en
-  /2018:
+  /2019:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-    jcr:uuid: bade4bed-45b5-4808-8b0b-ddeea7a6a19e
+    jcr:uuid: 2d555a33-c26c-440f-960d-2089e3fa3433
     hippostd:foldertype: [new-news-document, new-news-folder]
-    hippotranslation:id: 5130a9ca-34d4-4bfb-be42-e0ecb83cf80f
+    hippotranslation:id: 7d65e3fb-9702-4b14-8e41-99a3ebe1b397
     hippotranslation:locale: en
-    /08:
+    /01:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 5f2ca601-792a-489f-ad2a-761350b7ddf6
+      jcr:uuid: ae7d1687-ab65-478c-a26b-77ef71d33d6c
       hippostd:foldertype: [new-news-document, new-news-folder]
-      hippotranslation:id: f19283dc-dbff-4c22-935f-28178b52bff9
+      hippotranslation:id: 03640e32-9fc8-476f-9775-288e0f43e81a
       hippotranslation:locale: en
       /the-medusa-news:
         jcr:primaryType: hippo:handle
@@ -27,9 +27,9 @@
         /the-medusa-news:
           jcr:primaryType: camelhippoevtdemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 5126a63b-7cf0-4f3d-a23d-6c95fa101698
+          jcr:uuid: a5e6466e-500c-4c96-808c-2cd8cae33fad
           camelhippoevtdemo:author: Alfred Anonymous
-          camelhippoevtdemo:date: 2018-08-23T18:34:00-04:00
+          camelhippoevtdemo:date: 2019-01-20T15:53:00+09:00
           camelhippoevtdemo:documenttype: news
           camelhippoevtdemo:introduction: Lorem ipsum dolor sit amet, consectetur
             adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -49,7 +49,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T13:04:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T13:04:00+01:00
-          hippotranslation:id: 76516918-4680-4264-b5dc-37a3fe33c5a5
+          hippotranslation:id: 372727ba-4b26-4ede-a770-462ee7260ccb
           hippotranslation:locale: en
           /camelhippoevtdemo:content:
             jcr:primaryType: hippostd:html
@@ -94,9 +94,9 @@
         /2013-harvest:
           jcr:primaryType: camelhippoevtdemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 1320e07c-08a6-4653-94c0-a17f53a425f1
+          jcr:uuid: ad34ae38-bd0c-4057-b72b-508653c9110f
           camelhippoevtdemo:author: Alfred Anonymous
-          camelhippoevtdemo:date: 2018-08-23T18:34:00-04:00
+          camelhippoevtdemo:date: 2019-01-20T15:53:00+09:00
           camelhippoevtdemo:documenttype: news
           camelhippoevtdemo:introduction: Lorem ipsum dolor sit amet, consectetur
             adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -116,7 +116,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T14:31:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T14:31:00+01:00
-          hippotranslation:id: bae4ef71-b241-44ba-83df-86363deaad39
+          hippotranslation:id: 1bf1a0c9-9a05-4006-82a2-a5f4c04903e2
           hippotranslation:locale: en
           /camelhippoevtdemo:content:
             jcr:primaryType: hippostd:html
@@ -161,9 +161,9 @@
         /the-gastropoda-news:
           jcr:primaryType: camelhippoevtdemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 63b0483f-b9c5-48ef-bbd1-1ff137c822d9
+          jcr:uuid: 65e2ece9-1e71-4cd5-8c58-acb5d7958ed1
           camelhippoevtdemo:author: Alfred Anonymous
-          camelhippoevtdemo:date: 2018-08-23T18:34:00-04:00
+          camelhippoevtdemo:date: 2019-01-20T15:53:00+09:00
           camelhippoevtdemo:documenttype: news
           camelhippoevtdemo:introduction: Lorem ipsum dolor sit amet, consectetur
             adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -183,7 +183,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T12:52:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:52:00+01:00
-          hippotranslation:id: 56a0c9f6-b72e-4bec-bfec-f9ca699e4063
+          hippotranslation:id: 94dd3008-0643-4da8-a05c-9293ccf00039
           hippotranslation:locale: en
           /camelhippoevtdemo:content:
             jcr:primaryType: hippostd:html

@@ -112,25 +112,33 @@ $ mvn clean install
         ]]></source>
         </div>
         <p>
-          To test this scenario, execute the following in the demo project's root folder:
+          To test this scenario with Apache Solr, execute the following in the demo project's root folder:
         </p>
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
-$ mvn -P cargo.run -Dcargo.jvm.args="-Dqueue.mode=activemq"
+$ mvn clean verify
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Dqueue.mode=activemq"
         ]]></source>
         </div>
+        <p>
+          <em>Note: </em> You should run the Apache Solr separately before running the above command.
+          Follow <a href="demo-solr-integration.html">Demo 1: Solr Search Engine Integration</a> page for detail first.
+        </p>
         <p>
           You can also test the scenario with ElasticSearch integration as well:
         </p>
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
+$ mvn clean verify
 $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
         ]]></source>
         </div>
+        <p>
+          <em>Note: </em> You should run the ElasticSearch separately before running the above command.
+          Follow <a href="demo-es-integration.html">Demo 2: ElasticSearch Search Engine Integration</a> page for detail first.
+        </p>
       </subsection>
 
       <subsection name="Testing the Demo">
@@ -141,8 +149,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
           <img src="images/cms-publish.png" alt="Publishsing a document in CMS" />
         </p>
         <p>
-          Now, try to search the content in the Search Engine frontend UI
-          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+          Now, try to search the content in the Search Engine's UIs or tools.
         </p>
         <p>
           <img src="images/solr-search.png" alt="Querying in Search Engine Frontend" />
@@ -214,7 +221,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
         </when>
       </choice>
 
-      <!-- Invoke the Solr Index synchronization REST service. -->
+      <!-- Invoke the Search Index synchronization REST service. -->
       <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
     </route>

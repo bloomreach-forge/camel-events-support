@@ -36,6 +36,11 @@
           </th>
         </tr>
         <tr>
+          <td>2.x</td>
+          <td>2.x</td>
+          <td>13.x</td>
+        </tr>
+        <tr>
           <td>1.x</td>
           <td>2.x</td>
           <td>12.x, 11.x, 10.x</td>
@@ -47,7 +52,16 @@
         </tr>
       </table>
     </section>
-    <section name="Release Notes">
+    <section name="Release Notes (2.x)">
+      <subsection name="2.0.0">
+        <p class="smallinfo">Release Date: January 21, 2019</p>
+        <ul>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-249'>HIPFORGE-249</a>] -         [Camel and Hippo] Upgrade for v13 compatibility
+          </li>
+        </ul>
+      </subsection>
+    </section>
+    <section name="Release Notes (1.x)">
       <subsection name="1.2.1">
         <p class="smallinfo">Release Date: November 27, 2018</p>
         <ul>
@@ -69,6 +83,8 @@
           <li>Compliant with Hippo CMS 10.0 and 10.1.</li>
         </ul>
       </subsection>
+    </section>
+    <section name="Release Notes (0.x)">
       <subsection name="0.2.6">
         <ul>
           <li>Serialize extra attributes of HippoEvent to JSONObject.</li>

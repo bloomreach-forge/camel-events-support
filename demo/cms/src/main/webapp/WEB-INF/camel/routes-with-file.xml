@@ -75,7 +75,7 @@
         </when>
       </choice>
 
-      <!-- Invoke the Solr Index synchronization REST service. -->
+      <!-- Invoke the Search Index synchronization REST service. -->
       <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
       <!--

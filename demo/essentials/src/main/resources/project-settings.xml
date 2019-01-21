@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project>
     <applicationSubModule>application</applicationSubModule>
+    <cmsDependenciesModule>cms-dependencies</cmsDependenciesModule>
     <cmsModule>cms</cmsModule>
     <confirmParams>false</confirmParams>
     <developmentSubModule>development</developmentSubModule>
     <enterprise>false</enterprise>
     <extraTemplates>true</extraTemplates>
+    <hstRoot>/hst:camelhippoevtdemo</hstRoot>
     <projectNamespace>camelhippoevtdemo</projectNamespace>
     <repositoryDataModule>repository-data</repositoryDataModule>
     <selectedBeansPackage>org.onehippo.forge.camel.demo.beans</selectedBeansPackage>
@@ -13,8 +15,9 @@
     <selectedProjectPackage>org.onehippo.forge.camel.demo</selectedProjectPackage>
     <selectedRestPackage>org.onehippo.forge.camel.demo.rest</selectedRestPackage>
     <setupDone>true</setupDone>
+    <siteContextPath>/site</siteContextPath>
     <siteModule>site</siteModule>
-    <templateLanguage>freemarker</templateLanguage>
     <useSamples>true</useSamples>
+    <webfileBundleName>site</webfileBundleName>
     <webfilesSubModule>webfiles</webfilesSubModule>
 </project>

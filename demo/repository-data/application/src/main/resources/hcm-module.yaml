@@ -1,4 +1,4 @@
-group: 
+group:
   name: camel-hippoevt-demo
   after: hippo-cms
 project: camel-hippoevt-demo

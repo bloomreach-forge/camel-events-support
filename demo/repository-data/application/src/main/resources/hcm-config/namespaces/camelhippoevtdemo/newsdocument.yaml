@@ -3,19 +3,19 @@ definitions:
     /hippo:namespaces/camelhippoevtdemo/newsdocument:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: ec7ba95e-d670-49f3-b43e-fecf9fc34723
+      jcr:uuid: 4bff3c13-764f-4b05-bddc-2d32e04e4af1
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 8809c216-299e-4134-bbc0-16bac102b772
+        jcr:uuid: 05627a99-be7f-42ae-a541-9b1ac785f6f9
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: d274e8a8-86ee-489a-a797-c018fc90d75e
+          jcr:uuid: fec9d225-8c61-42c0-8d17-47f0aa4062fa
           hipposysedit:node: true
           hipposysedit:supertype: ['camelhippoevtdemo:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
-          hipposysedit:uri: http://www.onehippo.org/camelhippoevtdemo/nt/1.0
+          hipposysedit:uri: http://www.camelhippoevtdemo.com/camelhippoevtdemo/nt/1.0
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -86,7 +86,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: camelhippoevtdemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 1a8fc5fa-ef4d-401d-80f7-e8fb72b23e3b
+          jcr:uuid: 797642a9-5617-4a4f-b6e4-30c85f777a37
           camelhippoevtdemo:date: 0001-01-01T13:00:00+01:00
           camelhippoevtdemo:documenttype: news
           camelhippoevtdemo:introduction: ''

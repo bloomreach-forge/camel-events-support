@@ -35,8 +35,9 @@
       </p>
       <p>
         If you want to configure a Camel Repository Scheduler Job Component to invoke an endpoint URI like 'direct:processCamelRepositoryJob' for instance,
-        then you can configure the following repository job in the repository
-        (in the following example, it is assumed that you configure this job under a new job group named 'camel-demo'):
+        then you can configure the following repository job configuration
+        under <code>/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig</code>
+        in the repository (in the following example, it is assumed that you configure this job under a new job group named 'camel-demo'):
       </p>
       <div class="brush: xml">
       <source><![CDATA[
@@ -84,28 +85,6 @@
     </sv:node>
   </sv:node>
 </sv:node>
-      ]]></source>
-      </div>
-      <p>
-        And, you will need to include the file in hippoecm-extension.xml like the following example
-        (assuming the above XML is contained in configuration/modules/camel-demo-scheduler-jobs.xml):
-      </p>
-      <div class="brush: xml">
-      <source><![CDATA[
-  <sv:node sv:name="myhippoproject-camel-demo-scheduler-jobs">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>configuration/modules/camel-demo-scheduler-jobs.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>30060</sv:value>
-    </sv:property>
-  </sv:node>
       ]]></source>
       </div>
       <p>

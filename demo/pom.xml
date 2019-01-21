@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>12.4.0</version>
+    <version>13.0.0</version>
   </parent>
 
   <name>Camel Hippo Event Bus Demo</name>
   <description>Camel Hippo Event Bus Demo</description>
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt-demo</artifactId>
-  <version>1.2.1</version>
+  <version>2.0.0</version>
   <packaging>pom</packaging>
 
   <!-- 
@@ -22,35 +22,18 @@
     DO NOT remove these tags but instead fill them in appropriately as needed, 
     UNLESS the inherited values are valid for your project.
   -->
-
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <name>Woonsan Ko</name>
-      <id>wko</id>
-      <email>woonsan.ko @ bloomreach . com</email>
-      <organization>Hippo</organization>
-      <roles>
-        <role>Project Lead</role>
-        <role>Java Developer</role>
-      </roles>
-      <timezone>-5</timezone>
-    </developer>
-  </developers>
-
   <url/>
   <inceptionYear/>
   <organization/>
+  <licenses>
+    <license/>
+  </licenses>
   <mailingLists>
     <mailingList/>
   </mailingLists>
+  <developers>
+    <developer/>
+  </developers>
   <contributors>
     <contributor/>
   </contributors>
@@ -81,24 +64,22 @@
     <!-- ***END temporary override of versions*** -->
 
     <forge.camel-hippoevt.version>${project.version}</forge.camel-hippoevt.version>
-    <camel.version>2.15.4</camel.version>
+    <camel.version>2.23.1</camel.version>
+    <spring.version>5.1.1.RELEASE</spring.version>
     <geronimo-jms.version>1.1.1</geronimo-jms.version>
     <activemq.version>5.9.1</activemq.version>
     <json-lib.version>2.4</json-lib.version>
 
-    <solr.version>4.10.3</solr.version>
     <hawtio.version>1.4.44</hawtio.version>
 
-    <httpcomponents-httpcore.version>4.4</httpcomponents-httpcore.version>
-    <httpcomponents-httpclient.version>4.3.6</httpcomponents-httpclient.version>
+    <httpcore4-version>4.4.10</httpcore4-version>
+    <httpclient4-version>4.5.6</httpclient4-version>
+
     <jcip-annotations.version>1.0</jcip-annotations.version>
 
-    <essentials.version>4.4.0-1</essentials.version>
+    <essentials.version>13.0.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
-    <xalan.version>2.7.2</xalan.version>
-    <junit.version>4.12</junit.version>
-    <easymock.version>3.4</easymock.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -108,8 +89,8 @@
 
   <repositories>
     <repository>
-      <id>hippo-maven2</id>
-      <name>Hippo Maven 2 Repository.</name>
+      <id>hippo</id>
+      <name>Hippo maven 2 repository.</name>
       <url>https://maven.onehippo.com/maven2/</url>
     </repository>
     <repository>
@@ -148,6 +129,10 @@
         <version>${camel.version}</version>
         <scope>runtime</scope>
         <exclusions>
+          <exclusion>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
@@ -204,13 +189,6 @@
       </dependency>
 
       <dependency>
-        <groupId>org.apache.solr</groupId>
-        <artifactId>solr</artifactId>
-        <version>${solr.version}</version>
-        <type>war</type>
-      </dependency>
-
-      <dependency>
         <groupId>io.hawt</groupId>
         <artifactId>hawtio-web</artifactId>
         <version>${hawtio.version}</version>
@@ -227,7 +205,7 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore</artifactId>
-        <version>${httpcomponents-httpcore.version}</version>
+        <version>${httpcore4-version}</version>
       </dependency>
 
       <!-- jcip-annotations is required to compile with httpclient and Java 1.5. See HTTPCLIENT-866. -->
@@ -240,7 +218,7 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
-        <version>${httpcomponents-httpclient.version}</version>
+        <version>${httpclient4-version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -250,9 +228,45 @@
       </dependency>
 
       <dependency>
-        <groupId>org.onehippo.cms7</groupId>
-        <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
-        <version>${essentials.version}</version>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
       </dependency>
 
       <dependency>
@@ -277,19 +291,6 @@
         <scope>runtime</scope>
       </dependency>
 
-      <dependency>
-        <groupId>xalan</groupId>
-        <artifactId>xalan</artifactId>
-        <version>${xalan.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>xalan</groupId>
-        <artifactId>serializer</artifactId>
-        <version>${xalan.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
       <!-- other predefined compile scope versioned dependencies -->
       <dependency>
         <groupId>org.freemarker</groupId>
@@ -297,22 +298,7 @@
         <version>${freemarker.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.easymock</groupId>
-        <artifactId>easymock</artifactId>
-        <version>${easymock.version}</version>
-        <scope>test</scope>
-      </dependency>
-
     </dependencies>
-
   </dependencyManagement>
 
   <dependencies>
@@ -384,7 +370,7 @@
         </property>
       </activation>
       <modules>
-        <module>solr</module>
+        <module>cms-dependencies</module>
         <module>repository-data</module>
         <module>cms</module>
         <module>site</module>
@@ -396,8 +382,8 @@
     <profile>
       <id>cargo.run</id>
       <properties>
-        <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
-        <!--<repo.bootstrap>true</repo.bootstrap>-->
+        <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
+        <!-- <repo.bootstrap>true</repo.bootstrap> -->
       </properties>
       <build>
         <plugins>
@@ -429,19 +415,12 @@
                 <deployable>
                   <type>war</type>
                   <properties>
-                    <context>/solr</context>
-                  </properties>
-                  <location>${project.basedir}/solr/target/solr.war</location>
-                </deployable>
-                <deployable>
-                  <type>war</type>
-                  <properties>
                     <context>/cms</context>
                   </properties>
                   <location>${project.basedir}/cms/target/cms.war</location>
                 </deployable>
                 <deployable>
-                  <location>${project.basedir}/site/target/site.war</location>
+                  <location>${project.basedir}/site/webapp/target/site.war</location>
                   <type>war</type>
                   <properties>
                     <context>/site</context>
@@ -464,7 +443,6 @@
               </deployables>
               <container>
                 <systemProperties>
-                  <solr.solr.home>${project.build.directory}/tomcat8x/webapps/solr/WEB-INF/test.solr.home</solr.solr.home>
                   <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
                   <project.basedir>${project.basedir}</project.basedir>

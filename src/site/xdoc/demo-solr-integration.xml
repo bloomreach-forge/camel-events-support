@@ -58,6 +58,50 @@
         </p>
       </subsection>
 
+      <subsection name="Install and Run Apache Solr locally">
+
+        <p>
+          To test this scenario, it is required to run <a href="https://lucene.apache.org/solr/" target="_blank">Apache Solr</a> locally.
+        </p>
+        <p>
+          The demo project expects the Apache Solr running at port 8983 by default.
+        </p>
+        <p>
+          To install Apache Solr, you can follow the following simplified steps for testing purpose only.
+        </p>
+        <ol>
+          <li>
+            Download the latest version of Apache Solr at 
+            <a href="http://lucene.apache.org/solr/" target="_blank">http://lucene.apache.org/solr/</a>.
+          </li>
+          <li>
+            Extract the archive file into the project root folder.
+            So, for example, you will have 'solr-x.x.x' subfolder in the project root folder.
+          </li>
+          <li>
+            Start Apache Solr:
+            <br/>
+            <br/>
+            <code>$ cd ./solr-*/</code>
+            <br/>
+            <code>$ ./bin/solr start</code>
+            <br/>
+            <br/>
+          </li>
+          <li>
+            In order to create the demo core, <code>collection1</code>, create the <code>server/solr/collection1</code> folder
+            under the 'solr-x.x.x' subfolder.
+            And copy all the files and directories in <code>server/solr/configsets/_default/conf/</code> folder
+            to the <code>server/solr/collection1/</code> folder.
+          </li>
+          <li>
+            Visit <a href="http://localhost:8983/solr/" target="_blank">http://localhost:8983/solr/</a>,
+            and select the <code>collection1</code> core.
+          </li>
+        </ol>
+
+      </subsection>
+
       <subsection name="Running the Demo">
         <p>
           You can build and install the module first with Maven.
@@ -73,17 +117,7 @@ $ mvn clean install
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
-$ mvn clean package
-$ mvn -P cargo.run
-        ]]></source>
-        </div>
-        <p>
-          Or you can set the test search engine explicitly:
-        </p>
-        <div class="brush: bash">
-        <source><![CDATA[
-$ cd demo
-$ mvn clean package
+$ mvn clean verify
 $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
         ]]></source>
         </div>
@@ -99,7 +133,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
         </p>
         <p>
           Now, try to search the content in the Search Engine frontend UI
-          (<a href="http://localhost:8080/solr/" target="_blank">http://localhost:8080/solr/</a>).
+          (<a href="http://localhost:8983/solr/" target="_blank">http://localhost:8983/solr/</a>).
         </p>
         <p>
           <img src="images/solr-search.png" alt="Querying in Search Engine Frontend" />
@@ -165,7 +199,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
         </when>
       </choice>
 
-      <!-- Invoke the Solr Index synchronization REST service. -->
+      <!-- Invoke the Search Index synchronization REST service. -->
       <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
     </route>

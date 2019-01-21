@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-repository-data</artifactId>
-    <version>1.2.1</version>
+    <version>2.0.0</version>
   </parent>
 
   <name>Camel Hippo Event Bus Demo Repository Data Web Files</name>
@@ -13,18 +13,17 @@
   <artifactId>camel-hippoevt-demo-repository-data-webfiles</artifactId>
 
   <dependencies>
-    <!-- ARCHE-555 Add dependency on the site war for IntelliJ bean-definition code completion in ftl files -->
     <dependency>
       <groupId>org.onehippo.forge.camel-hippoevt</groupId>
-      <artifactId>camel-hippoevt-demo-site</artifactId>
+      <artifactId>camel-hippoevt-demo-components</artifactId>
       <version>${project.version}</version>
-      <type>war</type>
+      <type>jar</type>
       <scope>provided</scope>
     </dependency>
+    <!-- support ftl auto completion -->
     <dependency>
-      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-      <artifactId>hst-client-dependencies</artifactId>
-      <type>pom</type>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>
