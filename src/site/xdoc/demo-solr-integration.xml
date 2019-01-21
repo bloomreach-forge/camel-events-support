@@ -67,8 +67,39 @@
           The demo project expects the Apache Solr running at port 8983 by default.
         </p>
         <p>
-          To install and run Apache Solr, follow the <a href="https://lucene.apache.org/solr/resources.html#documentation" target="_blank">documentation</a>,
+          To install Apache Solr, you can follow the following simplified steps for testing purpose only.
         </p>
+        <ol>
+          <li>
+            Download the latest version of Apache Solr at 
+            <a href="http://lucene.apache.org/solr/" target="_blank">http://lucene.apache.org/solr/</a>.
+          </li>
+          <li>
+            Extract the archive file into the project root folder.
+            So, for example, you will have 'solr-x.x.x' subfolder in the project root folder.
+          </li>
+          <li>
+            Start Apache Solr:
+            <br/>
+            <br/>
+            <code>$ cd ./solr-*/</code>
+            <br/>
+            <code>$ ./bin/solr start</code>
+            <br/>
+            <br/>
+          </li>
+          <li>
+            In order to create the demo core, <code>collection1</code>, create the <code>server/solr/collection1</code> folder
+            under the 'solr-x.x.x' subfolder.
+            And copy all the files and directories in <code>server/solr/configsets/_default/conf/</code> folder
+            to the <code>server/solr/collection1/</code> folder.
+          </li>
+          <li>
+            Visit <a href="http://localhost:8983/solr/" target="_blank">http://localhost:8983/solr/</a>,
+            and select the <code>collection1</code> core.
+          </li>
+        </ol>
+
       </subsection>
 
       <subsection name="Running the Demo">
@@ -82,16 +113,6 @@ $ mvn clean install
         </div>
         <p>
           To test this scenario, execute the following in the demo project's root folder:
-        </p>
-        <div class="brush: bash">
-        <source><![CDATA[
-$ cd demo
-$ mvn clean verify
-$ mvn -P cargo.run
-        ]]></source>
-        </div>
-        <p>
-          Or you can set the test search engine explicitly:
         </p>
         <div class="brush: bash">
         <source><![CDATA[

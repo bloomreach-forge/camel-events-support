@@ -112,15 +112,19 @@ $ mvn clean install
         ]]></source>
         </div>
         <p>
-          To test this scenario, execute the following in the demo project's root folder:
+          To test this scenario with Apache Solr, execute the following in the demo project's root folder:
         </p>
         <div class="brush: bash">
         <source><![CDATA[
 $ cd demo
 $ mvn clean verify
-$ mvn -P cargo.run -Dcargo.jvm.args="-Dqueue.mode=activemq"
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Dqueue.mode=activemq"
         ]]></source>
         </div>
+        <p>
+          <em>Note: </em> You should run the Apache Solr separately before running the above command.
+          Follow <a href="demo-solr-integration.html">Demo 1: Solr Search Engine Integration</a> page for detail first.
+        </p>
         <p>
           You can also test the scenario with ElasticSearch integration as well:
         </p>
@@ -131,6 +135,10 @@ $ mvn clean verify
 $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
         ]]></source>
         </div>
+        <p>
+          <em>Note: </em> You should run the ElasticSearch separately before running the above command.
+          Follow <a href="demo-es-integration.html">Demo 2: ElasticSearch Search Engine Integration</a> page for detail first.
+        </p>
       </subsection>
 
       <subsection name="Testing the Demo">
