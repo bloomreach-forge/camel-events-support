@@ -28,6 +28,7 @@ import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.PersistedHippoEventListener;
+import org.onehippo.repository.events.PersistedHippoEventListenerRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -82,7 +83,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
                 listener.setOnlyNewEvents(BooleanUtils.toBoolean((String) endpoint.getProperty("_onlyNewEvents")));
             }
 
-            HippoEventListenerRegistry.get().register(listener);
+            PersistedHippoEventListenerRegistry.get().register(listener);
 
             persistedEventListener = listener;
 
@@ -101,7 +102,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         super.doStop();
 
         if (persistedEventListener != null) {
-            HippoEventListenerRegistry.get().unregister(persistedEventListener);
+            PersistedHippoEventListenerRegistry.get().unregister(persistedEventListener);
         }
 
         if (localEventListener != null) {
