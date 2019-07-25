@@ -15,6 +15,11 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
@@ -35,11 +40,23 @@ import org.slf4j.LoggerFactory;
 import net.sf.json.JSONObject;
 
 /**
- * 
+ * HippoEventConsumer.
  */
 public class HippoEventConsumer extends DefaultConsumer implements SuspendableService {
 
     private static final transient Logger LOG = LoggerFactory.getLogger(HippoEventConsumer.class);
+
+    public static final String PERSISTED_LISTENER_FLAG = "_persisted";
+
+    public static final String PERSISTED_LISTENER_CHANNEL_NAME = "_channelName";
+
+    public static final String PERSISTED_LISTENER_ONLY_NEW_EVENTS_FLAG = "_onlyNewEvents";
+
+    private static final Set<String> PERSISTED_LISTNER_OPTION_PARAM_NAME_SET = Collections
+            .unmodifiableSet(new HashSet<>(Arrays.asList(
+                    PERSISTED_LISTENER_FLAG,
+                    PERSISTED_LISTENER_CHANNEL_NAME,
+                    PERSISTED_LISTENER_ONLY_NEW_EVENTS_FLAG)));
 
     private final HippoEventEndpoint endpoint;
     private final Processor processor;
@@ -58,14 +75,14 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
     protected void doStart() throws Exception {
         super.doStart();
 
-        final boolean persistedEventConsumer = BooleanUtils.toBoolean((String) endpoint.getProperty("_persisted"));
+        final boolean persistedEventConsumer = BooleanUtils.toBoolean((String) endpoint.getProperty(PERSISTED_LISTENER_FLAG));
 
         if (persistedEventConsumer) {
             LOG.info("Registering a persisted event consumer because the _persisted parameter set to true.");
 
             HippoPersistedEventListener listener = new HippoPersistedEventListener();
 
-            final String channelName = (String) endpoint.getProperty("_channelName");
+            final String channelName = (String) endpoint.getProperty(PERSISTED_LISTENER_CHANNEL_NAME);
 
             if (StringUtils.isEmpty(channelName)) {
                 throw new RuntimeCamelException("Channel name must be specified for a persisted event consumer with '_channelName' parameter!");
@@ -79,8 +96,8 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
                 listener.setEventCategory(eventCategories[0]);
             }
 
-            if (endpoint.hasProperty("_onlyNewEvents")) {
-                listener.setOnlyNewEvents(BooleanUtils.toBoolean((String) endpoint.getProperty("_onlyNewEvents")));
+            if (endpoint.hasProperty(PERSISTED_LISTENER_ONLY_NEW_EVENTS_FLAG)) {
+                listener.setOnlyNewEvents(BooleanUtils.toBoolean((String) endpoint.getProperty(PERSISTED_LISTENER_ONLY_NEW_EVENTS_FLAG)));
             }
 
             PersistedHippoEventListenerRegistry.get().register(listener);
@@ -125,6 +142,10 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         String value;
 
         for (String propName : endpoint.getPropertyNameSet()) {
+            if (PERSISTED_LISTNER_OPTION_PARAM_NAME_SET.contains(propName)) {
+                continue;
+            }
+
             availableValues = StringUtils.split((String) endpoint.getProperty(propName), ",");
             value = null;
 
