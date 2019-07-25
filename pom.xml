@@ -21,7 +21,7 @@
   <description>Camel Hippo Event Bus Support</description>
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
@@ -34,7 +34,7 @@
     <hippo.services.eventbus.version>13.0.0</hippo.services.eventbus.version>
     <hippo.repository.version>13.0.0</hippo.repository.version>
 
-    <camel.version>2.23.1</camel.version>
+    <camel.version>2.24.1</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
     <lib.junit.version>4.12</lib.junit.version>
