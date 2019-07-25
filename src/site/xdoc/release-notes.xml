@@ -58,6 +58,8 @@
         <ul>
           <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-304'>HIPFORGE-304</a>] -         Camel event forge Plugin Persistent listener broken in v13
           </li>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-306'>HIPFORGE-306</a>] -         [Camel and Hippo] Upgrade Camel dependency to 2.24.1
+          </li>
         </ul>
       </subsection>
       <subsection name="2.0.0">
