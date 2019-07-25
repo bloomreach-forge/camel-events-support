@@ -12,7 +12,7 @@
   <description>Camel Hippo Event Bus Demo</description>
   <groupId>org.onehippo.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt-demo</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!-- 
