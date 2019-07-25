@@ -53,6 +53,13 @@
       </table>
     </section>
     <section name="Release Notes (2.x)">
+      <subsection name="2.0.2">
+        <p class="smallinfo">Release Date: July 25, 2019</p>
+        <ul>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-307'>HIPFORGE-307</a>] -         Camel event forge Plugin Persistent listener does not process any events
+          </li>
+        </ul>
+      </subsection>
       <subsection name="2.0.1">
         <p class="smallinfo">Release Date: July 25, 2019</p>
         <ul>
