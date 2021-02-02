@@ -1,6 +1,6 @@
 <#include "../../include/imports.ftl">
 
-<#-- @ftlvariable name="document" type="org.onehippo.forge.camel.demo.beans.EventsDocument" -->
+<#-- @ftlvariable name="document" type="com.bloomreach.forge.camel.demo.beans.EventsDocument" -->
 <#if document??>
   <@hst.link var="link" hippobean=document/>
   <article>

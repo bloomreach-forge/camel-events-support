@@ -7,4 +7,3 @@
   hst:parametervalues: ['on', 'camelhippoevtdemo:eventsdocument', '', desc, 'off',
     'on', '', '10', 'camelhippoevtdemo:enddate']
   hst:template: eventslist-main-eventslist
-  hst:xtype: hst.item

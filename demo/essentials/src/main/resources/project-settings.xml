@@ -10,10 +10,10 @@
     <hstRoot>/hst:camelhippoevtdemo</hstRoot>
     <projectNamespace>camelhippoevtdemo</projectNamespace>
     <repositoryDataModule>repository-data</repositoryDataModule>
-    <selectedBeansPackage>org.onehippo.forge.camel.demo.beans</selectedBeansPackage>
-    <selectedComponentsPackage>org.onehippo.forge.camel.demo.components</selectedComponentsPackage>
-    <selectedProjectPackage>org.onehippo.forge.camel.demo</selectedProjectPackage>
-    <selectedRestPackage>org.onehippo.forge.camel.demo.rest</selectedRestPackage>
+    <selectedBeansPackage>com.bloomreach.forge.camel.demo.beans</selectedBeansPackage>
+    <selectedComponentsPackage>com.bloomreach.forge.camel.demo.components</selectedComponentsPackage>
+    <selectedProjectPackage>com.bloomreach.forge.camel.demo</selectedProjectPackage>
+    <selectedRestPackage>com.bloomreach.forge.camel.demo.rest</selectedRestPackage>
     <setupDone>true</setupDone>
     <siteContextPath>/site</siteContextPath>
     <siteModule>site</siteModule>

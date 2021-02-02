@@ -52,11 +52,30 @@
       <div class="brush: xml">
       <source><![CDATA[
       <dependency>
-        <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+        <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
         <artifactId>camel-hippoevt</artifactId>
         <version>${camel-hippoevt.version}</version>
       </dependency>
       ]]></source>
+      </div>
+
+      <br/>
+
+      <div class="alert alert-warning">
+        <p><em>NOTE:</em> The maven coordinate of the module has been changed to 
+           <code>com.bloomreach.forge.camel-hippoevt:camel-hippoevt</code> since v3.0.</p>
+        <p>
+          For the previous versions, please use the following instead:
+        </p>
+        <div class="brush: xml">
+        <source><![CDATA[
+        <dependency>
+          <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+          <artifactId>camel-hippoevt</artifactId>
+          <version>${camel-hippoevt.version}</version>
+        </dependency>
+        ]]></source>
+        </div>
       </div>
 
       <subsection name="URI Format">

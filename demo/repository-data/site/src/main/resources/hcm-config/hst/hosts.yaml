@@ -18,4 +18,5 @@ definitions:
             hst:alias: restapi
             hst:isSite: 'false'
             hst:namedpipeline: JaxrsRestPlainPipeline
+            hst:nochannelinfo: true
             hst:types: [rest]

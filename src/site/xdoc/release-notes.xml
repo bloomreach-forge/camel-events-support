@@ -36,6 +36,11 @@
           </th>
         </tr>
         <tr>
+          <td>3.x</td>
+          <td>2.x</td>
+          <td>14.x</td>
+        </tr>
+        <tr>
           <td>2.x</td>
           <td>2.x</td>
           <td>13.x</td>
@@ -51,6 +56,19 @@
           <td>7.9.x, 7.8.x</td>
         </tr>
       </table>
+    </section>
+    <section name="Release Notes (3.x)">
+      <subsection name="3.0.0">
+        <p class="smallinfo">Release Date: July 25, 2019</p>
+        <ul>
+          <li>[<a href='https://issues.onehippo.com/browse/HIPFORGE-393'>HIPFORGE-393</a>] -         [Camel and Hippo] Upgrade for v14 compatibility<br/>
+              <em>Note</em>: The maven coordinate has been changed from
+              <code>org.onehippo.forge.camel-hippoevt:camel-hippoevt</code> to
+              <code>com.bloomreach.forge.camel-hippoevt:camel-hippoevt</code>.
+              See <a href="component-hippoevent.html">Hippo Event Component</a> for detail.
+          </li>
+        </ul>
+      </subsection>
     </section>
     <section name="Release Notes (2.x)">
       <subsection name="2.0.2">

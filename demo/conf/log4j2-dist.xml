@@ -5,7 +5,7 @@
 
     <!-- cms.log -->
     <RollingFile name="cms" fileName="${sys:catalina.base}/logs/cms.log"
-                 filePattern="${sys:catalina.base}/logs/cms.log.%i">
+                 filePattern="${sys:catalina.base}/logs/cms.log.%d{yyyy-MM-dd}">
       <LookupFilter key="jndi:logging/contextName" value="cms" onMatch="ACCEPT"/>
       <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} [%t] %-5p [%C.%M():%L] %m%n"/>
       <Policies>
@@ -16,7 +16,7 @@
 
     <!-- site.log -->
     <RollingFile name="site" fileName="${sys:catalina.base}/logs/site.log"
-                 filePattern="${sys:catalina.base}/logs/site.log.yyyy-MM-dd">
+                 filePattern="${sys:catalina.base}/logs/site.log.%d{yyyy-MM-dd}">
       <LookupFilter key="jndi:logging/contextName" value="site" onMatch="ACCEPT"/>
       <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} [%t] %-5p [%C.%M():%L] %m%n"/>
       <Policies>
@@ -29,6 +29,15 @@
     <RollingFile name="audit" fileName="${sys:catalina.base}/logs/audit.log"
                  filePattern="${sys:catalina.base}/logs/audit.log.%d{yyyy-MM-dd}">
       <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} [%t] %-5p [%C.%M():%L] %m%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
+
+    <!-- crisp-profile.log -->
+    <RollingFile name="crisp-profile" fileName="${sys:catalina.base}/logs/crisp-profile.log"
+                 filePattern="${sys:catalina.base}/logs/crisp-profile.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t %m%n"/>
       <Policies>
         <TimeBasedTriggeringPolicy/>
       </Policies>
@@ -52,12 +61,20 @@
       <AppenderRef ref="audit"/>
     </Logger>
 
+    <!-- index repair logging -->
+    <Logger name="org.hippoecm.repository.jackrabbit.IndexRepairer" level="info"/>
+
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
 
     <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
          can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
+
+    <!-- crisp-profile logging -->
+    <Logger additivity="false" name="org.onehippo.cms7.crisp.core.profile.ResourceResolverProfiler" level="info">
+      <AppenderRef ref="crisp-profile"/>
+    </Logger>
 
     <Logger name="freemarker" level="error"/>
     <Logger name="org.apache.cxf" level="error"/>
@@ -80,8 +97,12 @@
     <Logger name="org.apache.jackrabbit.core.query.lucene.SearchIndex" level="info"/>
     <Logger name="org.apache.jackrabbit.core.query.lucene.ConsistencyCheck" level="info"/>
 
+    <!-- Dynamic beans logging -->
+    <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>
+    <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
+
     <!-- project logging -->
-    <Logger name="org.onehippo.forge.camel.demo" level="info"/>
+    <Logger name="com.bloomreach.forge.camel.demo" level="info"/>
 
     <Root level="warn">
       <AppenderRef ref="site"/>

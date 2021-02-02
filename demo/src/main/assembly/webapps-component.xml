@@ -2,11 +2,6 @@
            xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/component/1.1.2 http://maven.apache.org/xsd/component-1.1.2.xsd">
   <files>
     <file>
-      <source>solr/target/solr.war</source>
-      <outputDirectory>/webapps</outputDirectory>
-      <destName>solr.war</destName>
-    </file>
-    <file>
       <source>cms/target/cms.war</source>
       <outputDirectory>webapps</outputDirectory>
       <destName>cms.war</destName>
@@ -15,11 +10,6 @@
       <source>site/webapp/target/site.war</source>
       <outputDirectory>webapps</outputDirectory>
       <destName>site.war</destName>
-    </file>
-    <file>
-      <source>hawtio/target/hawtio.war</source>
-      <outputDirectory>/webapps</outputDirectory>
-      <destName>hawtio.war</destName>
     </file>
   </files>
 </component>

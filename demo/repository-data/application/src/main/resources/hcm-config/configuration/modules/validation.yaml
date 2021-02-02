@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/camelhippoevtdemo:events-sequential-dates:
+      jcr:primaryType: hipposys:moduleconfig
+      datePropertyNames: ['camelhippoevtdemo:date', 'camelhippoevtdemo:enddate']
+      hipposys:className: org.onehippo.cms.services.validation.validator.SequentialDatesValidator

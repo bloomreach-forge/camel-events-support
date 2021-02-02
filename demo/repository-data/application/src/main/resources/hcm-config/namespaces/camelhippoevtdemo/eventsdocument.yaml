@@ -3,19 +3,20 @@ definitions:
     /hippo:namespaces/camelhippoevtdemo/eventsdocument:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: e4693330-b08e-40b6-9e8f-759cc9e64f15
+      jcr:uuid: 0643b390-0082-4653-a068-08b531f3603d
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 8e45a00c-f981-466d-88dc-d3806e7122ce
+        jcr:uuid: a5e94d13-0a5a-4750-9f59-cb926500cc01
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 53339402-736c-4946-a688-42a1cd3192de
+          jcr:uuid: a58c871c-1e9b-44da-9b6b-f65cfa14f4c9
           hipposysedit:node: true
           hipposysedit:supertype: ['camelhippoevtdemo:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.camelhippoevtdemo.com/camelhippoevtdemo/nt/1.0
+          hipposysedit:validators: ['camelhippoevtdemo:events-sequential-dates']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -77,7 +78,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: camelhippoevtdemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 54d72a80-1b1d-4712-878d-a0acec29481c
+          jcr:uuid: e405e74d-1f5b-4044-a27c-fcc623adbf49
           camelhippoevtdemo:date: 0001-01-01T13:00:00+01:00
           camelhippoevtdemo:documenttype: event
           camelhippoevtdemo:enddate: 0001-01-01T13:00:00+01:00

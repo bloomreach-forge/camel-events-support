@@ -17,11 +17,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <name>Camel Hippo Event Bus Support</name>
-  <description>Camel Hippo Event Bus Support</description>
-  <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+  <name>Bloomreach Camel Event Bus Support</name>
+  <description>Bloomreach Camel Event Bus Support</description>
+  <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>2.0.3-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
@@ -30,17 +30,16 @@
     <project.build.javaVersion>1.7</project.build.javaVersion>
 
     <javax.jcr.version>2.0</javax.jcr.version>
-    <hippo.services.version>13.0.0</hippo.services.version>
-    <hippo.services.eventbus.version>13.0.0</hippo.services.eventbus.version>
-    <hippo.repository.version>13.0.0</hippo.repository.version>
+    <hippo.services.version>14.1.0</hippo.services.version>
+    <hippo.services.eventbus.version>14.1.0</hippo.services.eventbus.version>
+    <hippo.repository.version>14.1.0</hippo.repository.version>
 
-    <camel.version>2.24.1</camel.version>
+    <camel.version>2.25.3</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
-    <lib.junit.version>4.12</lib.junit.version>
+    <lib.junit.version>4.13.1</lib.junit.version>
     <lib.easymock.version>3.0</lib.easymock.version>
     <lib.slf4j.version>1.7.6</lib.slf4j.version>
-    <lib.log4j.version>1.2.17</lib.log4j.version>
 
     <plugin.compiler.version>3.1</plugin.compiler.version>
     <plugin.clean.version>2.5</plugin.clean.version>
@@ -210,13 +209,6 @@
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
       <version>${lib.slf4j.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${lib.log4j.version}</version>
       <scope>test</scope>
     </dependency>
 

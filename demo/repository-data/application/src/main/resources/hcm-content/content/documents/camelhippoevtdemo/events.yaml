@@ -1,23 +1,23 @@
 /content/documents/camelhippoevtdemo/events:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: 2e9a542f-3e53-4e10-b4c3-e2e98a6e8ef5
+  jcr:uuid: 0188e9dc-8c6e-4b8d-8f04-27635abb94e9
   hippostd:foldertype: [new-events-document, new-events-folder]
-  hippotranslation:id: f585a02e-cce4-487e-928f-26ee525c2081
+  hippotranslation:id: 5d27718e-5086-45ef-9a70-a5e4163c1427
   hippotranslation:locale: en
-  /2019:
+  /2021:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-    jcr:uuid: 29f77dd6-5f1b-41cf-824c-2739ba8f2158
+    jcr:uuid: 4fd3d82b-6844-40e5-88ea-ff8556197998
     hippostd:foldertype: [new-events-document, new-events-folder]
-    hippotranslation:id: 44abe110-1304-4967-8219-b41f38019121
+    hippotranslation:id: dae126ee-f914-4e38-a9c8-50130dd0743d
     hippotranslation:locale: en
-    /01:
+    /02:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 0a8a0cb3-7f2a-4b5a-95d8-50dd4c5ee0f5
+      jcr:uuid: 1af3b0d9-e04b-4aa3-98c4-8d24ef945941
       hippostd:foldertype: [new-events-document, new-events-folder]
-      hippotranslation:id: ba46e682-c2e5-413d-9a72-85e7d88a8718
+      hippotranslation:id: 3c4c5ec9-15ee-43f1-912f-c7bafaf04791
       hippotranslation:locale: en
       /breakfast:
         jcr:primaryType: hippo:handle
@@ -27,10 +27,10 @@
         /breakfast:
           jcr:primaryType: camelhippoevtdemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2a00d5bb-d1da-4f5b-bf8b-373c1d46ddad
+          jcr:uuid: b99b5ecd-9f7a-4b0d-a8af-05716a7c0c87
           camelhippoevtdemo:date: 2013-11-12T08:00:00+01:00
           camelhippoevtdemo:documenttype: event
-          camelhippoevtdemo:enddate: 2020-01-20T15:53:00+09:00
+          camelhippoevtdemo:enddate: 2022-02-02T15:22:00-05:00
           camelhippoevtdemo:introduction: Start the day with a nice breakfast.
           camelhippoevtdemo:location: Room 101
           camelhippoevtdemo:title: Breakfast
@@ -42,7 +42,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T11:11:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
-          hippotranslation:id: f0721fcc-b47a-44d9-866b-bec1bdc9f911
+          hippotranslation:id: d72d1b34-10bd-4fa8-8956-58788d6c73aa
           hippotranslation:locale: en
           /camelhippoevtdemo:content:
             jcr:primaryType: hippostd:html
@@ -68,10 +68,10 @@
         /introduction-speech:
           jcr:primaryType: camelhippoevtdemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 1cd23a1d-766a-4ff2-befc-dd4654554fac
+          jcr:uuid: e184cc54-ea78-4c95-988b-cad26723fdcf
           camelhippoevtdemo:date: 2013-11-12T10:00:00+01:00
           camelhippoevtdemo:documenttype: event
-          camelhippoevtdemo:enddate: 2020-01-20T15:53:00+09:00
+          camelhippoevtdemo:enddate: 2022-02-02T15:22:00-05:00
           camelhippoevtdemo:introduction: After breakfast there will be an introductory
             speech.
           camelhippoevtdemo:location: Room 400
@@ -84,7 +84,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T11:16:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
-          hippotranslation:id: 09e1e845-74da-4ad7-89f2-c66f9a12c822
+          hippotranslation:id: d63d3bbe-7c77-4784-af0c-95acfc72ec47
           hippotranslation:locale: en
           /camelhippoevtdemo:content:
             jcr:primaryType: hippostd:html
@@ -109,10 +109,10 @@
         /workshop:
           jcr:primaryType: camelhippoevtdemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 32ab91a0-1566-47f3-bf31-a3b5c841ca97
+          jcr:uuid: 3d708bcc-f10a-4a2b-9ac2-2005be12d3b9
           camelhippoevtdemo:date: 2013-11-12T13:00:00+01:00
           camelhippoevtdemo:documenttype: event
-          camelhippoevtdemo:enddate: 2020-01-20T15:53:00+09:00
+          camelhippoevtdemo:enddate: 2022-02-02T15:22:00-05:00
           camelhippoevtdemo:introduction: Workshop starts at 1:00
           camelhippoevtdemo:location: Room 600
           camelhippoevtdemo:title: Workshop
@@ -124,7 +124,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T11:18:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
-          hippotranslation:id: d70ee525-1670-41f6-ad89-75ef1bec1850
+          hippotranslation:id: 1e431b23-3c77-4899-827e-6e00074748c2
           hippotranslation:locale: en
           /camelhippoevtdemo:content:
             jcr:primaryType: hippostd:html

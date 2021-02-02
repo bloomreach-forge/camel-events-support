@@ -1,6 +1,6 @@
 <#include "../include/imports.ftl">
 
-<#-- @ftlvariable name="item" type="org.onehippo.forge.camel.demo.beans.EventsDocument" -->
+<#-- @ftlvariable name="item" type="com.bloomreach.forge.camel.demo.beans.EventsDocument" -->
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#if pageable?? && pageable.items?has_content>
   <div>
@@ -12,7 +12,7 @@
         <#if item.date?? && item.date.time??>
           <p><@fmt.formatDate value=item.date.time type="both" dateStyle="medium" timeStyle="short"/></p>
         </#if>
-        <#if item.enddate?? && item.endDate.time??>
+        <#if item.endDate?? && item.endDate.time??>
           <p><@fmt.formatDate value=item.endDate.time type="both" dateStyle="medium" timeStyle="short"/></p>
         </#if>
         <p>${item.location?html}</p>
@@ -20,7 +20,7 @@
       </article>
     </#list>
     <div class="has-new-content-button">
-      <@hst.manageContent documentTemplateQuery="new-events-document" rootPath="events" defaultPath="${currentYear}/${currentMonth}"/>
+      <@hst.manageContent documentTemplateQuery="new-events-document" folderTemplateQuery="new-events-folder" rootPath="events" defaultPath="${currentYear}/${currentMonth}"/>
     </div>
     <#if cparam.showPagination>
         <#include "../include/pagination.ftl">
@@ -29,9 +29,9 @@
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
 <#elseif editMode>
   <div>
-    <img src="<@hst.link path='/images/essentials/catalog-component-icons/events-list.png'/>"> Click to edit Event List
+    <img src="<@hst.link path='/images/essentials/catalog-component-icons/events-list.svg'/>"> Click to edit Event List
     <div class="has-new-content-button">
-      <@hst.manageContent documentTemplateQuery="new-events-document" rootPath="events" defaultPath="${currentYear}/${currentMonth}"/>
+      <@hst.manageContent documentTemplateQuery="new-events-document" folderTemplateQuery="new-events-folder" rootPath="events" defaultPath="${currentYear}/${currentMonth}"/>
     </div>
   </div>
 </#if>

@@ -4,7 +4,7 @@ definitions:
       autoexport:modules:
         operation: add
         type: string
-        value: [repository-data/development, 'repository-data/site:camelhippoevtdemo:/hst:camelhippoevtdemo']
+        value: [repository-data/development, 'repository-data/site-development:camelhippoevtdemo']
       autoexport:enabled: false
     /hippo:configuration/hippo:groups/author:
       hipposys:members:

@@ -34,7 +34,7 @@
         <!-- Solr Search Index Updater REST service -->
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
-            <bean class="org.onehippo.forge.camel.demo.rest.services.SolrRestUpdateResource"
+            <bean class="com.bloomreach.forge.camel.demo.rest.services.SolrRestUpdateResource"
                   destroy-method="destroy">
               <property name="baseUrl" value="http://localhost:8983/solr" />
               <property name="coreName" value="collection1" />
@@ -45,7 +45,7 @@
         <!-- Elastic Search Index Updater REST service -->
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
-            <bean class="org.onehippo.forge.camel.demo.rest.services.ElasticSearchRestUpdateResource"
+            <bean class="com.bloomreach.forge.camel.demo.rest.services.ElasticSearchRestUpdateResource"
                   destroy-method="destroy">
               <property name="baseUrl" value="http://localhost:9200" />
               <property name="defaultIndexName" value="pages" />
@@ -57,7 +57,7 @@
         <!-- Example News Document REST service -->
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
-            <bean class="org.onehippo.forge.camel.demo.rest.services.NewsResource" />
+            <bean class="com.bloomreach.forge.camel.demo.rest.services.NewsResource" />
           </constructor-arg>
         </bean>
 

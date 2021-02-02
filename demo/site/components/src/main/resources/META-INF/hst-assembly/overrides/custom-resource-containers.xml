@@ -21,7 +21,7 @@
   <bean id="customResourceContainers" class="org.springframework.beans.factory.config.ListFactoryBean">
     <property name="sourceList">
       <list>
-        <bean class="org.onehippo.forge.camel.demo.container.RevisionTimePrefixedHippoGalleryImageSetContainer">
+        <bean class="com.bloomreach.forge.camel.demo.container.RevisionTimePrefixedHippoGalleryImageSetContainer">
           <property name="primaryItem" value="hippogallery:original"/>
           <property name="mappings">
             <bean class="org.springframework.beans.factory.config.MapFactoryBean">

@@ -41,7 +41,7 @@
     <Logger name="org.hippoecm.repository.export" level="info"/>
 
     <!-- project logging -->
-    <Logger name="org.onehippo.forge.camel.demo" level="debug"/>
+    <Logger name="com.bloomreach.forge.camel.demo" level="debug"/>
 
     <Root level="warn">
       <AppenderRef ref="console"/>
