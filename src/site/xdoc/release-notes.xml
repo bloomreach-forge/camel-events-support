@@ -59,7 +59,7 @@
     </section>
     <section name="Release Notes (3.x)">
       <subsection name="3.0.0">
-        <p class="smallinfo">Release Date: February 2, 2021</p>
+        <p class="smallinfo">Release Date: February 8, 2021</p>
         <ul>
           <li><a href='https://issues.onehippo.com/browse/HIPFORGE-393'>HIPFORGE-393</a> - Upgrade for v14 compatibility<br/>
               <em>Note</em>: The Maven coordinate has been changed from
