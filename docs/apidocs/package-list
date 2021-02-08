@@ -1,0 +1,5 @@
+org.onehippo.forge.camel.component.hippo
+org.onehippo.forge.camel.converter.hippo
+org.onehippo.forge.camel.converter.json
+org.onehippo.forge.camel.scheduling
+org.onehippo.forge.camel.util
