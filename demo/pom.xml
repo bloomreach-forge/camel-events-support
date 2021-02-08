@@ -12,7 +12,7 @@
   <description>Bloomreach Camel Event Bus Demo</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt-demo</artifactId>
-  <version>3.0.0</version>
+  <version>3.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!-- 
