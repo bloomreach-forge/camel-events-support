@@ -3,5 +3,5 @@ definitions:
     /hst:hst/hst:configurations/camelhippoevtdemo/hst:workspace/hst:channel:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:channel
-      hst:name: Camel Hippo Event Bus Demo
+      hst:name: Bloomreach Camel Event Bus Demo
       hst:type: website

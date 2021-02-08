@@ -17,7 +17,7 @@ against an existing repository, you can specify the *additional* Maven profile w
 This additional profile will modify the target location for the development module to the Tomcat temp/ folder so that
 it won't be seen and picked up during the repository bootstrap process.
 
-Access the BloomReach setup application at <http://localhost:8080/essentials>.
+Access the Bloomreach setup application at <http://localhost:8080/essentials>.
 After your project is set up, access the CMS at <http://localhost:8080/cms> and the site at <http://localhost:8080/camelhippoevtdemo>.
 Logs are located in target/tomcat9x/logs
 
@@ -70,3 +70,57 @@ Distributing Additional Site Projects
 Note that if your organization is using multiple site projects, you must configure the assembly of a distribution to
 include all of the separate site webapps for deployment. This project is designed for stand-alone use and does not
 automatically include any additional, externally-maintained site webapps.
+
+
+Running the brXM Project in a Docker Container
+======================
+
+To run the brXM project in a docker container, you must install the project, build the docker image and run the docker
+image respectively.
+
+First install the project:
+
+    mvn clean install
+
+Then build the brXM docker image:
+
+    mvn -Pdocker.build
+
+This maven profile will create a docker image and add it to the local docker registry. The new image will be tagged
+as com.bloomreach.forge.camel-hippoevt/camel-hippoevt-demo:3.0.0-SNAPSHOT
+
+To run the image with in-memory h2 database:
+
+    mvn -Pdocker.run
+
+
+Running with an embedded MySQL database. To create & run environment containing builtin MySQL DB just run:
+
+    mvn -Pdocker.run,docker.mysql
+
+As a result, default db credentials will be used (admin/admin) and DB name will be the same as project's artifactId (e.g. myproject)
+
+Running with an embedded PostgreSQL database. To create & run environment containing builtin PostgreSQL DB just run:
+
+    mvn -Pdocker.run,docker.postgres
+
+As a result, default db credentials will be used (admin/admin) and DB name will be the same as project's artifactId (e.g. myproject)
+
+To run the image with an external mysql database, add the provided database name, username and password below to the properties
+section of your project's pom.xml:
+
+    <docker.db.host>DATABASE_HOSTNAME</docker.db.host>
+    <docker.db.port>DATABASE_PORT</docker.db.port>
+    <docker.db.schema>DATABASE_NAME</docker.db.schema>
+    <docker.db.username>DATABASE_USERNAME</docker.db.username>
+    <docker.db.password>DATABASE_PASSWORD</docker.db.password>
+
+Then run:
+
+    mvn -Pdocker.run,mysql
+
+To run the image with an external postgresql database, add the same db properties as above, then run:
+
+    mvn -Pdocker.run,postgres
+
+After running the docker image, application logs will be shown on the terminal window.

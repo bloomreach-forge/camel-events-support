@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>13.0.0</version>
+    <version>14.4.0</version>
   </parent>
 
-  <name>Camel Hippo Event Bus Demo</name>
-  <description>Camel Hippo Event Bus Demo</description>
-  <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+  <name>Bloomreach Camel Event Bus Demo</name>
+  <description>Bloomreach Camel Event Bus Demo</description>
+  <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt-demo</artifactId>
-  <version>2.0.2</version>
+  <version>3.0.0</version>
   <packaging>pom</packaging>
 
   <!-- 
@@ -64,24 +64,26 @@
     <!-- ***END temporary override of versions*** -->
 
     <forge.camel-hippoevt.version>${project.version}</forge.camel-hippoevt.version>
-    <camel.version>2.23.1</camel.version>
-    <spring.version>5.1.1.RELEASE</spring.version>
+    <camel.version>2.25.3</camel.version>
+    <spring.version>5.1.18.RELEASE</spring.version>
     <geronimo-jms.version>1.1.1</geronimo-jms.version>
     <activemq.version>5.9.1</activemq.version>
     <json-lib.version>2.4</json-lib.version>
 
     <hawtio.version>1.4.44</hawtio.version>
 
-    <httpcore4-version>4.4.10</httpcore4-version>
-    <httpclient4-version>4.5.6</httpclient4-version>
+    <httpcore4-version>4.4.14</httpcore4-version>
+    <httpclient4-version>4.5.13</httpclient4-version>
 
     <jcip-annotations.version>1.0</jcip-annotations.version>
 
-    <essentials.version>13.0.0</essentials.version>
+    <essentials.version>14.4.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
+
+    <docker.postgres.bind.1>${project.basedir}/target/postgres-data:/var/lib/postgresql/data</docker.postgres.bind.1>
 
     <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
     <buildNumber>${maven.build.timestamp}</buildNumber>
@@ -93,11 +95,6 @@
       <name>Hippo maven 2 repository.</name>
       <url>https://maven.onehippo.com/maven2/</url>
     </repository>
-    <repository>
-      <id>hippo-maven2-forge</id>
-      <name>Hippo Maven 2 Forge Repository.</name>
-      <url>https://maven.onehippo.com/maven2-forge/</url>
-    </repository>
   </repositories>
 
   <dependencyManagement>
@@ -105,7 +102,7 @@
     <dependencies>
 
       <dependency>
-        <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+        <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
         <artifactId>camel-hippoevt</artifactId>
         <version>${forge.camel-hippoevt.version}</version>
       </dependency>
@@ -380,6 +377,86 @@
     </profile>
 
     <profile>
+      <id>docker.build</id>
+      <dependencies>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-cms</artifactId>
+          <version>${project.version}</version>
+          <type>war</type>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-webapp</artifactId>
+          <version>${project.version}</version>
+          <type>war</type>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>docker.run</id>
+      <dependencies>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-essentials</artifactId>
+          <version>${project.version}</version>
+          <type>war</type>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-repository-data-development</artifactId>
+          <version>${project.version}</version>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-repository-data-site-development</artifactId>
+          <version>${project.version}</version>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>mysql</id>
+    </profile>
+
+    <profile>
+      <id>docker.mysql</id>
+      <properties>
+        <docker.db.bind.1>${project.basedir}/target/mysql-data:/var/lib/mysql</docker.db.bind.1>
+        <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
+
+        <docker.brxm.envRun.MYSQL_DB_HOST>${docker.container.db.net.camel-hippoevt-demo-network.ip}</docker.brxm.envRun.MYSQL_DB_HOST>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>postgres</id>
+    </profile>
+
+    <profile>
+      <id>docker.postgres</id>
+      <properties>
+        <docker.db.bind.1>${docker.postgres.bind.1}</docker.db.bind.1>
+        <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
+
+        <docker.brxm.envRun.POSTGRES_DB_HOST>${docker.container.db.net.camel-hippoevt-demo-network.ip}</docker.brxm.envRun.POSTGRES_DB_HOST>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>docker.windows</id>
+      <properties>
+        <docker.postgres.bind.1>camel-hippoevt-demo-postgres-data:/var/lib/postgresql/data</docker.postgres.bind.1>
+      </properties>
+    </profile>
+
+    <profile>
       <id>cargo.run</id>
       <properties>
         <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
@@ -403,10 +480,24 @@
                     <todir>conf/</todir>
                     <tofile>logging.properties</tofile>
                   </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/hst-dev.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>hst.properties</tofile>
+                  </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/platform-dev.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>platform.properties</tofile>
+                  </configfile>
                 </configfiles>
                 <files>
                   <file>
                     <file>${project.basedir}/repository-data/development/target/camel-hippoevt-demo-repository-data-development-${project.version}.jar</file>
+                    <todir>${development-module-deploy-dir}</todir>
+                  </file>
+                  <file>
+                    <file>${project.basedir}/repository-data/site-development/target/camel-hippoevt-demo-repository-data-site-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
                 </files>
@@ -417,10 +508,10 @@
                   <properties>
                     <context>/cms</context>
                   </properties>
-                  <location>${project.basedir}/cms/target/cms.war</location>
+                  <location>${project.basedir}/cms/target/cms</location>
                 </deployable>
                 <deployable>
-                  <location>${project.basedir}/site/webapp/target/site.war</location>
+                  <location>${project.basedir}/site/webapp/target/site</location>
                   <type>war</type>
                   <properties>
                     <context>/site</context>
@@ -434,7 +525,7 @@
                   </properties>
                 </deployable>
                 <deployable>
-                  <location>${project.basedir}/essentials/target/essentials.war</location>
+                  <location>${project.basedir}/essentials/target/essentials</location>
                   <type>war</type>
                   <properties>
                     <context>/essentials</context>
@@ -443,7 +534,7 @@
               </deployables>
               <container>
                 <systemProperties>
-                  <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
+                  <log4j.configurationFile>${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
                   <project.basedir>${project.basedir}</project.basedir>
                   <send.usage.statistics.to.hippo>true</send.usage.statistics.to.hippo>
@@ -463,11 +554,14 @@
     </profile>
 
     <profile>
-      <!-- additional profile to combine with cargo:run to *not* bootstrap the development module:
+      <!-- additional profile to combine with cargo:run to *not* bootstrap the development modules:
            $ mvn -P cargo.run,without-development-data -->
       <id>without-development-data</id>
       <properties>
         <development-module-deploy-dir>temp</development-module-deploy-dir>
+
+        <!-- Comment out Dockerfile instruction that copies development modules to an image -->
+        <docker.brxm.copy.dev.libs.cmd>#</docker.brxm.copy.dev.libs.cmd>
       </properties>
     </profile>
 

@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:cms/validators/de:
+      camelhippoevtdemo:events-sequential-dates: Wählen Sie ein Enddatum nach dem
+        Startdatum
+    /hippo:configuration/hippo:translations/hippo:cms/validators/en:
+      camelhippoevtdemo:events-sequential-dates: Choose an end date past the start
+        date
+    /hippo:configuration/hippo:translations/hippo:cms/validators/fr:
+      camelhippoevtdemo:events-sequential-dates: Choisissez une date de fin après
+        la date de début
+    /hippo:configuration/hippo:translations/hippo:cms/validators/nl:
+      camelhippoevtdemo:events-sequential-dates: Kies een einddatum na de startdatum

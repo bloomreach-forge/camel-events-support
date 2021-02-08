@@ -1,7 +1,7 @@
 /content/gallery/camelhippoevtdemo/samples:
   jcr:primaryType: hippogallery:stdImageGallery
   jcr:mixinTypes: ['mix:referenceable']
-  jcr:uuid: 1afef420-1e6a-4c9d-a184-dc8a10dd3f8a
+  jcr:uuid: b90edb7b-c422-46d1-b3a6-fee94ad4396b
   hippostd:foldertype: [new-image-folder]
   hippostd:gallerytype: ['hippogallery:imageset']
   /blue-199261_150.jpg:
@@ -11,7 +11,7 @@
     /blue-199261_150.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 8bb9168d-3ff1-49b5-aded-41232b553dd6
+      jcr:uuid: 91155ec2-ca5b-4b4d-94a1-28861c3b2eb7
       hippo:availability: [live, preview]
       hippogallery:description: Description for blue-199261_150.jpg
       hippogallery:filename: blue-199261_150.jpg
@@ -40,7 +40,7 @@
     /coffee-206142_150.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 03ac2f65-b071-4d55-91c7-d67d2b4eea76
+      jcr:uuid: ac8fc536-09af-40ec-9062-3ed932d68598
       hippo:availability: [live, preview]
       hippogallery:description: Description for coffee-206142_150.jpg
       hippogallery:filename: coffee-206142_150.jpg
@@ -69,7 +69,7 @@
     /pencils-199883_150.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 54733cdc-4fa0-4b23-a580-5ff8d7de2f01
+      jcr:uuid: dad819ab-8bed-46b1-9457-fd0da40c4809
       hippo:availability: [live, preview]
       hippogallery:description: Description for pencils-199883_150.jpg
       hippogallery:filename: pencils-199883_150.jpg
@@ -98,7 +98,7 @@
     /viognier-grapes-188185_640.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 7f16c530-fab4-46ae-a935-3c8821de9130
+      jcr:uuid: 9078e37e-f1db-4950-9531-7f2558802b25
       hippo:availability: [live, preview]
       hippogallery:description: Description for viognier-grapes-188185_640.jpg
       hippogallery:filename: viognier-grapes-188185_640.jpg
@@ -127,7 +127,7 @@
     /animal-2883_640.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: ef52527b-6a0f-4daa-8d3a-52fe4614f230
+      jcr:uuid: ed186694-131d-4df5-a682-79ecf8357d6d
       hippo:availability: [live, preview]
       hippogallery:description: Description for animal-2883_640.jpg
       hippogallery:filename: animal-2883_640.jpg
@@ -156,7 +156,7 @@
     /snail-193611_640.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 99d5a252-8d55-440b-a7c9-e4d159d5d8f9
+      jcr:uuid: 756a00d5-7e6a-4a03-afbc-1a101b6a583f
       hippo:availability: [live, preview]
       hippogallery:description: Description for snail-193611_640.jpg
       hippogallery:filename: snail-193611_640.jpg

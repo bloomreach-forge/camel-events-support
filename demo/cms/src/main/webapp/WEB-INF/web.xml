@@ -6,8 +6,8 @@
          id="cms">
 
   <!-- General configuration -->
-  <display-name>Camel Hippo Event Bus Demo CMS</display-name>
-  <description>Camel Hippo Event Bus Demo CMS</description>
+  <display-name>Bloomreach Camel Event Bus Demo CMS</display-name>
+  <description>Bloomreach Camel Event Bus Demo CMS</description>
 
   <listener>
     <listener-class>org.hippoecm.hst.platform.container.HstCmsContextLoaderListener</listener-class>

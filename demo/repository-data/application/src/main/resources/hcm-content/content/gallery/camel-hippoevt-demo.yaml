@@ -1,7 +1,7 @@
 /content/gallery/camelhippoevtdemo:
   jcr:primaryType: hippogallery:stdImageGallery
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: 8fde22ae-325d-46bc-bada-eea94491111f
-  hippo:name: Camel Hippo Event Bus Demo
+  jcr:uuid: c34769a3-3b5c-43dc-94ff-8e4b1b2ba658
+  hippo:name: Bloomreach Camel Event Bus Demo
   hippostd:foldertype: [new-image-folder]
   hippostd:gallerytype: ['hippogallery:imageset']

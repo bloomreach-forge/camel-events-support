@@ -1,6 +1,6 @@
 <#include "../include/imports.ftl">
 
-<#-- @ftlvariable name="item" type="org.onehippo.forge.camel.demo.beans.NewsDocument" -->
+<#-- @ftlvariable name="item" type="com.bloomreach.forge.camel.demo.beans.NewsDocument" -->
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#if pageable?? && pageable.items?has_content>
 <div>
@@ -17,7 +17,7 @@
     </article>
   </#list>
   <div class="has-new-content-button">
-    <@hst.manageContent documentTemplateQuery="new-news-document" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
+    <@hst.manageContent documentTemplateQuery="new-news-document" folderTemplateQuery="new-news-folder" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
   </div>
   <#if cparam.showPagination>
     <#include "../include/pagination.ftl">
@@ -26,9 +26,9 @@
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
 <#elseif editMode>
 <div>
-  <img src="<@hst.link path='/images/essentials/catalog-component-icons/news-list.png'/>"> Click to edit News List
+  <img src="<@hst.link path='/images/essentials/catalog-component-icons/news-list.svg'/>"> Click to edit News List
   <div class="has-new-content-button">
-    <@hst.manageContent documentTemplateQuery="new-news-document" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
+    <@hst.manageContent documentTemplateQuery="new-news-document" folderTemplateQuery="new-news-folder" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
   </div>
 </div>
 </#if>

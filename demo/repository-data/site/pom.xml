@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+    <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-repository-data</artifactId>
-    <version>2.0.2</version>
+    <version>3.0.0</version>
   </parent>
 
-  <name>Camel Hippo Event Bus Demo Repository Data For Site</name>
-  <description>Camel Hippo Event Bus Demo Repository Data For Site</description>
+  <name>Bloomreach Camel Event Bus Demo Repository Data For Site</name>
+  <description>Bloomreach Camel Event Bus Demo Repository Data For Site</description>
   <artifactId>camel-hippoevt-demo-repository-data-site</artifactId>
 
   <build>

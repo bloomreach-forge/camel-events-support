@@ -7,4 +7,3 @@
   hst:parametervalues: ['on', 'camelhippoevtdemo:newsdocument', '', desc, 'off', 'on',
     '', '10', 'camelhippoevtdemo:date', 'on']
   hst:template: newslist-main-newslist
-  hst:xtype: hst.item

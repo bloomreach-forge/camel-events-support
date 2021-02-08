@@ -3,30 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+    <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-site</artifactId>
-    <version>2.0.2</version>
+    <version>3.0.0</version>
   </parent>
   <artifactId>camel-hippoevt-demo-webapp</artifactId>
   <packaging>war</packaging>
-  <name>Camel Hippo Event Bus Demo Site Webapp</name>
-  <description>Camel Hippo Event Bus Demo Site Webapp</description>
+  <name>Bloomreach Camel Event Bus Demo Site Webapp</name>
+  <description>Bloomreach Camel Event Bus Demo Site Webapp</description>
 
   <dependencies>
     <dependency>
-      <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+      <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
       <artifactId>camel-hippoevt-demo-repository-data-site</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+      <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
       <artifactId>camel-hippoevt-demo-repository-data-webfiles</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.onehippo.forge.camel-hippoevt</groupId>
+      <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
       <artifactId>camel-hippoevt-demo-components</artifactId>
-      <version>2.0.2</version>
+      <version>3.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>

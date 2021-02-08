@@ -1,0 +1,22 @@
+/content/documents/administration/labels/pagenotfound:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: a72329bf-0c54-4463-8448-b0151e27838a
+  hippo:name: Page not found
+  /pagenotfound:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 9d18bca9-31eb-4a0d-9b6a-67d5492d7a39
+    hippo:availability: [live, preview]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2014-08-21T17:08:08.703+02:00
+    hippostdpubwf:lastModificationDate: 2014-08-21T17:11:53.242+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2014-08-21T17:11:55.239+02:00
+    resourcebundle:descriptions: [Title displayed when page is not found., Text displayed
+        when page is not found.]
+    resourcebundle:id: essentials.pagenotfound
+    resourcebundle:keys: [pagenotfound.title, pagenotfound.text]
+    resourcebundle:messages: [Page not found (404), 'The page you requested was not
+        found. - [This text can be edited here: http://localhost:8080/cms/?1&path=/content/documents/administration/labels/pagenotfound]']

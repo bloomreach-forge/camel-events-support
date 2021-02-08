@@ -32,6 +32,15 @@
       </Policies>
     </RollingFile>
 
+    <!-- crisp-profile.log -->
+    <RollingFile name="crisp-profile" fileName="${sys:catalina.base}/logs/crisp-profile.log"
+                 filePattern="${sys:catalina.base}/logs/crisp-profile.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t %m%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
+
     <!-- console -->
     <Console name="console" target="SYSTEM_OUT">
       <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
@@ -77,6 +86,11 @@
          can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
 
+    <!-- crisp-profile logging -->
+    <Logger additivity="false" name="org.onehippo.cms7.crisp.core.profile.ResourceResolverProfiler" level="info">
+      <AppenderRef ref="crisp-profile"/>
+    </Logger>
+
     <Logger name="freemarker" level="warn"/>
 
     <!-- Freemarker errors -->
@@ -108,6 +122,10 @@
       <AppenderRef ref="messages"/>
     </Logger>
 
+    <Logger name="org.hippoecm.repository.jackrabbit.IndexRepairer"  additivity="false" level="info">
+      <AppenderRef ref="messages"/>
+    </Logger>
+
     <Logger name="org.onehippo.cms7.autoexport" additivity="false" level="info">
       <AppenderRef ref="messages"/>
     </Logger>
@@ -122,8 +140,12 @@
       <AppenderRef ref="messages"/>
     </Logger>
 
+    <!-- Dynamic beans logging -->
+    <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>
+    <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
+
     <!-- project logging -->
-    <Logger name="org.onehippo.forge.camel.demo" level="debug"/>
+    <Logger name="com.bloomreach.forge.camel.demo" level="debug"/>
 
     <Root level="warn">
       <AppenderRef ref="site"/>

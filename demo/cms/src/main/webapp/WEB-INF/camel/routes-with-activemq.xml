@@ -33,7 +33,7 @@
       <convertBodyTo type="java.lang.String" />
 
       <!-- Leave log. -->
-      <to uri="log:org.onehippo.forge.camel.demo?level=INFO"/>
+      <to uri="log:com.bloomreach.forge.camel.demo?level=INFO"/>
 
       <!-- Send the JSON string message to the queue named 'hippo'. -->
       <to uri="activemq:queue:hippo" />
@@ -52,7 +52,7 @@
       <convertBodyTo type="net.sf.json.JSON" />
 
       <!-- Leave log. -->
-      <to uri="log:org.onehippo.forge.camel.demo?level=INFO"/>
+      <to uri="log:com.bloomreach.forge.camel.demo?level=INFO"/>
 
       <!-- Set HTTP header to 'POST'. -->
       <setHeader headerName="CamelHttpMethod">
@@ -85,7 +85,7 @@
       <!-- Convert the JSON string to JSON object. -->
       <convertBodyTo type="net.sf.json.JSON" />
       <!-- Leave log. -->
-      <to uri="log:org.onehippo.forge.camel.demo?level=INFO"/>
+      <to uri="log:com.bloomreach.forge.camel.demo?level=INFO"/>
     </route>
 
   </camelContext>

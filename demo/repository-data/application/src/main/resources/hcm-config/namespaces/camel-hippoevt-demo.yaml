@@ -3,4 +3,4 @@ definitions:
     /hippo:namespaces/camelhippoevtdemo:
       jcr:primaryType: hipposysedit:namespace
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 805ab842-784a-4029-9668-1cb8ba877b42
+      jcr:uuid: 4a76ce6a-826f-4f9c-a411-095b52d6e22b

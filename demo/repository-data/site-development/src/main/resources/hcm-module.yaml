@@ -1,0 +1,6 @@
+site: camel-hippoevt-demo
+group: camel-hippoevt-demo
+project: camel-hippoevt-demo
+module:
+  name: camel-hippoevt-demo-repository-data-site-development
+  after: camel-hippoevt-demo-repository-data-site

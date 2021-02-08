@@ -89,10 +89,16 @@
             <br/>
           </li>
           <li>
-            In order to create the demo core, <code>collection1</code>, create the <code>server/solr/collection1</code> folder
+            For demo purpose, add a new core in the Solr Core Admin UI with the <code>name</code>, <code>collection1</code>,
+            and the <code>instanceDir</code>, <code>collection1</code> with the other fields with the default setting.
+          </li>
+          <li>
+            Or optionally you can create the demo core manually by creating the <code>server/solr/collection1</code> folder
             under the 'solr-x.x.x' subfolder.
             And copy all the files and directories in <code>server/solr/configsets/_default/conf/</code> folder
             to the <code>server/solr/collection1/</code> folder.
+            <br/>
+            <em>Note:</em> This manual creation might not work in the latet version of Apache Solr.
           </li>
           <li>
             Visit <a href="http://localhost:8983/solr/" target="_blank">http://localhost:8983/solr/</a>,
