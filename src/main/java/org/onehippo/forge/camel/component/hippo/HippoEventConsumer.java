@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.SuspendableService;
-import org.apache.camel.impl.DefaultConsumer;
-import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.support.DefaultConsumer;
+import org.apache.camel.support.DefaultEndpoint;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
@@ -44,7 +44,7 @@ import net.sf.json.JSONObject;
  */
 public class HippoEventConsumer extends DefaultConsumer implements SuspendableService {
 
-    private static final transient Logger LOG = LoggerFactory.getLogger(HippoEventConsumer.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HippoEventConsumer.class);
 
     public static final String PERSISTED_LISTENER_FLAG = "_persisted";
 
@@ -52,7 +52,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
     public static final String PERSISTED_LISTENER_ONLY_NEW_EVENTS_FLAG = "_onlyNewEvents";
 
-    private static final Set<String> PERSISTED_LISTNER_OPTION_PARAM_NAME_SET = Collections
+    private static final Set<String> PERSISTED_LISTENER_OPTION_PARAM_NAME_SET = Collections
             .unmodifiableSet(new HashSet<>(Arrays.asList(
                     PERSISTED_LISTENER_FLAG,
                     PERSISTED_LISTENER_CHANNEL_NAME,
@@ -133,7 +133,9 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
 
     protected Exchange createExchange(HippoEvent<?> event, JSONObject messageBody) {
         Exchange exchange = ((DefaultEndpoint) getEndpoint()).createExchange();
-        exchange.setIn(new HippoEventMessage(messageBody));
+        HippoEventMessage hippoEventMessage = new HippoEventMessage(getEndpoint().getCamelContext());
+        hippoEventMessage.setBody(messageBody);
+        exchange.setIn(hippoEventMessage);
         return exchange;
     }
 
@@ -142,7 +144,7 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
         String value;
 
         for (String propName : endpoint.getPropertyNameSet()) {
-            if (PERSISTED_LISTNER_OPTION_PARAM_NAME_SET.contains(propName)) {
+            if (PERSISTED_LISTENER_OPTION_PARAM_NAME_SET.contains(propName)) {
                 continue;
             }
 

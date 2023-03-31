@@ -21,34 +21,34 @@
   <description>Bloomreach Camel Event Bus Support</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>3.0.1-SNAPSHOT</version>
+  <version>4.0.0-SNAPSHOT</version>
   <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.javaVersion>1.7</project.build.javaVersion>
+    <project.build.javaVersion>11</project.build.javaVersion>
 
     <javax.jcr.version>2.0</javax.jcr.version>
-    <hippo.services.version>14.1.0</hippo.services.version>
-    <hippo.services.eventbus.version>14.1.0</hippo.services.eventbus.version>
-    <hippo.repository.version>14.1.0</hippo.repository.version>
+    <hippo.services.version>15.2.2</hippo.services.version>
+    <hippo.services.eventbus.version>15.2.2</hippo.services.eventbus.version>
+    <hippo.repository.version>15.2.2</hippo.repository.version>
 
-    <camel.version>2.25.3</camel.version>
+    <camel.version>3.19.0</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
     <lib.junit.version>4.13.1</lib.junit.version>
     <lib.easymock.version>3.0</lib.easymock.version>
     <lib.slf4j.version>1.7.6</lib.slf4j.version>
 
-    <plugin.compiler.version>3.1</plugin.compiler.version>
+    <plugin.compiler.version>3.8.0</plugin.compiler.version>
     <plugin.clean.version>2.5</plugin.clean.version>
     <plugin.deploy.version>2.8.1</plugin.deploy.version>
     <plugin.install.version>2.5.1</plugin.install.version>
     <plugin.jar.version>2.4</plugin.jar.version>
     <plugin.javadoc.version>2.9.1</plugin.javadoc.version>
     <plugin.jxr.version>2.3</plugin.jxr.version>
-    <plugin.pmd.version>3.1</plugin.pmd.version>
+    <plugin.pmd.version>3.11.0</plugin.pmd.version>
     <plugin.project-info-reports.version>2.7</plugin.project-info-reports.version>
     <plugin.release.version>2.5</plugin.release.version>
     <plugin.resources.version>2.6</plugin.resources.version>
@@ -277,8 +277,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${plugin.compiler.version}</version>
         <configuration>
-          <source>${project.build.javaVersion}</source>
-          <target>${project.build.javaVersion}</target>
+          <release>11</release>
         </configuration>
       </plugin>
       <plugin>
@@ -332,6 +331,44 @@
             <goals>
               <goal>jar-no-fork</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>add-source</goal>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/generated/java</source>
+              </sources>
+              <resources>
+                <resource>
+                  <directory>src/generated/resources</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Adds mgenerated Type Converter Loader source in src/generated to the source path - Camel 3.x way -->
+      <plugin>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-package-maven-plugin</artifactId>
+        <version>${camel.version}</version>
+        <executions>
+          <execution>
+            <id>generate</id>
+            <goals>
+              <goal>generate-component</goal>
+            </goals>
+            <phase>process-classes</phase>
           </execution>
         </executions>
       </plugin>

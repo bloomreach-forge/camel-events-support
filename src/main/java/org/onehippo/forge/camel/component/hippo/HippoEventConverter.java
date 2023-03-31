@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ public final class HippoEventConverter {
 
                 eventJson.put("interaction", wfEvent.interaction());
                 eventJson.put("interactionId", wfEvent.interactionId());
-                eventJson.put("methodName", wfEvent.methodName());
+                eventJson.put("methodName", wfEvent.action());
                 eventJson.put("returnType", wfEvent.returnType());
                 eventJson.put("returnValue", wfEvent.returnValue());
                 eventJson.put("subjectId", wfEvent.subjectId());
@@ -92,8 +92,8 @@ public final class HippoEventConverter {
                 }
 
                 // Add deprecated properties as well for now.
-                eventJson.put("documentPath", wfEvent.documentPath());
-                eventJson.put("handleUuid", wfEvent.handleUuid());
+                eventJson.put("documentPath", wfEvent.subjectPath());
+                eventJson.put("handleUuid", wfEvent.subjectId());
 
                 if (wfEvent instanceof FolderWorkflowEvent) {
                     FolderWorkflowEvent fwfEvent = (FolderWorkflowEvent) wfEvent;
@@ -112,7 +112,7 @@ public final class HippoEventConverter {
                     value = entry.getValue();
 
                     if (value == null) {
-                        eventJson.put(key, value);
+                        eventJson.put(key, null);
                     } else {
                         eventJson.put(key, value.toString());
                     }
