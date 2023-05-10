@@ -34,7 +34,7 @@
     <hippo.services.eventbus.version>14.1.0</hippo.services.eventbus.version>
     <hippo.repository.version>14.1.0</hippo.repository.version>
 
-    <camel.version>2.25.3</camel.version>
+    <camel.version>3.2.0</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
     <lib.junit.version>4.13.1</lib.junit.version>
