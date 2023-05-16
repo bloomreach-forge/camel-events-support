@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014-2023 Bloomreach (http://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.SuspendableService;
-import org.apache.camel.impl.DefaultConsumer;
-import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.support.DefaultConsumer;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
@@ -132,8 +131,8 @@ public class HippoEventConsumer extends DefaultConsumer implements SuspendableSe
     }
 
     protected Exchange createExchange(HippoEvent<?> event, JSONObject messageBody) {
-        Exchange exchange = ((DefaultEndpoint) getEndpoint()).createExchange();
-        exchange.setIn(new HippoEventMessage(messageBody));
+        Exchange exchange =  getEndpoint().createExchange();
+        exchange.setIn(new HippoEventMessage(messageBody, exchange));
         return exchange;
     }
 

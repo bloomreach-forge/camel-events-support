@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/bloomreach-forge/camel-events-support.svg?branch=develop)](https://travis-ci.org/bloomreach-forge/camel-events-support)
-
 # Apache Camel - Hippo Events Support
 
 Apache Camel - Hippo Events Support provides: 

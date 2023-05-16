@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014-2023 Bloomreach (http://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,16 @@ package org.onehippo.forge.camel.component.hippo;
 
 import net.sf.json.JSONObject;
 
-import org.apache.camel.impl.DefaultMessage;
+import org.apache.camel.Exchange;
+import org.apache.camel.Message;
+import org.apache.camel.attachment.AttachmentMessage;
+import org.apache.camel.support.DefaultMessage;
 import org.apache.camel.util.ObjectHelper;
 
 public class HippoEventMessage extends DefaultMessage {
 
-    public HippoEventMessage(final JSONObject eventJson) {
+    public HippoEventMessage(final JSONObject eventJson, Exchange exchange) {
+        super(exchange);
         setBody(eventJson);
     }
 
@@ -36,37 +40,37 @@ public class HippoEventMessage extends DefaultMessage {
     }
 
     @Override
-    public void copyFrom(org.apache.camel.Message that) {
+    public void copyFrom(Message that) {
         if (that == this) {
             // the same instance so do not need to copy
             return;
         }
-
+        AttachmentMessage attachmentMessage = (AttachmentMessage) that;
         // must initialize headers before we set the JmsMessage to avoid Camel
         // populating it before we do the copy
         getHeaders().clear();
 
-        // copy body and fault flag
+        // copy body and fault flag`
 
-        Object body = that.getBody();
+        Object body = attachmentMessage.getBody();
 
-        if (body != null && body instanceof JSONObject) {
-            setBody(JSONObject.fromObject((JSONObject) body));
+        if (body instanceof JSONObject) {
+            setBody(JSONObject.fromObject(body));
         } else {
             setBody(body);
         }
 
-        setFault(that.isFault());
+//        setFault(that.isFault());
 
         // we have already cleared the headers
-        if (that.hasHeaders()) {
-            getHeaders().putAll(that.getHeaders());
+        if (attachmentMessage.hasHeaders()) {
+            getHeaders().putAll(attachmentMessage.getHeaders());
         }
 
-        getAttachments().clear();
+        getExchange().getMessage(AttachmentMessage.class).getAttachments().clear();
 
-        if (that.hasAttachments()) {
-            getAttachments().putAll(that.getAttachments());
+        if (attachmentMessage.hasAttachments()) {
+            getExchange().getMessage(AttachmentMessage.class).getAttachments().putAll(attachmentMessage.getAttachments());
         }
     }
 }
