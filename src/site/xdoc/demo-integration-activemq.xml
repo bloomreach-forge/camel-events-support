@@ -122,7 +122,7 @@ $ mvn clean install
         <source><![CDATA[
 $ cd demo
 $ mvn clean verify
-$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Dqueue.mode=activemq"
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Droutes.mode=queue"
         ]]></source>
         </div>
         <p>
@@ -136,7 +136,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Dqueue.mode=activemq"
         <source><![CDATA[
 $ cd demo
 $ mvn clean verify
-$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Droutes.mode=queue"
         ]]></source>
         </div>
         <p>

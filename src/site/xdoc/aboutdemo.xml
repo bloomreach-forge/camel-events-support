@@ -193,11 +193,6 @@
             (each of which is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
             in the second route to update the search engine index data).
           </li>
-          <li>
-            <strong>Manageability</strong>:
-            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
-            You can monitor the process, pause, stop and start a route, for instance.
-          </li>
         </ul>
 
       </subsection>
@@ -231,10 +226,6 @@ $ mvn -P cargo.run
         <ul>
           <li><strong>CMS (/cms)</strong>: Hippo CMS Content Production Web Application</li>
           <li><strong>SITE (/site)</strong>: Hippo CMS Content Delivery Web Application</li>
-          <li>
-            <strong>Hawtio (/hawtio)</strong>: <a href="http://hawt.io/" target="_blank">Web console for managing
-            your Java stuff (including Camel, Tomcat, JMX, etc)</a>
-          </li>
         </ul>
       </subsection>
 

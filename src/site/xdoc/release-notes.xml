@@ -36,6 +36,11 @@
           </th>
         </tr>
         <tr>
+          <td>4.x</td>
+          <td>3.x</td>
+          <td>15.x</td>
+        </tr>
+        <tr>
           <td>3.x</td>
           <td>2.x</td>
           <td>14.x</td>
@@ -56,6 +61,16 @@
           <td>7.9.x, 7.8.x</td>
         </tr>
       </table>
+    </section>
+    <section name="Release Notes (4.x)">
+      <subsection name="4.0.0">
+        <p class="smallinfo">Release Date: May X, 2023</p>
+        <ul>
+          <li><a href='https://issues.onehippo.com/browse/HIPFORGE-439'>HIPFORGE-439</a> - Upgrade for v15 compatibility<br/>
+            <em>Note</em>: Hawtio which was previously part of the demo project for monitoring has now been removed.
+          </li>
+        </ul>
+      </subsection>
     </section>
     <section name="Release Notes (3.x)">
       <subsection name="3.0.0">
