@@ -1,12 +1,12 @@
 /content/documents/administration/labels/pagenotfound:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: a72329bf-0c54-4463-8448-b0151e27838a
+  jcr:uuid: 026925ca-3238-4653-9b49-ef5dcf9834a2
   hippo:name: Page not found
   /pagenotfound:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 9d18bca9-31eb-4a0d-9b6a-67d5492d7a39
+    jcr:uuid: 7bc5af3d-3ed3-4ae6-afcf-1577ca362b35
     hippo:availability: [live, preview]
     hippostd:state: published
     hippostdpubwf:createdBy: admin

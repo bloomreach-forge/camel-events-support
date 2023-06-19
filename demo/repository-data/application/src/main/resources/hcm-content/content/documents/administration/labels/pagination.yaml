@@ -1,12 +1,12 @@
 /content/documents/administration/labels/pagination:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: 56ac89e9-749a-4e6d-b02c-8bda358a1723
+  jcr:uuid: fb00c0a4-6d90-434a-93ef-0664d688a8fd
   hippo:name: Pagination
   /pagination:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 269eedfb-58d8-49b8-bdba-c622c0725fa4
+    jcr:uuid: cd93872e-f13a-4033-8b66-58680bb70903
     hippo:availability: [live, preview]
     hippostd:state: published
     hippostdpubwf:createdBy: admin

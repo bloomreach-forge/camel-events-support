@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014-2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
-import net.sf.json.JSONObject;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -45,10 +43,13 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
-import com.bloomreach.forge.camel.demo.beans.BaseHippoDocument;
-import com.bloomreach.forge.camel.demo.util.HstLinkCreatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.bloomreach.forge.camel.demo.beans.BaseHippoDocument;
+import com.bloomreach.forge.camel.demo.util.HstLinkCreatorUtils;
+
+import net.sf.json.JSONObject;
 
 /**
  * Abstract REST-based Search Engine Update REST Service class.

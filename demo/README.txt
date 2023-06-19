@@ -87,7 +87,7 @@ Then build the brXM docker image:
     mvn -Pdocker.build
 
 This maven profile will create a docker image and add it to the local docker registry. The new image will be tagged
-as com.bloomreach.forge.camel-hippoevt/camel-hippoevt-demo:3.0.0-SNAPSHOT
+as com.bloomreach.forge.camel-hippoevt/camel-hippoevt-demo:4.0.0-SNAPSHOT
 
 To run the image with in-memory h2 database:
 
