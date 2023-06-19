@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2014-2021 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2014-2023 Bloomreach (https://www.bloomreach.com)
  
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -116,12 +116,12 @@
     <repository>
       <id>hippo</id>
       <name>Hippo maven 2 repository.</name>
-      <url>http://maven.onehippo.com/maven2/</url>
+      <url>https://maven.onehippo.com/maven2/</url>
     </repository>
     <repository>
       <id>hippo-maven2-forge</id>
       <name>Hippo Maven 2 Forge</name>
-      <url>http://maven.onehippo.com/maven2-forge</url>
+      <url>https://maven.onehippo.com/maven2-forge</url>
     </repository>
   </repositories>
 
