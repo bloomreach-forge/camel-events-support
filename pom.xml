@@ -27,7 +27,7 @@
   <description>Bloomreach Camel Event Bus Support</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>4.0.0-SNAPSHOT</version>
+  <version>4.0.0</version>
   <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
