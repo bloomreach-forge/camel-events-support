@@ -3,11 +3,11 @@ definitions:
     /hippo:namespaces/camelhippoevtdemo/basedocument:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: a4c116d5-4274-4d09-8f49-316fb9d596fe
+      jcr:uuid: 30384efd-f424-4a7f-b364-64826165d608
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 18256bf6-c13a-44b2-8dce-bf776a7a5b66
+        jcr:uuid: fd72f2d4-7471-4bea-a6a6-5af10abc2f30
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel']

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2014-2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,17 +21,18 @@ import java.util.List;
 
 import javax.ws.rs.Path;
 
-import net.sf.json.JSONObject;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
-import com.bloomreach.forge.camel.demo.beans.BaseHippoDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.bloomreach.forge.camel.demo.beans.BaseHippoDocument;
+
+import net.sf.json.JSONObject;
 
 /**
  * ElasticSearch REST-based Search Engine Update REST Service implementation.

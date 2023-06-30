@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2015 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,16 +18,17 @@ package org.onehippo.forge.camel.converter.json;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import org.apache.camel.Converter;
+import org.apache.camel.TypeConverters;
+
 import net.sf.json.JSON;
 import net.sf.json.JSONSerializer;
-
-import org.apache.camel.Converter;
 
 /**
  * JSON Converter.
  */
-@Converter
-public class JSONConverter {
+@Converter(generateLoader = true)
+public class JSONConverter implements TypeConverters {
 
     @Converter
     public static String toString(JSON json) {

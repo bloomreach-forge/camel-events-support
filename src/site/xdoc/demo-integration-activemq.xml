@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><!--
-    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+
+    Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
     the License. You may obtain a copy of the License at
 
@@ -9,7 +12,8 @@
     OR CONDITIONS OF ANY KIND, either express or implied. See the
     License for the specific language governing permissions and
     limitations under the License.
-  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  -->
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
@@ -118,7 +122,7 @@ $ mvn clean install
         <source><![CDATA[
 $ cd demo
 $ mvn clean verify
-$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Dqueue.mode=activemq"
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Droutes.mode=queue"
         ]]></source>
         </div>
         <p>
@@ -132,7 +136,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr -Dqueue.mode=activemq"
         <source><![CDATA[
 $ cd demo
 $ mvn clean verify
-$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Dqueue.mode=activemq"
+$ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=es -Droutes.mode=queue"
         ]]></source>
         </div>
         <p>
