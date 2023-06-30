@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-site</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
   </parent>
   <artifactId>camel-hippoevt-demo-webapp</artifactId>
   <packaging>war</packaging>
@@ -26,12 +26,11 @@
     <dependency>
       <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
       <artifactId>camel-hippoevt-demo-components</artifactId>
-      <version>3.0.0</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
       <artifactId>hst-addon-hcm-site</artifactId>
-      <version>${hippo.hst.version}</version>
     </dependency>
   </dependencies>
 

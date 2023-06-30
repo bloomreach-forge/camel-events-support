@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2015 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +15,18 @@
  */
 package org.onehippo.forge.camel.converter.hippo;
 
+import org.apache.camel.Converter;
+import org.apache.camel.TypeConverters;
+import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
+
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
-
-import org.apache.camel.Converter;
-import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 
 /**
  * RepositoryJobExecutionContextConverter Converter.
  */
-@Converter
-public class RepositoryJobExecutionContextConverter {
+@Converter(generateLoader = true)
+public class RepositoryJobExecutionContextConverter implements TypeConverters {
 
     @Converter
     public static JSON toJSON(RepositoryJobExecutionContext context) {

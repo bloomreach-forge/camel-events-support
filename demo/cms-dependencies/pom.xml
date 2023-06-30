@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
   </parent>
   <artifactId>camel-hippoevt-demo-cms-dependencies</artifactId>
   <packaging>pom</packaging>
@@ -13,23 +13,27 @@
   <description>Bloomreach Camel Event Bus Demo CMS Dependencies</description>
   <dependencies>
 
+    <!--For Camel Demo-->
     <dependency>
       <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
       <artifactId>camel-hippoevt</artifactId>
     </dependency>
+
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-mail</artifactId>
+      <artifactId>camel-spring-xml</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-camel</artifactId>
-      <scope>runtime</scope>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-spring-boot-xml-starter</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-pool</artifactId>
-      <scope>runtime</scope>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-jaxb-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-mail-starter</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -38,51 +42,24 @@
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-http4</artifactId>
+      <artifactId>camel-http</artifactId>
       <scope>runtime</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-activemq-starter</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpcore</artifactId>
     </dependency>
     <dependency>
-      <groupId>net.jcip</groupId>
-      <artifactId>jcip-annotations</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context-support</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-    </dependency>
+    <!--For Camel Demo-->
 
     <dependency>
       <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
@@ -94,6 +71,12 @@
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-package-cms-dependencies</artifactId>
       <type>pom</type>
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun.activation</groupId>
+          <artifactId>jakarta.activation</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>

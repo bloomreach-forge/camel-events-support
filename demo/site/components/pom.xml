@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-site</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
   </parent>
   <artifactId>camel-hippoevt-demo-components</artifactId>
   <packaging>jar</packaging>
@@ -14,26 +14,21 @@
 
   <dependencies>
 
+    <!--    For Camel Demo-->
     <dependency>
       <groupId>net.sf.json-lib</groupId>
       <artifactId>json-lib</artifactId>
       <classifier>jdk15</classifier>
     </dependency>
-
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpcore</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>net.jcip</groupId>
-      <artifactId>jcip-annotations</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
     </dependency>
+    <!--    For Camel Demo-->
 
     <dependency>
       <groupId>javax.servlet.jsp</groupId>

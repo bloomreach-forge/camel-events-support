@@ -2,7 +2,7 @@
   .meta:order-before: administration
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: b98c1722-26d3-4dc0-a96b-948a92ffb6b7
+  jcr:uuid: 4711b581-3b26-4305-8afa-2e6ad560a32b
   hippo:name: Bloomreach Camel Event Bus Demo
   hippostd:foldertype: [new-translated-folder, new-document]
   hippotranslation:id: 996bcac5-86cf-49b5-a7a3-16a74863e814

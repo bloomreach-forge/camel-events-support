@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>14.4.0</version>
+    <version>15.2.2</version>
   </parent>
 
   <name>Bloomreach Camel Event Bus Demo</name>
   <description>Bloomreach Camel Event Bus Demo</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt-demo</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
   <packaging>pom</packaging>
 
   <!-- 
@@ -64,20 +64,16 @@
     <!-- ***END temporary override of versions*** -->
 
     <forge.camel-hippoevt.version>${project.version}</forge.camel-hippoevt.version>
-    <camel.version>2.25.3</camel.version>
-    <spring.version>5.1.18.RELEASE</spring.version>
-    <geronimo-jms.version>1.1.1</geronimo-jms.version>
-    <activemq.version>5.9.1</activemq.version>
-    <json-lib.version>2.4</json-lib.version>
+    <camel.version>3.19.0</camel.version>
 
-    <hawtio.version>1.4.44</hawtio.version>
+    <json-lib.version>2.4</json-lib.version>
 
     <httpcore4-version>4.4.14</httpcore4-version>
     <httpclient4-version>4.5.13</httpclient4-version>
 
     <jcip-annotations.version>1.0</jcip-annotations.version>
 
-    <essentials.version>14.4.0</essentials.version>
+    <essentials.version>15.2.2</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
 
@@ -93,33 +89,48 @@
     <repository>
       <id>hippo</id>
       <name>Hippo maven 2 repository.</name>
-      <url>https://maven.onehippo.com/maven2/</url>
+      <url>https://maven.bloomreach.com/repository/maven2/</url>
     </repository>
   </repositories>
 
   <dependencyManagement>
-
     <dependencies>
 
+      <!--Forge Camel plugin-->
       <dependency>
         <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
         <artifactId>camel-hippoevt</artifactId>
         <version>${forge.camel-hippoevt.version}</version>
       </dependency>
+      <!--Forge Camel plugin-->
 
+      <!--For Camel Demo - Camel-->
       <dependency>
-        <groupId>net.sf.json-lib</groupId>
-        <artifactId>json-lib</artifactId>
-        <version>${json-lib.version}</version>
-        <classifier>jdk15</classifier>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-spring-boot-xml-starter</artifactId>
+        <version>${camel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-jaxb-starter</artifactId>
+        <version>${camel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-mail-starter</artifactId>
+        <version>${camel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-spring-xml</artifactId>
+        <version>${camel.version}</version>
         <exclusions>
           <exclusion>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
+            <groupId>com.sun.activation</groupId>
+            <artifactId>jakarta.activation</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
-
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-mail</artifactId>
@@ -134,12 +145,19 @@
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.sun.activation</groupId>
+            <artifactId>javax.activation</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
-
       <dependency>
         <groupId>org.apache.camel</groupId>
-        <artifactId>camel-http4</artifactId>
+        <artifactId>camel-http</artifactId>
         <version>${camel.version}</version>
         <scope>runtime</scope>
         <exclusions>
@@ -153,25 +171,6 @@
           </exclusion>
         </exclusions>
       </dependency>
-
-      <dependency>
-        <groupId>org.apache.activemq</groupId>
-        <artifactId>activemq-camel</artifactId>
-        <version>${activemq.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jta_1.0.1B_spec</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.activemq</groupId>
-        <artifactId>activemq-pool</artifactId>
-        <version>${activemq.version}</version>
-      </dependency>
-
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-jms</artifactId>
@@ -184,34 +183,37 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!--For Camel Demo - Camel-->
 
+      <!--For Camel Demo - Camel ActiveMQ-->
       <dependency>
-        <groupId>io.hawt</groupId>
-        <artifactId>hawtio-web</artifactId>
-        <version>${hawtio.version}</version>
-        <type>war</type>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-activemq-starter</artifactId>
+        <version>${camel.version}</version>
       </dependency>
+      <!--For Camel Demo - Camel ActiveMQ-->
 
+      <!--For Camel Demo - Site module-->
       <dependency>
-        <groupId>org.apache.geronimo.specs</groupId>
-        <artifactId>geronimo-jms_1.1_spec</artifactId>
-        <version>${geronimo-jms.version}</version>
-        <scope>provided</scope>
+        <groupId>net.sf.json-lib</groupId>
+        <artifactId>json-lib</artifactId>
+        <version>${json-lib.version}</version>
+        <classifier>jdk15</classifier>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
+      <!--For Camel Demo - Site module-->
 
+      <!--For Camel Demo - CMS & Site module-->
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore</artifactId>
         <version>${httpcore4-version}</version>
       </dependency>
-
-      <!-- jcip-annotations is required to compile with httpclient and Java 1.5. See HTTPCLIENT-866. -->
-      <dependency>
-        <groupId>net.jcip</groupId>
-        <artifactId>jcip-annotations</artifactId>
-        <version>${jcip-annotations.version}</version>
-      </dependency>
-
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
@@ -223,48 +225,7 @@
           </exclusion>
         </exclusions>
       </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>${spring.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-beans</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context-support</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-web</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-webmvc</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
+      <!--For Camel Demo - CMS & Site module-->
 
       <dependency>
         <groupId>javax.servlet.jsp</groupId>
@@ -295,15 +256,30 @@
         <version>${freemarker.version}</version>
       </dependency>
 
+
+      <!--For activation exclusion-->
+      <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-runtime</artifactId>
+        <version>${jaxb-runtime.version}</version>
+        <scope>runtime</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>com.sun.activation</groupId>
+            <artifactId>jakarta.activation</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.activation</groupId>
+        <artifactId>jakarta.activation-api</artifactId>
+        <version>${activation.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <!--For activation exclusion-->
+
     </dependencies>
   </dependencyManagement>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.geronimo.specs</groupId>
-      <artifactId>geronimo-jms_1.1_spec</artifactId>
-    </dependency>
-  </dependencies>
 
   <build>
     <defaultGoal>package</defaultGoal>
@@ -371,7 +347,6 @@
         <module>repository-data</module>
         <module>cms</module>
         <module>site</module>
-        <module>hawtio</module>
         <module>essentials</module>
       </modules>
     </profile>
@@ -462,6 +437,33 @@
         <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
         <!-- <repo.bootstrap>true</repo.bootstrap> -->
       </properties>
+      <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
       <build>
         <plugins>
           <plugin>
@@ -518,13 +520,6 @@
                   </properties>
                 </deployable>
                 <deployable>
-                  <location>${project.basedir}/hawtio/target/hawtio.war</location>
-                  <type>war</type>
-                  <properties>
-                    <context>/hawtio</context>
-                  </properties>
-                </deployable>
-                <deployable>
                   <location>${project.basedir}/essentials/target/essentials</location>
                   <type>war</type>
                   <properties>
@@ -539,13 +534,6 @@
                   <project.basedir>${project.basedir}</project.basedir>
                   <send.usage.statistics.to.hippo>true</send.usage.statistics.to.hippo>
                 </systemProperties>
-                <dependencies combine.children="append">
-                  <dependency>
-                    <groupId>org.apache.geronimo.specs</groupId>
-                    <artifactId>geronimo-jms_1.1_spec</artifactId>
-                    <classpath>extra</classpath>
-                  </dependency>
-                </dependencies>
               </container>
             </configuration>
           </plugin>
@@ -568,6 +556,32 @@
     <profile>
       <id>dist</id>
       <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>provided</scope>
+        </dependency>
+
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-slf4j-impl</artifactId>
@@ -660,7 +674,6 @@
         </plugins>
       </build>
     </profile>
-
   </profiles>
 
 </project>

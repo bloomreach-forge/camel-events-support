@@ -7,13 +7,13 @@ definitions:
         /top:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: 74cd2237-5d5e-4301-9152-239885ddbed1
+          hippo:identifier: 1917dbc1-0c71-45c4-98ff-13cc0961a50a
           hst:label: Top
           hst:xtype: hst.vbox
         /footer:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: da46fabb-d47f-4578-b6bc-519ef448dbe0
+          hippo:identifier: 8e5c8aa5-8486-4f98-be4e-3e15e53f4177
           hst:label: Footer
           hst:xtype: hst.vbox
       /homepage:
@@ -21,7 +21,7 @@ definitions:
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: c9a1b0c7-4f1b-4be8-86d3-f84a971efb75
+          hippo:identifier: d5396bde-42df-4e0f-9868-c0c21c3c2b24
           hst:label: Home Page Main
           hst:xtype: hst.vbox
       /pagenotfound:
@@ -29,7 +29,7 @@ definitions:
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: 946cd067-19e1-4fb1-b73a-126cba0ae2b8
+          hippo:identifier: 29c48533-d6b7-4ccc-ba06-22286f4a0e82
           hst:label: Page-Not-Found Main
           hst:xtype: hst.vbox
       /eventslist:
@@ -37,7 +37,7 @@ definitions:
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: 7469914c-4047-447e-8541-7318c5ee6a8f
+          hippo:identifier: 74f01822-3449-42c5-974d-e75e717447ae
           hst:label: Event List Main
           hst:xtype: hst.vbox
       /eventspage:
@@ -45,7 +45,7 @@ definitions:
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: 5d915dc8-309e-4f6e-a570-b737ef4d1de4
+          hippo:identifier: 3776471b-20b8-4294-a88a-c655e141c6cb
           hst:label: Event Page Main
           hst:xtype: hst.vbox
       /newslist:
@@ -53,7 +53,7 @@ definitions:
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: 874dd171-cf8f-4153-86f3-071623476cd8
+          hippo:identifier: 038fcf05-e056-4860-86be-e34db6eb5755
           hst:label: News List Main
           hst:xtype: hst.vbox
       /newspage:
@@ -61,6 +61,6 @@ definitions:
         /main:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hippo:identifier: 81a62c93-1772-4416-abe2-609a1260bf0c
+          hippo:identifier: 6f1c3abd-ac1f-4e97-bcbb-6dacce0f380e
           hst:label: News Page Main
           hst:xtype: hst.vbox

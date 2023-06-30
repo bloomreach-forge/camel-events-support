@@ -1,5 +1,8 @@
-<?xml version="1.0"?><!--
-    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+<?xml version="1.0"?>
+<!--
+    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+
+    Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
     the License. You may obtain a copy of the License at
 
@@ -9,7 +12,8 @@
     OR CONDITIONS OF ANY KIND, either express or implied. See the
     License for the specific language governing permissions and
     limitations under the License.
-  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+  -->
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
   "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
@@ -189,11 +193,6 @@
             (each of which is implemented as HST REST service to create a SITE link and invoked by a 'http4' component
             in the second route to update the search engine index data).
           </li>
-          <li>
-            <strong>Manageability</strong>:
-            you can take advantage of Apache Camel monitoring tool such as <a href="http://hawt.io/" target="_blank">Hawtio</a>.
-            You can monitor the process, pause, stop and start a route, for instance.
-          </li>
         </ul>
 
       </subsection>
@@ -227,10 +226,6 @@ $ mvn -P cargo.run
         <ul>
           <li><strong>CMS (/cms)</strong>: Hippo CMS Content Production Web Application</li>
           <li><strong>SITE (/site)</strong>: Hippo CMS Content Delivery Web Application</li>
-          <li>
-            <strong>Hawtio (/hawtio)</strong>: <a href="http://hawt.io/" target="_blank">Web console for managing
-            your Java stuff (including Camel, Tomcat, JMX, etc)</a>
-          </li>
         </ul>
       </subsection>
 

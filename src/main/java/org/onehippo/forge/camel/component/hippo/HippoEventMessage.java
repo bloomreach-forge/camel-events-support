@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,21 @@
  */
 package org.onehippo.forge.camel.component.hippo;
 
-import net.sf.json.JSONObject;
-
-import org.apache.camel.impl.DefaultMessage;
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.support.DefaultMessage;
 import org.apache.camel.util.ObjectHelper;
+
+import net.sf.json.JSONObject;
 
 public class HippoEventMessage extends DefaultMessage {
 
-    public HippoEventMessage(final JSONObject eventJson) {
-        setBody(eventJson);
+    public HippoEventMessage(final Exchange exchange) {
+        super(exchange);
+    }
+
+    public HippoEventMessage(final CamelContext camelContext) {
+        super(camelContext);
     }
 
     @Override
@@ -56,17 +62,10 @@ public class HippoEventMessage extends DefaultMessage {
             setBody(body);
         }
 
-        setFault(that.isFault());
-
         // we have already cleared the headers
         if (that.hasHeaders()) {
             getHeaders().putAll(that.getHeaders());
         }
 
-        getAttachments().clear();
-
-        if (that.hasAttachments()) {
-            getAttachments().putAll(that.getAttachments());
-        }
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2015 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import org.apache.commons.lang.StringUtils;
  */
 public class CamelContextUtils {
 
-    private static final String CAMEL_CONTEXT_MBEAN_INSTANCE_TYPE = "org.apache.camel.management.mbean.ManagedCamelContext";
+    private static final String CAMEL_CONTEXT_MBEAN_INSTANCE_TYPE = "org.apache.camel.api.management.mbean.ManagedCamelContext";
 
     /**
      * Finds {@code ManagedCamelContextMBean}s from the platform MBean server and invokes the {@code operation}

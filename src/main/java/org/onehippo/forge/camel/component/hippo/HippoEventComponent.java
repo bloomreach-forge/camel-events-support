@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.camel.Endpoint;
-import org.apache.camel.impl.DefaultComponent;
+import org.apache.camel.support.DefaultComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  */
 public class HippoEventComponent extends DefaultComponent {
 
-    private static final transient Logger LOG = LoggerFactory.getLogger(HippoEventComponent.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HippoEventComponent.class);
 
     @Override
     protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> properties) throws Exception {
