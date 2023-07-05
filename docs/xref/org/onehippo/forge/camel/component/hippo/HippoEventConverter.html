@@ -9,7 +9,7 @@
 <div id="overview"><a href="../../../../../../../../target/site/apidocs/org/onehippo/forge/camel/component/hippo/HippoEventConverter.html">View Javadoc</a></div><pre>
 
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2014-2014 Hippo B.V. (<a href="http://www.onehippo.com)" target="alexandria_uri">http://www.onehippo.com)</a></em>
+<a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)</em>
 <a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> * </em>
 <a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
@@ -87,7 +87,7 @@
 <a class="jxr_linenumber" name="77" href="#77">77</a>  
 <a class="jxr_linenumber" name="78" href="#78">78</a>                  eventJson.put(<span class="jxr_string">"interaction"</span>, wfEvent.interaction());
 <a class="jxr_linenumber" name="79" href="#79">79</a>                  eventJson.put(<span class="jxr_string">"interactionId"</span>, wfEvent.interactionId());
-<a class="jxr_linenumber" name="80" href="#80">80</a>                  eventJson.put(<span class="jxr_string">"methodName"</span>, wfEvent.methodName());
+<a class="jxr_linenumber" name="80" href="#80">80</a>                  eventJson.put(<span class="jxr_string">"methodName"</span>, wfEvent.action());
 <a class="jxr_linenumber" name="81" href="#81">81</a>                  eventJson.put(<span class="jxr_string">"returnType"</span>, wfEvent.returnType());
 <a class="jxr_linenumber" name="82" href="#82">82</a>                  eventJson.put(<span class="jxr_string">"returnValue"</span>, wfEvent.returnValue());
 <a class="jxr_linenumber" name="83" href="#83">83</a>                  eventJson.put(<span class="jxr_string">"subjectId"</span>, wfEvent.subjectId());
@@ -102,8 +102,8 @@
 <a class="jxr_linenumber" name="92" href="#92">92</a>                  }
 <a class="jxr_linenumber" name="93" href="#93">93</a>  
 <a class="jxr_linenumber" name="94" href="#94">94</a>                  <em class="jxr_comment">// Add deprecated properties as well for now.</em>
-<a class="jxr_linenumber" name="95" href="#95">95</a>                  eventJson.put(<span class="jxr_string">"documentPath"</span>, wfEvent.documentPath());
-<a class="jxr_linenumber" name="96" href="#96">96</a>                  eventJson.put(<span class="jxr_string">"handleUuid"</span>, wfEvent.handleUuid());
+<a class="jxr_linenumber" name="95" href="#95">95</a>                  eventJson.put(<span class="jxr_string">"documentPath"</span>, wfEvent.subjectPath());
+<a class="jxr_linenumber" name="96" href="#96">96</a>                  eventJson.put(<span class="jxr_string">"handleUuid"</span>, wfEvent.subjectId());
 <a class="jxr_linenumber" name="97" href="#97">97</a>  
 <a class="jxr_linenumber" name="98" href="#98">98</a>                  <strong class="jxr_keyword">if</strong> (wfEvent instanceof FolderWorkflowEvent) {
 <a class="jxr_linenumber" name="99" href="#99">99</a>                      FolderWorkflowEvent fwfEvent = (FolderWorkflowEvent) wfEvent;
@@ -122,7 +122,7 @@
 <a class="jxr_linenumber" name="112" href="#112">112</a>                     value = entry.getValue();
 <a class="jxr_linenumber" name="113" href="#113">113</a> 
 <a class="jxr_linenumber" name="114" href="#114">114</a>                     <strong class="jxr_keyword">if</strong> (value == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="115" href="#115">115</a>                         eventJson.put(key, value);
+<a class="jxr_linenumber" name="115" href="#115">115</a>                         eventJson.put(key, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="116" href="#116">116</a>                     } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="117" href="#117">117</a>                         eventJson.put(key, value.toString());
 <a class="jxr_linenumber" name="118" href="#118">118</a>                     }
