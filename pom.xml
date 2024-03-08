@@ -34,7 +34,7 @@
 
     <project.build.javaVersion>11</project.build.javaVersion>
 
-    <camel.version>3.19.0</camel.version>
+    <camel.version>3.21.4</camel.version>
     <json-lib.version>2.4</json-lib.version>
 
     <lib.junit.version>4.13.1</lib.junit.version>
