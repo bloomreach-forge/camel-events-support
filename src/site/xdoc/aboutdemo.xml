@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+    Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
 
     Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
@@ -13,8 +13,6 @@
     License for the specific language governing permissions and
     limitations under the License.
   -->
-<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
-  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
     <title>About Demo Project for Apache Camel - Hippo Event Bus Support</title>
@@ -39,12 +37,12 @@
         </ul>
         <p>
           The most popular scenario is integrating with the existing Enterprise Search Engine.
-          Hippo CMS is required to update search index data based on document publication/depublication events mostly,
+          Bloomreach CMS is required to update search index data based on document publication/depublication events mostly,
           as shown in the diagram below.
         </p>
         <img src="images/use_cases_overview1.png" alt="Use Cases Overview" />
         <p>
-          If you implement an event listener registered to <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>,
+          If you implement an event listener registered to <a href="https://xmdocumentation.bloomreach.com/library/concepts/services/event-bus.html" target="_blank">Event Bus</a>,
           then it should look like almost the same as the diagram shown above.
           The event listener can probably invoke the external search engine (e.g, through either REST service or direct API call)
           directly in this approach.
@@ -54,19 +52,19 @@
         </p>
         <ul>
           <li>
-            If the external system becomes unavailable at some moment for some reasons,
+            If the external system becomes unavailable at some moment for some reason,
             then it may lose the event messages. How can we guarantee all the events processed?
             <strong>Reliability</strong> matters.
           </li>
           <li>
             If invocations on the external search engine may take longer than expected at some moment
-            for some reasons, then it may affect the performance (e.g, response time) 
+            for some reason, then it may affect the performance (e.g, response time)
             in the CMS Frontend Application and the user experiences.
             How can we avoid this? <strong>Performance</strong> matters.
           </li>
           <li>
             We would like to focus only on our business logic instead of spending time on 
-            learning and maintaining <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>
+            learning and maintaining <a href="https://xmdocumentation.bloomreach.com/library/concepts/services/event-bus.html" target="_blank">Event Bus</a>
             event listeners implementation in  Java ourselves.
             Also, we might want to be able to change the event processing 
             steps much faster in the future (e.g, get the job done within less than 2 hours 
@@ -137,8 +135,8 @@
         <p>
           In the first route (either 'Route-HippoEventBus-to-File' or 'Route-HippoEventBus-to-Queue' in this demo project),
           <a href="component-hippoevent.html"><strong>hippoevent:</strong></a> component receives HippoEventBus event and converts it into a JSONObject.
-          And, the next component (either '<a href="http://camel.apache.org/file2.html"><strong>file:</strong></a>'
-          or '<a href="http://camel.apache.org/activemq.html"><strong>activemq:</strong></a>' component in this demo project)
+          And, the next component (either '<a href="https://camel.apache.org/components/next/file-component.html"><strong>file:</strong></a>'
+          or '<a href="https://camel.apache.org/components/next/activemq6-component.html"><strong>activemq:</strong></a>' component in this demo project)
           in the route stores the JSON message into either file inbox folder or designated message queue.
         </p>
         <p>
@@ -155,7 +153,7 @@
         <p>
           In the second route (either 'Route-File-to-REST' or 'REST-Queue-to-REST' in this demo project),
           a Camel component either polls a file from the inbox folder or receives a message from the designated message queue.
-          And, the next component ('<a href="http://camel.apache.org/http4.html"><strong>http4:</strong></a>' in this demo project) makes an HTTP request to the designated REST service URL
+          And, the next component ('<a href="https://camel.apache.org/components/next/http-component.html"><strong>http:</strong></a>' in this demo project) makes an HTTP request to the designated REST service URL
           in order to either index a document or delete a document in the external search engine.
         </p>
         <p>
@@ -224,8 +222,8 @@ $ mvn -P cargo.run
           If you run the Demo project, then you will see the following web applications by default:
         </p>
         <ul>
-          <li><strong>CMS (/cms)</strong>: Hippo CMS Content Production Web Application</li>
-          <li><strong>SITE (/site)</strong>: Hippo CMS Content Delivery Web Application</li>
+          <li><strong>CMS (/cms)</strong>: brXM Content Authoring Web Application</li>
+          <li><strong>SITE (/site)</strong>: brXM Content Delivery Web Application</li>
         </ul>
       </subsection>
 

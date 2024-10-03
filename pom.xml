@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2014-2023 Bloomreach (https://www.bloomreach.com)
+  Copyright 2014-2024 Bloomreach (https://www.bloomreach.com)
  
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>15.2.2</version>
+    <version>16.0.0</version>
   </parent>
 
   <name>Bloomreach Camel Event Bus Support</name>
@@ -32,20 +32,13 @@
 
   <properties>
 
-    <project.build.javaVersion>11</project.build.javaVersion>
+    <project.build.javaVersion>17</project.build.javaVersion>
 
-    <camel.version>3.19.0</camel.version>
-    <json-lib.version>2.4</json-lib.version>
+    <camel.version>4.8.0</camel.version>
 
-    <lib.junit.version>4.13.1</lib.junit.version>
-    <lib.easymock.version>3.0</lib.easymock.version>
-    <lib.slf4j.version>1.7.6</lib.slf4j.version>
-
-    <plugin.jxr.version>2.3</plugin.jxr.version>
-    <plugin.pmd.version>3.11.0</plugin.pmd.version>
-    <plugin.builder.helper.version>3.4.0</plugin.builder.helper.version>
-
-    <extension.wagon-svn.version>1.9</extension.wagon-svn.version>
+    <plugin.jxr.version>3.5.0</plugin.jxr.version>
+    <plugin.pmd.version>3.25.0</plugin.pmd.version>
+    <plugin.builder.helper.version>3.6.0</plugin.builder.helper.version>
 
   </properties>
 
@@ -80,27 +73,27 @@
 
   <distributionManagement>
     <repository>
-      <name>Hippo Maven 2 Forge Repository</name>
-      <id>hippo-maven2-forge</id>
+      <name>Bloomreach Maven 2 Forge Repository</name>
+      <id>bloomreach-maven2-forge</id>
       <url>https://maven.bloomreach.com/content/repositories/forge-releases/</url>
       <uniqueVersion>false</uniqueVersion>
     </repository>
   </distributionManagement>
 
   <issueManagement>
-    <url>https://issues.onehippo.com/projects/HIPFORGE</url>
+    <url>https://issues.onehippo.com/projects/FORGE</url>
   </issueManagement>
 
   <repositories>
     <repository>
-      <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
-      <url>https://maven.bloomreach.com/maven2/</url>
+      <id>bloomreach-maven2</id>
+      <name>Bloomreach maven 2 repository.</name>
+      <url>https://maven.bloomreach.com/repository/maven2/</url>
     </repository>
     <repository>
-      <id>hippo-maven2-forge</id>
-      <name>Hippo Maven 2 Forge</name>
-      <url>https://maven.bloomreach.com/maven2-forge</url>
+      <id>bloomreach-maven2-forge</id>
+      <name>Bloomreach Maven 2 Forge</name>
+      <url>https://maven.bloomreach.com/repository/maven2-forge</url>
     </repository>
   </repositories>
 
@@ -164,7 +157,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>${lib.slf4j.version}</version>
+      <version>${slf4j.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -172,7 +165,7 @@
 
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test</artifactId>      
+      <artifactId>camel-test-junit5</artifactId>
       <version>${camel.version}</version>
       <scope>test</scope>
     </dependency>
@@ -180,28 +173,28 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>${lib.slf4j.version}</version>
+      <version>${slf4j.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
-      <version>${lib.slf4j.version}</version>
+      <version>${slf4j.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>${lib.junit.version}</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>org.easymock</groupId>
       <artifactId>easymock</artifactId>
-      <version>${lib.easymock.version}</version>
+      <version>${easymock.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -224,7 +217,8 @@
         <version>${plugin.pmd.version}</version>
         <configuration>
           <linkXref>true</linkXref>
-          <sourceEncoding>${project.build.sourceEncoding}
+          <sourceEncoding>
+            ${project.build.sourceEncoding}
           </sourceEncoding>
           <targetJdk>${project.build.javaVersion}</targetJdk>
         </configuration>
@@ -286,13 +280,13 @@
       </plugin>
     </plugins>
 
-    <extensions>
-      <extension>
-        <groupId>org.jvnet.wagon-svn</groupId>
-        <artifactId>wagon-svn</artifactId>
-        <version>${extension.wagon-svn.version}</version>
-      </extension>
-    </extensions>
+<!--    <extensions>-->
+<!--      <extension>-->
+<!--        <groupId>org.jvnet.wagon-svn</groupId>-->
+<!--        <artifactId>wagon-svn</artifactId>-->
+<!--        <version>${extension.wagon-svn.version}</version>-->
+<!--      </extension>-->
+<!--    </extensions>-->
 
   </build>
 

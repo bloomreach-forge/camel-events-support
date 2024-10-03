@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <!--
-    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+    Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
 
     Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
@@ -52,7 +52,7 @@
 
     <menu name="Presentations and Blogs">
       <item name="Integrating Hippo CMS with elasticsearch Engine"
-            href="http://www.onehippo.org/labs/integrating-hippo-cms-with-elastic-search-engine.html" />
+            href="https://xmdocumentation.bloomreach.com/blog/2015/integrating-hippo-cms-with-elasticsearch-engine.html" />
     </menu>
 
     <menu ref="reports" />
