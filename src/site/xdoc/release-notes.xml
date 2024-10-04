@@ -67,7 +67,7 @@
     </section>
     <section name="Release Notes (5.x)">
       <subsection name="5.0.0">
-        <p class="smallinfo">Release Date: October XX, 2024</p>
+        <p class="smallinfo">Release Date: October 04, 2024</p>
         <ul>
           <li><a href='https://issues.onehippo.com/browse/FORGE-534'>FORGE-534</a> - Upgrade for v16 compatibility<br/>
             Upgrade Camel version to 4.8.0. Change the demo example to use ActiveMQ 6.1.3

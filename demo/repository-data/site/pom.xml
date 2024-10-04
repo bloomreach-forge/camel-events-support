@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
     <artifactId>camel-hippoevt-demo-repository-data</artifactId>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>5.0.0</version>
   </parent>
 
   <name>Bloomreach Camel Event Bus Demo Repository Data For Site</name>
