@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2023 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2014-2024 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,15 @@ package com.bloomreach.forge.camel.demo.rest.services;
 
 import javax.jcr.ItemNotFoundException;
 import javax.jcr.Node;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
 
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.container.RequestContextProvider;

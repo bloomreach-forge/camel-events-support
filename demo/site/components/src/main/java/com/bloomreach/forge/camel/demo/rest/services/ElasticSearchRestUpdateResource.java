@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2023 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2014-2024 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.Path;
+import jakarta.ws.rs.Path;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
