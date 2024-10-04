@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+    Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
 
     Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
@@ -13,8 +13,6 @@
     License for the specific language governing permissions and
     limitations under the License.
   -->
-<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
-  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
     <title>Demo 1: Solr Search Engine Integration</title>
@@ -189,7 +187,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
       <convertBodyTo type="net.sf.json.JSON" />
 
       <!-- Set HTTP header to 'POST'. -->
-      <setHeader headerName="CamelHttpMethod">
+      <setHeader name="CamelHttpMethod">
         <constant>POST</constant>
       </setHeader>
 
@@ -197,20 +195,20 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
       <choice>
         <when>
           <simple>${body[action]} == 'publish'</simple>
-          <setHeader headerName="CamelHttpQuery">
+          <setHeader name="CamelHttpQuery">
             <simple>action=index&amp;id=${body[subjectId]}</simple>
           </setHeader>
         </when>
         <when>
           <simple>${body[action]} == 'depublish'</simple>
-          <setHeader headerName="CamelHttpQuery">
+          <setHeader name="CamelHttpQuery">
             <simple>action=delete&amp;id=${body[subjectId]}</simple>
           </setHeader>
         </when>
       </choice>
 
       <!-- Invoke the Search Index synchronization REST service. -->
-      <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
+      <to uri="http://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
     </route>
 

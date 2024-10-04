@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2023 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2014-2024 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package com.bloomreach.forge.camel.demo.rest.beans;
 import java.util.Calendar;
 
 import javax.jcr.RepositoryException;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import org.hippoecm.hst.jaxrs.model.content.HippoDocumentRepresentation;
 import org.hippoecm.hst.jaxrs.model.content.HippoHtmlRepresentation;

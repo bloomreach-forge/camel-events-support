@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  */
 public final class HippoEventConverter {
 
-    private static Logger log = LoggerFactory.getLogger(HippoEventConverter.class);
+    private static final Logger log = LoggerFactory.getLogger(HippoEventConverter.class);
 
     private HippoEventConverter() {
     }

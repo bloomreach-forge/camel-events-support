@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+  Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0
   (the "License"); you may not use this file except in compliance with
@@ -13,8 +13,6 @@
   License for the specific language governing permissions and
   limitations under the License.
 -->
-<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
-  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
     <title>Hippo Event Component</title>
@@ -24,7 +22,7 @@
     <section name="Hippo Event Component">
       <p>
         The <strong>hippoevent:</strong> component allows you to subscribe events from 
-        <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>.
+        <a href="https://xmdocumentation.bloomreach.com/library/concepts/services/event-bus.html" target="_blank">Event Bus</a>.
       </p>
       <p>
         The <strong>hippoevent:</strong> component subscribes the following types of <code>HippoEvent</code>
@@ -277,10 +275,10 @@ hippoevent:
 
     <section name="See Also in Apache Camel Site">
       <ul>
-        <li><a href="http://camel.apache.org/configuring-camel.html" target="_blank">Configuring Camel</a></li>
-        <li><a href="http://camel.apache.org/component.html" target="_blank">Component</a></li>
-        <li><a href="http://camel.apache.org/endpoint.html" target="_blank">Endpoint</a></li>
-        <li><a href="http://camel.apache.org/getting-started.html" target="_blank">Getting Started</a></li>
+        <li><a href="https://camel.apache.org/manual/configuring-route-startup-ordering-and-autostartup.html" target="_blank">Configuring Camel</a></li>
+        <li><a href="https://camel.apache.org/manual/component.html" target="_blank">Component</a></li>
+        <li><a href="https://camel.apache.org/manual/Endpoint-dsl.html" target="_blank">Endpoint</a></li>
+        <li><a href="https://camel.apache.org/camel-core/getting-started/index.html" target="_blank">Getting Started</a></li>
       </ul>
     </section>
 

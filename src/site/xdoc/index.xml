@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+    Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
 
     Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
@@ -13,8 +13,6 @@
     License for the specific language governing permissions and
     limitations under the License.
   -->
-<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
-  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
     <title>Apache Camel - Hippo Events Support</title>
@@ -30,13 +28,13 @@
         </p>
         <p>
           The <strong><a href="component-hippoevent.html">hippoevent:</a></strong> component is used for subscribing
-          <code>HippoEvent</code> through <a href="http://www.onehippo.org/library/concepts/hippo-services/event-bus.html" target="_blank">Hippo Event Bus</a>.
+          <code>HippoEvent</code> through <a href="https://xmdocumentation.bloomreach.com/library/concepts/services/event-bus.html" target="_blank">Event Bus</a>.
         </p>
         <p>
           The <strong><a href="component-reposchedjob.html">Camel Repository Scheduler Job</a></strong> component can be configured
           for a scheduled task and it can invoke a Camel Endpoint URI based on configuration.
           This makes it easier to create a scheduler task based on
-          <a href="http://www.onehippo.org/library/concepts/hippo-services/repository-scheduler.html" target="_blank">Hippo Repository Scheduler</a>.
+          <a href="https://xmdocumentation.bloomreach.com/library/concepts/services/repository-scheduler.html" target="_blank">Repository Scheduler</a>.
         </p>
         <p>
           The demo project contains many useful example scenarios, solutions and other information.

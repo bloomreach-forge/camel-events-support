@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package org.onehippo.forge.camel.component.hippo;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.test.junit4.CamelTestSupport;
+import org.apache.camel.test.junit5.CamelTestSupport;
 import org.junit.Test;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.HippoServiceRegistry;
@@ -28,6 +28,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.sf.json.JSONObject;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * 
@@ -39,19 +42,19 @@ public class HippoEventConsumerTest extends CamelTestSupport {
     private HippoEventBus eventBus;
 
     @Override
-    public void setUp() throws Exception {
-        HippoServiceRegistry.registerService(new GuavaHippoEventBus(), HippoEventBus.class);
+    public void setupResources() throws Exception {
+        HippoServiceRegistry.register(new GuavaHippoEventBus(), HippoEventBus.class);
         eventBus = HippoServiceRegistry.getService(HippoEventBus.class);
         assertNotNull(eventBus);
 
-        super.setUp();
+        super.setupResources();
     }
 
     @Override
-    public void tearDown() throws Exception {
-        HippoServiceRegistry.unregisterService(eventBus, HippoEventBus.class);
+    public void cleanupResources() throws Exception {
+        HippoServiceRegistry.unregister(eventBus, HippoEventBus.class);
 
-        super.tearDown();
+        super.cleanupResources();
     }
 
     @Test

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2023 Bloomreach B.V. (https://www.bloomreach.com)
+    Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
 
     Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
@@ -13,8 +13,6 @@
     License for the specific language governing permissions and
     limitations under the License.
   -->
-<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN"
-  "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
     <title>Demo 2: ElasticSearch Search Engine Integration</title>
@@ -66,7 +64,7 @@
       <subsection name="Install and Run ElasticSearch locally">
 
         <p>
-          To test this scenario, it is required to run <a href="http://www.elasticsearch.org/" target="_blank">ElasticSearch</a> locally.
+          To test this scenario, it is required to run <a href="https://www.elastic.co/elasticsearch" target="_blank">ElasticSearch</a> locally.
         </p>
         <p>
           The demo project expects the ElasticSearch running at port 9200 and 9300 by default.
@@ -76,8 +74,8 @@
         </p>
         <ol>
           <li>
-            Download the latest version of ElasticSearch at 
-            <a href="http://www.elasticsearch.org/download/" target="_blank">http://www.elasticsearch.org/download/</a>.
+            Download the latest version of ElasticSearch at
+            <a href="https://www.elastic.co/downloads/elasticsearch" target="_blank">https://www.elastic.co/downloads/elasticsearch</a>.
           </li>
           <li>
             Extract the archive file into the project root folder.
@@ -198,7 +196,7 @@ $ mvn -Pcargo.run -Dcargo.jvm.args="-Dsearch.engine=es"
       <convertBodyTo type="net.sf.json.JSON" />
 
       <!-- Set HTTP header to 'POST'. -->
-      <setHeader headerName="CamelHttpMethod">
+      <setHeader name="CamelHttpMethod">
         <constant>POST</constant>
       </setHeader>
 
@@ -206,20 +204,20 @@ $ mvn -Pcargo.run -Dcargo.jvm.args="-Dsearch.engine=es"
       <choice>
         <when>
           <simple>${body[action]} == 'publish'</simple>
-          <setHeader headerName="CamelHttpQuery">
+          <setHeader name="CamelHttpQuery">
             <simple>action=index&amp;id=${body[subjectId]}</simple>
           </setHeader>
         </when>
         <when>
           <simple>${body[action]} == 'depublish'</simple>
-          <setHeader headerName="CamelHttpQuery">
+          <setHeader name="CamelHttpQuery">
             <simple>action=delete&amp;id=${body[subjectId]}</simple>
           </setHeader>
         </when>
       </choice>
 
       <!-- Invoke the Search Index synchronization REST service. -->
-      <to uri="http4://localhost:8080/site/restapi/{{search.engine}}/update/" />
+      <to uri="http://localhost:8080/site/restapi/{{search.engine}}/update/" />
 
     </route>
 
