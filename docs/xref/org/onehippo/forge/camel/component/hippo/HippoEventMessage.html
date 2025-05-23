@@ -7,7 +7,7 @@
 <body>
 <div id="overview"><a href="../../../../../../../apidocs/org/onehippo/forge/camel/component/hippo/HippoEventMessage.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright 2024 Bloomreach B.V. (<a href="https://www.bloomreach.com)" target="alexandria_uri">https://www.bloomreach.com)</a></em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright 2025 Bloomreach B.V. (<a href="https://www.bloomreach.com)" target="alexandria_uri">https://www.bloomreach.com)</a></em>
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * </em>
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
@@ -28,7 +28,7 @@
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.apache.camel.support.DefaultMessage;
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.apache.camel.util.ObjectHelper;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> net.sf.json.JSONObject;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> org.json.JSONObject;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a name="HippoEventMessage" href="../../../../../../org/onehippo/forge/camel/component/hippo/HippoEventMessage.html#HippoEventMessage">HippoEventMessage</a> <strong class="jxr_keyword">extends</strong> DefaultMessage {
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  
@@ -65,7 +65,7 @@
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>          Object body = that.getBody();
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>          <strong class="jxr_keyword">if</strong> (body != <strong class="jxr_keyword">null</strong> &amp;&amp; body instanceof JSONObject) {
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>              setBody(JSONObject.fromObject((JSONObject) body));
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>              setBody(JSONObject.valueToString(body));
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>          } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>              setBody(body);
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>          }
@@ -79,6 +79,6 @@
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  }
 </pre>
 <hr/>
-<div id="footer">© 2007–2024 <a href="https://www.bloomreach.com">Bloomreach</a></div>
+<div id="footer">© 2007–2025 <a href="https://www.bloomreach.com">Bloomreach</a></div>
 </body>
 </html>
