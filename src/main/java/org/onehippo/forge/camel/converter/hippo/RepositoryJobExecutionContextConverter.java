@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,7 @@ import org.apache.camel.Converter;
 import org.apache.camel.TypeConverters;
 import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 
-import net.sf.json.JSON;
-import net.sf.json.JSONObject;
+import org.json.JSONObject;
 
 /**
  * RepositoryJobExecutionContextConverter Converter.
@@ -29,7 +28,7 @@ import net.sf.json.JSONObject;
 public class RepositoryJobExecutionContextConverter implements TypeConverters {
 
     @Converter
-    public static JSON toJSON(RepositoryJobExecutionContext context) {
+    public static JSONObject toJSON(RepositoryJobExecutionContext context) {
         JSONObject json = new JSONObject();
 
         String value;

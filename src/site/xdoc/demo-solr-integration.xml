@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+    Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
 
     Licensed under the Apache License, Version 2.0
     (the "License"); you may not use this file except in compliance with
@@ -184,7 +184,7 @@ $ mvn -P cargo.run -Dcargo.jvm.args="-Dsearch.engine=solr"
       <convertBodyTo type="java.lang.String" />
 
       <!-- Convert the JSON string to JSON object. -->
-      <convertBodyTo type="net.sf.json.JSON" />
+      <convertBodyTo type="org.json.JSONObject" />
 
       <!-- Set HTTP header to 'POST'. -->
       <setHeader name="CamelHttpMethod">

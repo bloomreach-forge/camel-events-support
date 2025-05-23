@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.support.DefaultMessage;
 import org.apache.camel.util.ObjectHelper;
 
-import net.sf.json.JSONObject;
+import org.json.JSONObject;
 
 public class HippoEventMessage extends DefaultMessage {
 
@@ -57,7 +57,7 @@ public class HippoEventMessage extends DefaultMessage {
         Object body = that.getBody();
 
         if (body != null && body instanceof JSONObject) {
-            setBody(JSONObject.fromObject((JSONObject) body));
+            setBody(JSONObject.valueToString(body));
         } else {
             setBody(body);
         }
