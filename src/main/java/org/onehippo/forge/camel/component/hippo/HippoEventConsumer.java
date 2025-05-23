@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,10 @@ import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.SuspendableService;
 import org.apache.camel.support.DefaultConsumer;
 import org.apache.camel.support.DefaultEndpoint;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.cms7.services.eventbus.Subscribe;
@@ -37,7 +38,7 @@ import org.onehippo.repository.events.PersistedHippoEventListenerRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.sf.json.JSONObject;
+import org.json.JSONObject;
 
 /**
  * HippoEventConsumer.

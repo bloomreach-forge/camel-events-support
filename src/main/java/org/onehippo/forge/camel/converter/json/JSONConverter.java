@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ import java.io.InputStream;
 import org.apache.camel.Converter;
 import org.apache.camel.TypeConverters;
 
-import net.sf.json.JSON;
-import net.sf.json.JSONSerializer;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 /**
  * JSON Converter.
@@ -31,17 +31,17 @@ import net.sf.json.JSONSerializer;
 public class JSONConverter implements TypeConverters {
 
     @Converter
-    public static String toString(JSON json) {
+    public static String toString(JSONObject json) {
         return json.toString();
     }
 
     @Converter
-    public static InputStream toInputStream(JSON json) {
+    public static InputStream toInputStream(JSONObject json) {
         return new ByteArrayInputStream(json.toString().getBytes());
     }
 
     @Converter
-    public static JSON toJSON(String jsonString) {
-        return JSONSerializer.toJSON(jsonString);
+    public static JSONObject toJSON(String jsonString) {
+        return (JSONObject) new JSONTokener(jsonString).nextValue();
     }
 }

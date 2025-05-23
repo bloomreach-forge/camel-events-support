@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+ * Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,10 @@ package org.onehippo.forge.camel.component.hippo;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import org.hippoecm.repository.standardworkflow.FolderWorkflowEvent;
 import org.onehippo.cms7.event.HippoEvent;
@@ -65,7 +66,7 @@ public final class HippoEventConverter {
                 List<String> arguments = wfEvent.arguments();
                 JSONArray jsonArgs = new JSONArray();
                 if (arguments != null) {
-                    jsonArgs.addAll(arguments);
+                    jsonArgs.putAll(arguments);
                 }
 
                 eventJson.put("arguments", jsonArgs);
@@ -112,7 +113,7 @@ public final class HippoEventConverter {
                     value = entry.getValue();
 
                     if (value == null) {
-                        eventJson.put(key, null);
+                        eventJson.put(key, Optional.empty());
                     } else {
                         eventJson.put(key, value.toString());
                     }
