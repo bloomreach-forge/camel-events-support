@@ -20,14 +20,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>16.0.0</version>
+    <version>16.3.0</version>
   </parent>
 
   <name>Bloomreach Camel Event Bus Support</name>
   <description>Bloomreach Camel Event Bus Support</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>5.0.0</version>
+  <version>5.1.0</version>
   <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
@@ -112,10 +112,9 @@
     </dependency>
 
     <dependency>
-      <groupId>net.sf.json-lib</groupId>
-      <artifactId>json-lib</artifactId>
-      <version>${json-lib.version}</version>
-      <classifier>jdk15</classifier>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>${json.version}</version>
       <scope>provided</scope>
     </dependency>
 

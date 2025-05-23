@@ -44,11 +44,11 @@ public final class JSONConverterLoader implements TypeConverterLoader, CamelCont
     }
 
     private void registerConverters(TypeConverterRegistry registry) {
-        addTypeConverter(registry, java.io.InputStream.class, net.sf.json.JSON.class, false,
-            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toInputStream((net.sf.json.JSON) value));
-        addTypeConverter(registry, java.lang.String.class, net.sf.json.JSON.class, false,
-            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toString((net.sf.json.JSON) value));
-        addTypeConverter(registry, net.sf.json.JSON.class, java.lang.String.class, false,
+        addTypeConverter(registry, java.io.InputStream.class, org.json.JSONObject.class, false,
+            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toInputStream((org.json.JSONObject) value));
+        addTypeConverter(registry, java.lang.String.class, org.json.JSONObject.class, false,
+            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toString((org.json.JSONObject) value));
+        addTypeConverter(registry, org.json.JSONObject.class, java.lang.String.class, false,
             (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toJSON((java.lang.String) value));
     }
 

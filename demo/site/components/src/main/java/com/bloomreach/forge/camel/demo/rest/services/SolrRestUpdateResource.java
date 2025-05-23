@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 
 import com.bloomreach.forge.camel.demo.beans.BaseHippoDocument;
 
-import net.sf.json.JSONObject;
+import org.json.JSONObject;
 
 /**
  * Solr REST-based Search Engine Update REST Service implementation.

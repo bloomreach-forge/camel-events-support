@@ -49,7 +49,7 @@ import org.slf4j.LoggerFactory;
 import com.bloomreach.forge.camel.demo.beans.BaseHippoDocument;
 import com.bloomreach.forge.camel.demo.util.HstLinkCreatorUtils;
 
-import net.sf.json.JSONObject;
+import org.json.JSONObject;
 
 /**
  * Abstract REST-based Search Engine Update REST Service class.

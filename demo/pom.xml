@@ -12,7 +12,7 @@
   <description>Bloomreach Camel Event Bus Demo</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt-demo</artifactId>
-  <version>5.0.0</version>
+  <version>5.1.0</version>
   <packaging>pom</packaging>
 
   <!-- 
@@ -197,16 +197,9 @@
 
       <!--For Camel Demo - Site module-->
       <dependency>
-        <groupId>net.sf.json-lib</groupId>
-        <artifactId>json-lib</artifactId>
-        <version>${json-lib.version}</version>
-        <classifier>jdk15</classifier>
-        <exclusions>
-          <exclusion>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>${json.version}</version>
       </dependency>
       <!--For Camel Demo - Site module-->
 

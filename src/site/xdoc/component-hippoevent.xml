@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2024 Bloomreach B.V. (https://www.bloomreach.com)
+  Copyright 2025 Bloomreach B.V. (https://www.bloomreach.com)
 
   Licensed under the Apache License, Version 2.0
   (the "License"); you may not use this file except in compliance with
@@ -26,7 +26,7 @@
       </p>
       <p>
         The <strong>hippoevent:</strong> component subscribes the following types of <code>HippoEvent</code>
-        and transforms it to a <code>JSONObject (net.sf.json.JSONObject)</code> as message exchange body:
+        and transforms it to a <code>JSONObject (org.json.JSONObject)</code> as message exchange body:
       </p>
       <ul>
         <li><code>org.onehippo.cms7.event.HippoEvent</code></li>
@@ -45,9 +45,9 @@
       <div class="brush: xml">
       <source><![CDATA[
     <repository>
-      <id>hippo-maven2-forge</id>
-      <name>Hippo Maven 2 Forge</name>
-      <url>https://maven.onehippo.com/maven2-forge/</url>
+      <id>bloomreach-maven2-forge</id>
+      <name>Bloomreach Maven 2 Forge</name>
+      <url>https://maven.bloomreach.com/repository/maven2-forge/</url>
     </repository>
       ]]></source>
       </div>
@@ -185,7 +185,7 @@ hippoevent:
           You will see all the available property names (which can be used as parameter names as well) below.
         </p>
         <p>
-          The message body received by the consumer is a <code>net.sf.json.JSONObject</code> instance
+          The message body received by the consumer is a <code>org.json.JSONObject</code> instance
           which should look like the following examples:
         </p>
         <p>
