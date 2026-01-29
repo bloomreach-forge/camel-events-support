@@ -34,7 +34,7 @@
 
     <project.build.javaVersion>17</project.build.javaVersion>
 
-    <camel.version>4.8.0</camel.version>
+    <camel.version>4.10.5</camel.version>
 
     <plugin.jxr.version>3.5.0</plugin.jxr.version>
     <plugin.pmd.version>3.25.0</plugin.pmd.version>
