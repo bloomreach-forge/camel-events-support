@@ -66,6 +66,14 @@
       </table>
     </section>
     <section name="Release Notes (5.x)">
+      <subsection name="5.1.1">
+        <p class="smallinfo">Release Date: January 29, 2026</p>
+        <ul>
+          <li><a href='https://bloomreach.atlassian.net/browse/FORGE-579'>FORGE-579</a><br/>
+            Upgrade Apache Camel dependency to 4.10.5 LTS (from 4.8.0) for improved stability and security
+          </li>
+        </ul>
+      </subsection>
       <subsection name="5.1.0">
         <p class="smallinfo">Release Date: May 23, 2025</p>
         <ul>
