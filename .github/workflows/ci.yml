@@ -33,6 +33,7 @@ jobs:
     permissions:
       contents: write
       checks: write
+      pull-requests: write
     uses: bloomreach-forge/ci-workflows/.github/workflows/brxm-ci.yml@v1.0.1
     secrets:
       BR_MAVEN_USERNAME: ${{ secrets.BR_MAVEN_USERNAME }}
