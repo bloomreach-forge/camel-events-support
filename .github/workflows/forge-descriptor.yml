@@ -15,6 +15,6 @@ jobs:
   generate:
     permissions:
       contents: write
-    uses: bloomreach-forge/ci-workflows/.github/workflows/forge-descriptor.yml@main
+    uses: bloomreach-forge/ci-workflows/.github/workflows/forge-descriptor.yml@v1.0.1
     with:
       readme-path: README.md

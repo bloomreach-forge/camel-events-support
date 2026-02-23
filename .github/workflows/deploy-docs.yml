@@ -18,7 +18,7 @@ jobs:
       github.event.workflow_run.conclusion == 'success'
     permissions:
       contents: write
-    uses: bloomreach-forge/ci-workflows/.github/workflows/build-gh-pages.yml@main
+    uses: bloomreach-forge/ci-workflows/.github/workflows/build-gh-pages.yml@v1.0.1
     with:
       ref: >-
         ${{ github.event_name == 'workflow_dispatch'
