@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop, main, master]
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [develop, main, master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fork-notice:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fork PR — build skipped
+        run: |
+          echo "::notice::This PR originates from a fork and cannot access repository secrets."
+          echo "The build requires credentials for Bloomreach's private Maven repository."
+          echo ""
+          echo "A maintainer should pull this branch locally and run:"
+          echo "  mvn -B clean install && mvn -B -f demo/pom.xml clean verify"
+
+  build:
+    if: >-
+      github.event_name == 'push' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: write
+    uses: bloomreach-forge/ci-workflows/.github/workflows/brxm-ci.yml@main
+    secrets:
+      BR_MAVEN_USERNAME: ${{ secrets.BR_MAVEN_USERNAME }}
+      BR_MAVEN_PASSWORD: ${{ secrets.BR_MAVEN_PASSWORD }}

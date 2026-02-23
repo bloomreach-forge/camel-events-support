@@ -19,7 +19,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.junit5.CamelTestSupport;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.cms7.services.eventbus.GuavaHippoEventBus;
@@ -28,9 +28,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.json.JSONObject;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * 
@@ -39,11 +40,13 @@ public class HippoEventConsumerTest extends CamelTestSupport {
 
     private static final transient Logger LOG = LoggerFactory.getLogger(HippoEventConsumerTest.class);
 
+    private GuavaHippoEventBus registeredBus;
     private HippoEventBus eventBus;
 
     @Override
     public void setupResources() throws Exception {
-        HippoServiceRegistry.register(new GuavaHippoEventBus(), HippoEventBus.class);
+        registeredBus = new GuavaHippoEventBus();
+        HippoServiceRegistry.register(registeredBus, HippoEventBus.class);
         eventBus = HippoServiceRegistry.getService(HippoEventBus.class);
         assertNotNull(eventBus);
 
@@ -52,7 +55,9 @@ public class HippoEventConsumerTest extends CamelTestSupport {
 
     @Override
     public void cleanupResources() throws Exception {
-        HippoServiceRegistry.unregister(eventBus, HippoEventBus.class);
+        if (registeredBus != null) {
+            HippoServiceRegistry.unregister(registeredBus, HippoEventBus.class);
+        }
 
         super.cleanupResources();
     }
@@ -94,6 +99,42 @@ public class HippoEventConsumerTest extends CamelTestSupport {
         assertEquals("message1", eventJson.get("message"));
         assertEquals("result1", eventJson.get("result"));
         assertEquals("user1", eventJson.get("user"));
+    }
+
+    @Test
+    public void testNonMatchingCategoryIsFiltered() throws Exception {
+        HippoEvent event = new HippoEvent("application1");
+        event.action("action1");
+        event.category("other");
+        event.user("user1");
+        eventBus.post(event);
+
+        Exchange exchange = consumer.receive("direct:a", 200L);
+        assertNull(exchange);
+    }
+
+    @Test
+    public void testNonMatchingUserIsFiltered() throws Exception {
+        HippoEvent event = new HippoEvent("application1");
+        event.action("action1");
+        event.category("category1");
+        event.user("other");
+        eventBus.post(event);
+
+        Exchange exchange = consumer.receive("direct:a", 200L);
+        assertNull(exchange);
+    }
+
+    @Test
+    public void testEventMatchingSecondUserValueIsForwarded() throws Exception {
+        HippoEvent event = new HippoEvent("application1");
+        event.action("action1");
+        event.category("category1");
+        event.user("user2");
+        eventBus.post(event);
+
+        Exchange exchange = consumer.receive("direct:a", 2000L);
+        assertNotNull(exchange);
     }
 
     @Override

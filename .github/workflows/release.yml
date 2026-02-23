@@ -1,0 +1,15 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    uses: bloomreach-forge/ci-workflows/.github/workflows/release.yml@main
+    secrets:
+      BR_MAVEN_USERNAME: ${{ secrets.BR_MAVEN_USERNAME }}
+      BR_MAVEN_PASSWORD: ${{ secrets.BR_MAVEN_PASSWORD }}
