@@ -4,8 +4,6 @@ on:
   pull_request:
     branches: [develop, main, master]
     types: [opened, synchronize, reopened]
-  push:
-    branches: [develop, main, master]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -27,9 +25,7 @@ jobs:
           echo "  mvn -B clean install && mvn -B -f demo/pom.xml clean verify"
 
   build:
-    if: >-
-      github.event_name == 'push' ||
-      github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       contents: write
       checks: write
