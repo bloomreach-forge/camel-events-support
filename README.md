@@ -42,7 +42,7 @@ The [Release](.github/workflows/release.yml) workflow will:
 
 Once the GitHub Release is published, the [Deploy Docs](.github/workflows/deploy-docs.yml) workflow runs automatically and publishes the updated site to `gh-pages`.
 
-After the release, merge `master` back into `develop` to pick up the SNAPSHOT bump commit.
+The workflow also automatically pushes the next SNAPSHOT version to `develop`.
 
 ### Branch model
 
