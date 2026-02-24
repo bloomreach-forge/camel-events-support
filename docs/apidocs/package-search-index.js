@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.onehippo.forge.camel.component.hippo"},{"l":"org.onehippo.forge.camel.converter.hippo"},{"l":"org.onehippo.forge.camel.converter.json"},{"l":"org.onehippo.forge.camel.scheduling"},{"l":"org.onehippo.forge.camel.util"}];updateSearchResults();

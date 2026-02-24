@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.onehippo.forge.camel.component.hippo","l":"HippoEventConsumerTest"},{"p":"org.onehippo.forge.camel.component.hippo","l":"HippoEventConverterTest"}];updateSearchResults();
