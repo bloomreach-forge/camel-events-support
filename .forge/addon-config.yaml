@@ -1,7 +1,7 @@
 # Bloomreach Camel Event Bus Support
 # Config for forge-addon.yaml auto-generation
 
-category: integrations
+category: integration
 pluginTier: forge-addon
 
 compatibility:
