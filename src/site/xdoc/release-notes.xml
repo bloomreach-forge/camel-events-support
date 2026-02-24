@@ -66,6 +66,14 @@
       </table>
     </section>
     <section name="Release Notes (5.x)">
+      <subsection name="5.3.0">
+        <p class="smallinfo">Release Date: February 24, 2026</p>
+        <ul>
+          <li><a href='https://bloomreach.atlassian.net/browse/FORGE-579'>FORGE-579</a><br/>
+            Upgrade Bloomreach Experience Manager dependency to 16.7.0 and update logging libraries
+          </li>
+        </ul>
+      </subsection>
       <subsection name="5.2.0">
         <p class="smallinfo">Release Date: February 24, 2026</p>
         <ul>

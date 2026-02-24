@@ -6,7 +6,7 @@ pluginTier: forge-addon
 
 compatibility:
   brxm:
-    min: "16.3.0"
+    min: "16.7.0"
 
 repository:
   branch: master
