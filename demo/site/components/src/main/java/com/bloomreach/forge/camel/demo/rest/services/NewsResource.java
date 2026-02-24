@@ -27,7 +27,7 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
