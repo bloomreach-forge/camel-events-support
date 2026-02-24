@@ -20,13 +20,16 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.repository.standardworkflow.FolderWorkflowEvent;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.event.HippoSecurityEvent;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 
 import org.json.JSONObject;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * HippoEventConverterTest
@@ -186,4 +189,32 @@ public class HippoEventConverterTest {
         assertEquals("DELETED", json.get("type"));
         assertEquals(true, json.get("sealed"));
     }
+
+    @Test
+    public void toJSONObject_nullEvent_returnsEmptyJSON() {
+        JSONObject json = HippoEventConverter.toJSONObject(null);
+        assertNotNull(json);
+        assertTrue(json.isEmpty());
+    }
+
+    @Test
+    public void toJSONObject_workflowEventWithNullArguments_putsEmptyArray() {
+        HippoWorkflowEvent event = new HippoWorkflowEvent();
+        // arguments() defaults to null — exercises the arguments == null branch
+
+        JSONObject json = HippoEventConverter.toJSONObject(event);
+
+        assertEquals(0, json.getJSONArray("arguments").length());
+    }
+
+    @Test
+    public void toJSONObject_workflowEventWithNoException_noExceptionKey() {
+        HippoWorkflowEvent event = new HippoWorkflowEvent();
+        // exception left unset (null) — exercises the wfEvent.exception() == null branch
+
+        JSONObject json = HippoEventConverter.toJSONObject(event);
+
+        assertFalse(json.has("exception"));
+    }
+
 }

@@ -45,11 +45,29 @@ public final class JSONConverterLoader implements TypeConverterLoader, CamelCont
 
     private void registerConverters(TypeConverterRegistry registry) {
         addTypeConverter(registry, java.io.InputStream.class, org.json.JSONObject.class, false,
-            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toInputStream((org.json.JSONObject) value));
+            (type, exchange, value) -> {
+                Object answer = org.onehippo.forge.camel.converter.json.JSONConverter.toInputStream((org.json.JSONObject) value);
+                if (false && answer == null) {
+                    answer = Void.class;
+                }
+                return answer;
+            });
         addTypeConverter(registry, java.lang.String.class, org.json.JSONObject.class, false,
-            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toString((org.json.JSONObject) value));
+            (type, exchange, value) -> {
+                Object answer = org.onehippo.forge.camel.converter.json.JSONConverter.toString((org.json.JSONObject) value);
+                if (false && answer == null) {
+                    answer = Void.class;
+                }
+                return answer;
+            });
         addTypeConverter(registry, org.json.JSONObject.class, java.lang.String.class, false,
-            (type, exchange, value) -> org.onehippo.forge.camel.converter.json.JSONConverter.toJSON((java.lang.String) value));
+            (type, exchange, value) -> {
+                Object answer = org.onehippo.forge.camel.converter.json.JSONConverter.toJSON((java.lang.String) value);
+                if (false && answer == null) {
+                    answer = Void.class;
+                }
+                return answer;
+            });
     }
 
     private static void addTypeConverter(TypeConverterRegistry registry, Class<?> toType, Class<?> fromType, boolean allowNull, SimpleTypeConverter.ConversionMethod method) {
