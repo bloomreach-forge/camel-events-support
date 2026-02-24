@@ -21,46 +21,33 @@ The output will be in `target/site/` and is ignored by Git.
 
 # Release Process
 
-This project uses [git-flow](https://bloomreach-forge.github.io/using-git-flow.html) for releases with automated deployment.
+Releases are fully automated via GitHub Actions. No local version bumping or tagging required.
 
 ## Steps
 
-1. **Start release and set version**
-   ```bash
-   git flow release start x.y.z
-   mvn versions:set -DgenerateBackupPoms=false -DnewVersion="x.y.z"
-   mvn -f demo/pom.xml versions:set -DgenerateBackupPoms=false -DnewVersion="x.y.z"
-   git commit -a -m "<ISSUE_ID> releasing x.y.z: set version"
-   ```
+1. Merge `develop` into `master`
+2. Go to **Actions → Release → Run workflow** (from `master`)
+3. Enter the release version (e.g. `5.2.1`) and the next SNAPSHOT (e.g. `5.2.2-SNAPSHOT`)
+4. Click **Run workflow**
 
-2. **Finish release** (creates tag, merges to master/develop)
-   ```bash
-   git flow release finish x.y.z
-   ```
+The [Release](.github/workflows/release.yml) workflow will:
 
-3. **Set next snapshot and push** (you're now on develop)
-   ```bash
-   mvn versions:set -DgenerateBackupPoms=false -DnewVersion="x.y.z+1-SNAPSHOT"
-   mvn -f demo/pom.xml versions:set -DgenerateBackupPoms=false -DnewVersion="x.y.z+1-SNAPSHOT"
-   git commit -a -m "<ISSUE_ID> releasing x.y.z: set next development version"
-   git push origin develop master --follow-tags
-   ```
-
-> Replace `<ISSUE_ID>` with your JIRA ticket (e.g., `FORGE-123`).
-
-The [Release](.github/workflows/release.yml) workflow triggers automatically on the semver tag and will:
-
-1. Verify the tag matches the version in `pom.xml` and `demo/pom.xml`
+1. Set the version in `pom.xml` and `demo/pom.xml` to the release version
 2. Build and test the project and demo
 3. Deploy the artifact to the Bloomreach Forge Maven repository
-4. Create a GitHub Release with auto-generated notes
+4. Generate `forge-addon.yaml` from `.forge/addon-config.yaml`
+5. Commit the release files (`pom.xml` + `forge-addon.yaml`) to `master` and create the `x.y.z` tag — the tag points to this commit, so `forge-addon.yaml` is readable via the GitHub Contents API at that ref
+6. Create a GitHub Release with `forge-addon.yaml` also attached as a downloadable asset
+7. Bump `pom.xml` and `demo/pom.xml` to the next SNAPSHOT and commit
 
-Once the release workflow completes successfully, the [Deploy Docs](.github/workflows/deploy-docs.yml) workflow runs automatically and publishes the updated site to `gh-pages`.
+Once the GitHub Release is published, the [Deploy Docs](.github/workflows/deploy-docs.yml) workflow runs automatically and publishes the updated site to `gh-pages`.
+
+After the release, merge `master` back into `develop` to pick up the SNAPSHOT bump commit.
 
 ### Branch model
 
 | Branch | Purpose |
 |---|---|
 | `develop` | Active development |
-| `master` | Prerelease staging — release tags are cut from here |
+| `master` | Release branch — the release workflow runs here |
 | `gh-pages` | Published documentation (managed by CI, do not edit manually) |

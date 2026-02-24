@@ -1,9 +1,8 @@
 name: Deploy Docs
 
 on:
-  workflow_run:
-    workflows: ["Release"]
-    types: [completed]
+  release:
+    types: [published]
   workflow_dispatch:
     inputs:
       ref:
@@ -12,18 +11,21 @@ on:
         default: 'master'
 
 jobs:
-  deploy-docs:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+  docs:
     permissions:
       contents: write
-    uses: bloomreach-forge/ci-workflows/.github/workflows/build-gh-pages.yml@v1.0.1
+    uses: bloomreach-forge/ci-workflows/.github/workflows/build-gh-pages.yml@v1.0.2
     with:
       ref: >-
         ${{ github.event_name == 'workflow_dispatch'
             && inputs.ref
-            || github.event.workflow_run.head_sha }}
+            || github.event.release.tag_name }}
     secrets:
       BR_MAVEN_USERNAME: ${{ secrets.BR_MAVEN_USERNAME }}
       BR_MAVEN_PASSWORD: ${{ secrets.BR_MAVEN_PASSWORD }}
+
+  configure-pages:
+    needs: docs
+    permissions:
+      pages: write
+    uses: bloomreach-forge/ci-workflows/.github/workflows/configure-gh-pages.yml@v1.0.2
