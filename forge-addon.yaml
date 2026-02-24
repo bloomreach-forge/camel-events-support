@@ -1,0 +1,31 @@
+id: camel-hippoevt
+name: Bloomreach Camel Event Bus Support
+version: 5.2.0
+description: Bloomreach Camel Event Bus Support
+repository:
+  url: https://github.com/bloomreach-forge/camel-events-support
+  branch: master
+publisher:
+  name: bloomreach-forge
+  type: community
+category: integration
+pluginTier: forge-addon
+compatibility:
+  brxm:
+    min: 16.3.0
+artifacts:
+- type: maven-lib
+  description: Apache Camel component and utilities for Hippo Repository event integration
+  target: site/components
+  scope: compile
+  maven:
+    groupId: com.bloomreach.forge.camel-hippoevt
+    artifactId: camel-hippoevt
+documentation:
+- type: site
+  url: https://bloomreach-forge.github.io/camel-events-support/
+installation:
+  target:
+  - site
+  verification: "Configure a Camel route using the hippoevent: component to consume\
+    \ Hippo Repository events"
