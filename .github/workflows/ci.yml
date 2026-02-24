@@ -34,7 +34,7 @@ jobs:
       contents: write
       checks: write
       pull-requests: write
-    uses: bloomreach-forge/ci-workflows/.github/workflows/brxm-ci.yml@v1.0.1
+    uses: bloomreach-forge/ci-workflows/.github/workflows/brxm-ci.yml@v1.0.2
     secrets:
       BR_MAVEN_USERNAME: ${{ secrets.BR_MAVEN_USERNAME }}
       BR_MAVEN_PASSWORD: ${{ secrets.BR_MAVEN_PASSWORD }}
