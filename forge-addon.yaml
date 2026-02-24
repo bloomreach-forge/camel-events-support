@@ -1,6 +1,6 @@
 id: camel-hippoevt
 name: Bloomreach Camel Event Bus Support
-version: 5.2.0
+version: 5.3.0
 description: Bloomreach Camel Event Bus Support
 repository:
   url: https://github.com/bloomreach-forge/camel-events-support
@@ -12,7 +12,7 @@ category: integration
 pluginTier: forge-addon
 compatibility:
   brxm:
-    min: 16.3.0
+    min: 16.7.0
 artifacts:
 - type: maven-lib
   description: Apache Camel component and utilities for Hippo Repository event integration
