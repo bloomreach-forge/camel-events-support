@@ -1,0 +1,27 @@
+# Bloomreach Camel Event Bus Support
+# Config for forge-addon.yaml auto-generation
+
+category: integration
+pluginTier: forge-addon
+
+compatibility:
+  brxm:
+    min: "16.3.0"
+
+repository:
+  branch: master
+
+artifacts:
+  - artifactId: camel-hippoevt
+    target: site/components
+    scope: compile
+    description: "Apache Camel component and utilities for Hippo Repository event integration"
+
+documentation:
+  - type: site
+    url: https://bloomreach-forge.github.io/camel-events-support/
+
+installation:
+  target:
+    - site
+  verification: "Configure a Camel route using the hippoevent: component to consume Hippo Repository events"

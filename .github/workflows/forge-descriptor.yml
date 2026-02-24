@@ -1,0 +1,20 @@
+name: Update Forge Descriptor
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'pom.xml'
+      - '.forge/**'
+      - 'README.md'
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    uses: bloomreach-forge/ci-workflows/.github/workflows/forge-descriptor.yml@v1.0.1
+    with:
+      readme-path: README.md

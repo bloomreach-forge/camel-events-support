@@ -45,7 +45,13 @@ public final class RepositoryJobExecutionContextConverterLoader implements TypeC
 
     private void registerConverters(TypeConverterRegistry registry) {
         addTypeConverter(registry, org.json.JSONObject.class, org.onehippo.repository.scheduling.RepositoryJobExecutionContext.class, false,
-            (type, exchange, value) -> org.onehippo.forge.camel.converter.hippo.RepositoryJobExecutionContextConverter.toJSON((org.onehippo.repository.scheduling.RepositoryJobExecutionContext) value));
+            (type, exchange, value) -> {
+                Object answer = org.onehippo.forge.camel.converter.hippo.RepositoryJobExecutionContextConverter.toJSON((org.onehippo.repository.scheduling.RepositoryJobExecutionContext) value);
+                if (false && answer == null) {
+                    answer = Void.class;
+                }
+                return answer;
+            });
     }
 
     private static void addTypeConverter(TypeConverterRegistry registry, Class<?> toType, Class<?> fromType, boolean allowNull, SimpleTypeConverter.ConversionMethod method) {
