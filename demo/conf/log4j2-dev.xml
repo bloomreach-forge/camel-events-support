@@ -144,7 +144,17 @@
     <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>
     <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
-    <!-- project logging -->
+    <!-- Camel framework: route loading, context startup, component discovery -->
+    <Logger name="org.apache.camel" level="info"/>
+    <!-- Camel route loading internals -->
+    <Logger name="org.apache.camel.impl.engine.DefaultRoutesLoader" level="debug"/>
+    <Logger name="org.apache.camel.dsl" level="debug"/>
+    <Logger name="org.apache.camel.spring.boot.CamelAutoConfiguration" level="debug"/>
+
+    <!-- forge plugin: consumer registration with HippoEventListenerRegistry -->
+    <Logger name="org.onehippo.forge.camel" level="info"/>
+
+    <!-- project logging: Camel log: endpoint output from the demo routes -->
     <Logger name="com.bloomreach.forge.camel.demo" level="debug"/>
 
     <Root level="warn">

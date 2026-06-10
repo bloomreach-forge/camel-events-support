@@ -20,21 +20,21 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>16.7.0</version>
+    <version>17.0.0</version>
   </parent>
 
   <name>Bloomreach Camel Event Bus Support</name>
   <description>Bloomreach Camel Event Bus Support</description>
   <groupId>com.bloomreach.forge.camel-hippoevt</groupId>
   <artifactId>camel-hippoevt</artifactId>
-  <version>5.3.1-SNAPSHOT</version>
+  <version>6.0.0-SNAPSHOT</version>
   <url>https://github.com/bloomreach-forge/camel-events-support/</url>
 
   <properties>
 
-    <project.build.javaVersion>17</project.build.javaVersion>
+    <project.build.javaVersion>21</project.build.javaVersion>
 
-    <camel.version>4.14.4</camel.version>
+    <camel.version>4.20.0</camel.version>
 
     <plugin.jxr.version>3.5.0</plugin.jxr.version>
     <plugin.pmd.version>3.25.0</plugin.pmd.version>
@@ -81,7 +81,7 @@
   </distributionManagement>
 
   <issueManagement>
-    <url>https://issues.onehippo.com/projects/FORGE</url>
+    <url>https://bloomreach.atlassian.net/jira/software/projects/FORGE</url>
   </issueManagement>
 
   <repositories>
@@ -170,9 +170,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${slf4j2.version}</version>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j2-impl</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -180,13 +179,6 @@
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
       <version>${slf4j2.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.vintage</groupId>
-      <artifactId>junit-vintage-engine</artifactId>
-      <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
 
